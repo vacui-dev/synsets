@@ -46,7 +46,7 @@ This skill annotates text with Interlingual Index (ILI) tokens from WordNet/CILI
 
 The Interlingual Index provides language-neutral concept IDs that link equivalent synsets across different WordNets. ILI IDs follow the format `ILI_NNNNNN` where NNNNNN is a zero-padded 6-digit number.
 
-## Setup
+## Prerequisites
 
 1. Ensure the WordNet MCP server is running at `http://localhost:8741`
 2. Check server status:
@@ -54,7 +54,32 @@ The Interlingual Index provides language-neutral concept IDs that link equivalen
    curl http://localhost:8741/health
    ```
 
-## Annotation Process
+## Native Hermes Agent Integration
+
+This skill can be used natively within Hermes Agent via the MCP server:
+
+1. Configure the MCP server in `~/.hermes/config.yaml`:
+   ```yaml
+   mcp_servers:
+     wordnet:
+       command: "python3"
+       args: ["/path/to/synsets/skill/scripts/wordnet_mcp_server_stdio.py"]
+   ```
+
+2. Restart Hermes Agent - the wordnet tools will be auto-discovered
+
+3. Use the annotation workflow:
+   ```
+   @hermes annotate this text with ILI identifiers: "The cat sat on the mat"
+   ```
+
+When running natively, Hermes calls these MCP tools directly:
+- `mcp_wordnet_lookup_word` - Look up word senses
+- `mcp_wordnet_lookup_phrase` - Multi-word expressions  
+- `mcp_wordnet_get_synset` - Synset details by ILI
+- `mcp_wordnet_search_definitions` - Search definitions
+
+## Standalone Annotation Process
 
 ### Step 1: Tokenization and POS Tagging
 First, tokenize the input text and identify content words (nouns, verbs, adjectives, adverbs) that need ILI annotation. Function words (articles, prepositions, pronouns) remain as plaintext.

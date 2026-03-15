@@ -1,0 +1,152 @@
+---
+name: annotate_text_with_ili
+description: |
+  Annotate text with Interlingual Index (ILI) identifiers from WordNet.
+  
+  This workflow uses the wordnet MCP server to look up word senses and
+disambiguate them in context. Every content word gets mapped to a
+  language-neutral concept ID.
+  
+  The workflow:
+  1. Extract content words from input text
+  2. Call mcp_wordnet_lookup_word for each word
+  3. Use context to select the correct sense
+  4. Insert ILI tokens inline
+  5. Return annotated text with assignments
+
+steps:
+  - name: extract_words
+    description: Extract content words (nouns, verbs, adjectives, adverbs) from the input text
+    action: |
+      Identify all content words in the text. Skip:
+      - Stopwords (the, a, is, of, etc.)
+      - Pronouns (I, you, he, she, etc.)
+      - Prepositions (in, on, at, etc.)
+      - Short words (< 2 chars)
+      - Already-annotated words with ILI tokens
+      
+      For each content word, note its position and potential part of speech.
+
+  - name: lookup_senses
+    description: Look up all possible WordNet senses for each content word
+    action: |
+      For each extracted content word:
+      1. Call mcp_wordnet_lookup_word with the word
+      2. If ambiguous, also try mcp_wordnet_lookup_phrase for multi-word expressions
+      3. Store all candidate senses (ILI ID, POS, definition)
+      
+      Use the tool call results - do not guess ILI IDs.
+
+  - name: disambiguate
+    description: Select the correct sense for each word based on context
+    action: |
+      For each word with multiple candidate senses:
+      1. Read all candidate definitions
+      2. Consider surrounding words and overall sentence meaning
+      3. Select the sense that best fits the context
+      
+      If no sense fits well, skip the word (don't assign an ILI).
+      If only one sense exists, use it.
+
+  - name: annotate
+    description: Insert ILI tokens into the text
+    action: |
+      For each word with a selected sense:
+      1. Insert the ILI token before the word: <|iNNNNN|>
+      2. Keep the original word intact after the token
+      
+      Example: "The cat sat" -> "The <|i017004|>cat <|i029040|>sat"
+
+  - name: output
+    description: Return the annotated result
+    action: |
+      Return a JSON object with:
+      - original_text: the input text
+      - annotated_text: text with ILI tokens inserted
+      - assignments: array of objects with:
+        - word: the original word
+        - ili: the ILI identifier (e.g., "i017004")
+        - pos: part of speech (n, v, a, r)
+        - definition: the WordNet definition
+        - position: character index where token was inserted
+
+examples:
+  - input: "The cat sat on the mat"
+    steps:
+      - extract: [cat (noun), sat (verb), mat (noun)]
+      - lookup:
+          cat: [i017004 (feline), i017020 (guy), ...]
+          sat: [i029040 (be seated), ...]
+          mat: [i029597 (floor covering), ...]
+      - disambiguate:
+          cat -> i017004 (context: animal)
+          sat -> i029040 (context: sitting)
+          mat -> i029597 (context: floor)
+      - annotate: "The <|i017004|>cat <|i029040|>sat on the <|i029597|>mat"
+
+  - input: "She represents the company"
+    steps:
+      - extract: [represents (verb), company (noun)]
+      - lookup:
+          represents: [i025440 (serve as), i025460 (act for), ...]
+          company: [i074268 (business), i074290 (companionship), ...]
+      - disambiguate:
+          represents -> i025440 (context: serving as)
+          company -> i074268 (context: business)
+      - annotate: "She <|i025440|>represents the <|i074268|>company"
+---
+
+# ILI Annotation Workflow
+
+This workflow annotates natural language text with Interlingual Index (ILI) identifiers from WordNet.
+
+## Prerequisites
+
+The wordnet MCP server must be configured in ~/.hermes/config.yaml:
+
+```yaml
+mcp_servers:
+  wordnet:
+    command: "python3"
+    args: ["/path/to/synsets/skill/scripts/wordnet_mcp_server_stdio.py"]
+```
+
+## Usage
+
+From within Hermes Agent, ask:
+
+> "Annotate this text with ILI identifiers: 'The cat sat on the mat'"
+
+The agent will:
+1. Use mcp_wordnet_lookup_word to find candidate senses
+2. Disambiguate based on context  
+3. Return annotated text with ILI tokens
+
+## Output Format
+
+Annotated text uses inline ILI tokens:
+
+```
+The <|i017004|>cat <|i029040|>sat on the <|i029597|>mat.
+```
+
+Where:
+- i017004 = cat (feline mammal)
+- i029040 = sit (be seated)
+- i029597 = mat (floor covering)
+
+## Available Tools
+
+When the wordnet MCP server is running, these tools are available:
+
+- `mcp_wordnet_lookup_word(word, pos?)` - Look up word senses
+- `mcp_wordnet_lookup_phrase(words)` - Look up multi-word expressions
+- `mcp_wordnet_get_synset(ili)` - Get synset details by ILI
+- `mcp_wordnet_search_definitions(query)` - Search by definition text
+
+## Tips
+
+- Always call lookup_word before assigning an ILI - never guess
+- Use surrounding context to disambiguate multiple senses
+- Skip words if no appropriate sense exists in WordNet
+- Function words (the, of, is) are skipped automatically
