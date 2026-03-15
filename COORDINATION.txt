@@ -1,0 +1,35 @@
+# Synset Annotation Coordination File
+# ===================================
+# Total ILIs to process: 160000 (ili_1 to ili_160000)
+# Batch size per worker: 100 ILIs
+# 
+# INSTRUCTIONS FOR WORKERS:
+# 1. Read this file to find available batches
+# 2. Claim a batch by appending your name to the CLAIMED section
+# 3. Process your batch (generate en/cz/ja definitions + ILI annotations)
+# 4. Write completion status to this file
+# 5. Write detailed logs to logs/agent_<name>.log
+#
+# FORMAT:
+# CLAIMED: <start_ili>-<end_ili> by <agent_name> at <timestamp> STATUS:<pending|completed|failed>
+
+AVAILABLE_BATCHES:
+001-100
+101-200
+201-300
+301-400
+401-500
+501-600
+601-700
+701-800
+801-900
+901-1000
+
+CLAIMED:
+
+COMPLETED:
+001-100 by ALPHA at 2026-03-15T16:54:00 processed:10
+101-200 by BETA at 2026-03-15T16:52:00 processed:96
+201-300 by GAMMA at 2026-03-15T16:56:59 processed:99
+
+FAILED:

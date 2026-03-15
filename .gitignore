@@ -10,4 +10,3 @@ data/synset_corpus_*.jsonl
 data/retranslated_worker_*.jsonl
 data/retranslated_v1.jsonl
 data/*.cili
-logs/
