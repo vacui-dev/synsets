@@ -1,0 +1,14 @@
+{
+  "ili": 35238,
+  "model": "moonshotai/kimi-k2.5",
+  "timestamp": "2026-03-15T15:25:00Z",
+  "languages": ["en", "cz", "ja"],
+  "verification_mode": "strict",
+  "ilis_per_lang": {
+    "en": 31,
+    "cz": 31,
+    "ja": 31
+  },
+  "unique_ilis": 24,
+  "alignment_verified": true
+}
