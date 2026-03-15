@@ -67,19 +67,20 @@ def invoke_hermes(ili_num: int, model: str, langs: list):
     prompt = f"""Generate multilingual synset ILI {ili_num} with model {model}
 
 OUTPUT STRUCTURE: data/synsets/ili_{ili_num}/
-  natural/      # Wikipedia quality, proper grammar
-    en.txt
-    cz.txt  
-    ja.txt
-  ili/          # Word-by-word ILI annotations
-    en.txt      # Content words tagged, function words bare
-    cz.txt      # Content words tagged, function words bare
-    ja.txt      # Content words tagged, particles bare (は、を、が etc)
-  merged/       # Grammar-correct, ILI-aligned (CRITICAL)
-    en.txt      # Same ILI sequence as ja.txt
-    cz.txt      # Same ILI sequence as ja.txt
-    ja.txt      # Same ILI sequence as en.txt
-  meta.json     # Model, timestamp, validation
+  {model}/
+    natural/      # Wikipedia quality, proper grammar
+      en.txt
+      cz.txt  
+      ja.txt
+    ili/          # ILI annotations (function words untagged)
+      en.txt
+      cz.txt
+      ja.txt      # Particles bare: は、を、が
+    merged/       # Grammar-correct, ILI-aligned (CRITICAL)
+      en.txt      # Same ILI sequence as ja.txt
+      cz.txt      # Same ILI sequence as ja.txt
+      ja.txt      # Same ILI sequence as en.txt
+  meta.json       # Model, timestamp, validation
 
 PHASE 1 - RESEARCH:
 1. mcp_wordnet_get_synset(ili="i{ili_num}")
