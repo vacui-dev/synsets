@@ -1,0 +1,8 @@
+<|i26520|>describing <|i69080|>attitudes <|i32927|>reject <|i68061|>belief
+<|i26520|>popisuje <|i69080|>postoje <|i32927|>odmítají <|i68061|>víru
+
+<|i26520|>describing <|i69080|>attitudes <|i112941|>lack <|i68061|>belief
+<|i26520|>popisuje <|i69080|>postoje <|i112941|>postrádají <|i68061|>víru
+
+<|i26520|>describing <|i69157|>orientation <|i32927|>reject <|i86570|>deities
+<|i26520|>popisuje <|i69157|>orientaci <|i32927|>odmítají <|i86570|>božstva
