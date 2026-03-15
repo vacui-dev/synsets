@@ -159,17 +159,20 @@ def get_synset(ili: str) -> dict | None:
     ili_clean = ili.replace("ILI_", "").replace("<|", "").replace("|>", "").replace("i", "")
     ili_formatted = f"i{ili_clean}"
     
-    # Get synset info + definition
+    # Get synset info + definition from definitions table
     row = conn.execute("""
-        SELECT i.id as ili, sy.pos, i.definition, sy.id as synset_id
+        SELECT i.id as ili, sy.pos, d.definition, sy.rowid as synset_rowid
         FROM ilis i
         JOIN synsets sy ON sy.ili_rowid = i.rowid
+        LEFT JOIN definitions d ON d.synset_rowid = sy.rowid
         WHERE i.id = ?
         LIMIT 1
     """, (ili_formatted,)).fetchone()
     
     if not row:
         return None
+    
+    synset_rowid = row["synset_rowid"]
     
     # Get all lemmas (forms) for this synset
     lemma_rows = conn.execute("""
@@ -179,39 +182,31 @@ def get_synset(ili: str) -> dict | None:
         JOIN senses s ON s.entry_rowid = e.rowid
         WHERE s.synset_rowid = ?
         ORDER BY s.entry_rank, f.rank
-    """, (row["synset_id"],)).fetchall()
+    """, (synset_rowid,)).fetchall()
     
     lemmas = [r["form"] for r in lemma_rows]
     
     # Get hypernyms (broader terms)
     hypernym_rows = conn.execute("""
-        SELECT i.id as ili, e.pos
+        SELECT i.id as ili, tgt.pos
         FROM synset_relations sr
-        JOIN synsets sy ON sy.rowid = sr.target_rowid
-        JOIN ilis i ON i.rowid = sy.ili_rowid
-        JOIN entries e ON e.rowid = (
-            SELECT entry_rowid FROM senses WHERE synset_rowid = sy.rowid LIMIT 1
-        )
-        WHERE sr.source_rowid = ? AND sr.type_rowid = (
-            SELECT rowid FROM relation_types WHERE type = 'hypernym'
-        )
-    """, (row["synset_id"],)).fetchall()
+        JOIN synsets tgt ON tgt.rowid = sr.target_rowid
+        JOIN ilis i ON i.rowid = tgt.ili_rowid
+        JOIN relation_types rt ON rt.rowid = sr.type_rowid
+        WHERE sr.source_rowid = ? AND rt.type = 'hypernym'
+    """, (synset_rowid,)).fetchall()
     
     hypernyms = [{"ili": r["ili"], "pos": r["pos"]} for r in hypernym_rows]
     
     # Get hyponyms (narrower terms)
     hyponym_rows = conn.execute("""
-        SELECT i.id as ili, e.pos
+        SELECT i.id as ili, tgt.pos
         FROM synset_relations sr
-        JOIN synsets sy ON sy.rowid = sr.target_rowid
-        JOIN ilis i ON i.rowid = sy.ili_rowid
-        JOIN entries e ON e.rowid = (
-            SELECT entry_rowid FROM senses WHERE synset_rowid = sy.rowid LIMIT 1
-        )
-        WHERE sr.source_rowid = ? AND sr.type_rowid = (
-            SELECT rowid FROM relation_types WHERE type = 'hyponym'
-        )
-    """, (row["synset_id"],)).fetchall()
+        JOIN synsets tgt ON tgt.rowid = sr.target_rowid
+        JOIN ilis i ON i.rowid = tgt.ili_rowid
+        JOIN relation_types rt ON rt.rowid = sr.type_rowid
+        WHERE sr.source_rowid = ? AND rt.type = 'hyponym'
+    """, (synset_rowid,)).fetchall()
     
     hyponyms = [{"ili": r["ili"], "pos": r["pos"]} for r in hyponym_rows]
     
