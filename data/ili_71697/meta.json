@@ -1,0 +1,28 @@
+{
+  "ili": 71697,
+  "lemma": "Bachelor of Science in Engineering",
+  "pos": "n",
+  "definition": "a bachelor's degree in engineering",
+  "model": "kimi-k2.5",
+  "timestamp": "2026-03-15T15:51:00Z",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "manual_annotation",
+  "wordnet_source": "princeton_english",
+  "files": {
+    "natural": {
+      "en": "kimi-k2.5/natural/en.txt",
+      "cz": "kimi-k2.5/natural/cz.txt",
+      "ja": "kimi-k2.5/natural/ja.txt"
+    },
+    "ili": {
+      "en": "kimi-k2.5/ili/en.txt",
+      "cz": "kimi-k2.5/ili/cz.txt",
+      "ja": "kimi-k2.5/ili/ja.txt"
+    },
+    "merged": {
+      "en": "kimi-k2.5/merged/en.txt",
+      "cz": "kimi-k2.5/merged/cz.txt",
+      "ja": "kimi-k2.5/merged/ja.txt"
+    }
+  }
+}
