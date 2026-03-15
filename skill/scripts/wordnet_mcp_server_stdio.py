@@ -33,14 +33,13 @@ from mcp.types import Tool, TextContent
 WORDNET_DB = os.path.expanduser("~/.wn_data/wn.db")
 
 # ---------------------------------------------------------------------------
-# Lemmatizer (same logic as original)
+# Lemmatizer
 # ---------------------------------------------------------------------------
 
 def simple_lemmatize(word: str) -> list[str]:
     """Generate candidate lemmas by stripping common English suffixes."""
     candidates = [word]
     w = word.lower()
-    # Verb inflections
     if w.endswith("ing") and len(w) > 5:
         candidates.append(w[:-3])
         candidates.append(w[:-3] + "e")
@@ -58,7 +57,6 @@ def simple_lemmatize(word: str) -> list[str]:
         candidates.append(w[:-3] + "y")
     elif w.endswith("s") and not w.endswith("ss") and len(w) > 3:
         candidates.append(w[:-1])
-    # Adjective/adverb
     if w.endswith("ly") and len(w) > 4:
         candidates.append(w[:-2])
     if w.endswith("ness") and len(w) > 6:
@@ -99,23 +97,27 @@ def lookup_word(word: str, pos: str | None = None) -> list[dict]:
     for lemma in candidates:
         if pos:
             rows = conn.execute("""
-                SELECT s.id, s.pos, s.ili, d.definition 
-                FROM words w
-                JOIN senses s ON w.rowid = s.word_id
-                JOIN synsets sy ON s.synset_id = sy.id
-                LEFT JOIN definitions d ON d.synset_id = sy.id
-                WHERE w.lemma = ? AND s.pos = ?
-                ORDER BY s.sense_order
+                SELECT DISTINCT i.id as ili, e.pos, d.definition 
+                FROM forms f
+                JOIN entries e ON e.rowid = f.entry_rowid
+                JOIN senses s ON s.entry_rowid = e.rowid
+                JOIN synsets sy ON sy.rowid = s.synset_rowid
+                JOIN ilis i ON i.rowid = sy.ili_rowid
+                LEFT JOIN definitions d ON d.synset_rowid = sy.rowid
+                WHERE f.form = ? AND e.pos = ?
+                ORDER BY e.pos, s.synset_rank
             """, (lemma, pos)).fetchall()
         else:
             rows = conn.execute("""
-                SELECT s.id, s.pos, s.ili, d.definition 
-                FROM words w
-                JOIN senses s ON w.rowid = s.word_id
-                JOIN synsets sy ON s.synset_id = sy.id
-                LEFT JOIN definitions d ON d.synset_id = sy.id
-                WHERE w.lemma = ?
-                ORDER BY s.pos, s.sense_order
+                SELECT DISTINCT i.id as ili, e.pos, d.definition 
+                FROM forms f
+                JOIN entries e ON e.rowid = f.entry_rowid
+                JOIN senses s ON s.entry_rowid = e.rowid
+                JOIN synsets sy ON sy.rowid = s.synset_rowid
+                JOIN ilis i ON i.rowid = sy.ili_rowid
+                LEFT JOIN definitions d ON d.synset_rowid = sy.rowid
+                WHERE f.form = ?
+                ORDER BY e.pos, s.synset_rank
             """, (lemma,)).fetchall()
         
         for row in rows:
@@ -132,15 +134,17 @@ def lookup_word(word: str, pos: str | None = None) -> list[dict]:
 def lookup_phrase(words: list[str]) -> list[dict]:
     """Look up multi-word expressions."""
     conn = get_db()
-    phrase = "_".join(words).lower()
+    phrase = " ".join(words).lower()
     rows = conn.execute("""
-        SELECT s.id, s.pos, s.ili, d.definition 
-        FROM words w
-        JOIN senses s ON w.rowid = s.word_id
-        JOIN synsets sy ON s.synset_id = sy.id
-        LEFT JOIN definitions d ON d.synset_id = sy.id
-        WHERE w.lemma = ?
-        ORDER BY s.pos, s.sense_order
+        SELECT DISTINCT i.id as ili, e.pos, d.definition 
+        FROM forms f
+        JOIN entries e ON e.rowid = f.entry_rowid
+        JOIN senses s ON s.entry_rowid = e.rowid
+        JOIN synsets sy ON sy.rowid = s.synset_rowid
+        JOIN ilis i ON i.rowid = sy.ili_rowid
+        LEFT JOIN definitions d ON d.synset_rowid = sy.rowid
+        WHERE f.form = ?
+        ORDER BY e.pos, s.synset_rank
     """, (phrase,)).fetchall()
     
     return [
@@ -151,31 +155,74 @@ def lookup_phrase(words: list[str]) -> list[dict]:
 def get_synset(ili: str) -> dict | None:
     """Get synset details by ILI ID."""
     conn = get_db()
-    # Handle both iNNNNN and ILI_NNNNNN formats
-    ili_clean = ili.replace("ILI_", "i").replace("<|", "").replace("|>", "")
-    if not ili_clean.startswith("i"):
-        ili_clean = "i" + ili_clean
+    # Handle various ILI formats
+    ili_clean = ili.replace("ILI_", "").replace("<|", "").replace("|>", "").replace("i", "")
+    ili_formatted = f"i{ili_clean}"
     
+    # Get synset info + definition
     row = conn.execute("""
-        SELECT s.id, s.pos, s.ili, d.definition, GROUP_CONCAT(w.lemma, ', ') as lemmas
-        FROM senses s
-        JOIN synsets sy ON s.synset_id = sy.id
-        LEFT JOIN definitions d ON d.synset_id = sy.id
-        LEFT JOIN words w ON w.rowid IN (
-            SELECT word_id FROM senses WHERE synset_id = sy.id
-        )
-        WHERE s.ili = ?
+        SELECT i.id as ili, sy.pos, i.definition, sy.id as synset_id
+        FROM ilis i
+        JOIN synsets sy ON sy.ili_rowid = i.rowid
+        WHERE i.id = ?
         LIMIT 1
-    """, (ili_clean,)).fetchone()
+    """, (ili_formatted,)).fetchone()
     
-    if row:
-        return {
-            "ili": row["ili"],
-            "pos": row["pos"],
-            "definition": row["definition"] or "",
-            "lemmas": row["lemmas"] or ""
-        }
-    return None
+    if not row:
+        return None
+    
+    # Get all lemmas (forms) for this synset
+    lemma_rows = conn.execute("""
+        SELECT DISTINCT f.form
+        FROM forms f
+        JOIN entries e ON e.rowid = f.entry_rowid
+        JOIN senses s ON s.entry_rowid = e.rowid
+        WHERE s.synset_rowid = ?
+        ORDER BY s.entry_rank, f.rank
+    """, (row["synset_id"],)).fetchall()
+    
+    lemmas = [r["form"] for r in lemma_rows]
+    
+    # Get hypernyms (broader terms)
+    hypernym_rows = conn.execute("""
+        SELECT i.id as ili, e.pos
+        FROM synset_relations sr
+        JOIN synsets sy ON sy.rowid = sr.target_rowid
+        JOIN ilis i ON i.rowid = sy.ili_rowid
+        JOIN entries e ON e.rowid = (
+            SELECT entry_rowid FROM senses WHERE synset_rowid = sy.rowid LIMIT 1
+        )
+        WHERE sr.source_rowid = ? AND sr.type_rowid = (
+            SELECT rowid FROM relation_types WHERE type = 'hypernym'
+        )
+    """, (row["synset_id"],)).fetchall()
+    
+    hypernyms = [{"ili": r["ili"], "pos": r["pos"]} for r in hypernym_rows]
+    
+    # Get hyponyms (narrower terms)
+    hyponym_rows = conn.execute("""
+        SELECT i.id as ili, e.pos
+        FROM synset_relations sr
+        JOIN synsets sy ON sy.rowid = sr.target_rowid
+        JOIN ilis i ON i.rowid = sy.ili_rowid
+        JOIN entries e ON e.rowid = (
+            SELECT entry_rowid FROM senses WHERE synset_rowid = sy.rowid LIMIT 1
+        )
+        WHERE sr.source_rowid = ? AND sr.type_rowid = (
+            SELECT rowid FROM relation_types WHERE type = 'hyponym'
+        )
+    """, (row["synset_id"],)).fetchall()
+    
+    hyponyms = [{"ili": r["ili"], "pos": r["pos"]} for r in hyponym_rows]
+    
+    return {
+        "ili": row["ili"],
+        "pos": row["pos"],
+        "definition": row["definition"] or "",
+        "lemmas": lemmas,
+        "hypernyms": hypernyms,
+        "hyponyms": hyponyms
+    }
 
 def search_definitions(query: str) -> list[dict]:
     """Search synset definitions by keyword."""
@@ -184,15 +231,14 @@ def search_definitions(query: str) -> list[dict]:
     if not words:
         return []
     
-    # Build OR query for each word
+    # Search in ILI definitions
     patterns = [f"%{w}%" for w in words]
-    placeholders = " OR ".join(["d.definition LIKE ?"] * len(words))
+    placeholders = " OR ".join(["i.definition LIKE ?"] * len(words))
     
     rows = conn.execute(f"""
-        SELECT DISTINCT s.ili, s.pos, d.definition
-        FROM definitions d
-        JOIN synsets sy ON d.synset_id = sy.id
-        JOIN senses s ON s.synset_id = sy.id
+        SELECT DISTINCT i.id as ili, sy.pos, i.definition
+        FROM ilis i
+        JOIN synsets sy ON sy.ili_rowid = i.rowid
         WHERE {placeholders}
         LIMIT 20
     """, patterns).fetchall()
@@ -225,7 +271,7 @@ async def list_tools() -> list[Tool]:
         ),
         Tool(
             name="lookup_phrase",
-            description="Look up multi-word expressions like 'credit_card' or 'orange_juice'. Returns ILI IDs if found.",
+            description="Look up multi-word expressions like 'credit card' or 'orange juice'. Returns ILI IDs if found.",
             inputSchema={
                 "type": "object",
                 "properties": {
@@ -236,11 +282,11 @@ async def list_tools() -> list[Tool]:
         ),
         Tool(
             name="get_synset",
-            description="Get full details for a synset by its ILI ID. Returns definition, POS, and all lemmas (synonyms) in the synset.",
+            description="Get full details for a synset by its ILI ID. Returns definition, POS, lemmas (synonyms), hypernyms (broader), and hyponyms (narrower). Use this for comprehensive synset research.",
             inputSchema={
                 "type": "object",
                 "properties": {
-                    "ili": {"type": "string", "description": "ILI ID like 'i35152' or 'ILI_035152'"}
+                    "ili": {"type": "string", "description": "ILI ID like 'i35152', 'ILI_035152', or just '35152'"}
                 },
                 "required": ["ili"]
             }
@@ -286,7 +332,6 @@ async def call_tool(name: str, arguments: dict) -> list[TextContent]:
 # ---------------------------------------------------------------------------
 
 async def main():
-    # Verify DB exists
     if not os.path.exists(WORDNET_DB):
         print(f"ERROR: WordNet DB not found at {WORDNET_DB}", file=sys.stderr)
         print("Download it with: python3 -c 'import wn; wn.download(\"ewn:2020\")'", file=sys.stderr)
