@@ -1,0 +1,30 @@
+{
+  "ili": 36750,
+  "lemma": "bubble bath",
+  "model": "kimi-k2.5",
+  "timestamp": "2026-03-15T15:45:10.566909",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "wordnet_source": "ewn:2020",
+  "structure_version": "4.0",
+  "files": {
+    "natural": {
+      "en": "natural/en.txt",
+      "cz": "natural/cz.txt",
+      "ja": "natural/ja.txt"
+    },
+    "ili": {
+      "en": "ili/en.txt",
+      "cz": "ili/cz.txt",
+      "ja": "ili/ja.txt"
+    },
+    "merged": {
+      "en": "merged/en.txt",
+      "cz": "merged/cz.txt",
+      "ja": "merged/ja.txt"
+    }
+  }
+}

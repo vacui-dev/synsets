@@ -1,0 +1,47 @@
+{
+  "ili": 37031,
+  "lemma": "joyride",
+  "model": "claude-sonnet-4",
+  "timestamp": "2026-03-15T15:51:00Z",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "wordnet_source": "ewn:2020",
+  "structure_version": "4.0",
+  "files": {
+    "natural": {
+      "en": "claude-sonnet-4/natural/en.txt",
+      "cz": "claude-sonnet-4/natural/cz.txt",
+      "ja": "claude-sonnet-4/natural/ja.txt"
+    },
+    "ili": {
+      "en": "claude-sonnet-4/ili/en.txt",
+      "cz": "claude-sonnet-4/ili/cz.txt",
+      "ja": "claude-sonnet-4/ili/ja.txt"
+    },
+    "merged": {
+      "en": "claude-sonnet-4/merged/en.txt",
+      "cz": "claude-sonnet-4/merged/cz.txt",
+      "ja": "claude-sonnet-4/merged/ja.txt"
+    }
+  },
+  "validation": {
+    "en_cz_ja_aligned": true,
+    "all_langs_same_count": true,
+    "all_langs_same_order": true,
+    "ilis_per_lang": {
+      "en": 3,
+      "cz": 3,
+      "ja": 3
+    }
+  },
+  "models": {
+    "claude-sonnet-4": {
+      "alignment_verified": true,
+      "verification_mode": "strict",
+      "alignment_mismatches": []
+    }
+  }
+}
