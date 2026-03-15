@@ -168,24 +168,16 @@ RULES:
 
 Start with research."""
 
-    with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as f:
-        f.write(prompt)
-        prompt_file = f.name
-    
-    try:
-        result = subprocess.run(
-            ['python3', '-m', 'hermes', 'agent', '--prompt-file', prompt_file,
-             '--max-turns', '250'],
-            capture_output=True,
-            text=True,
-            timeout=600
-        )
-        print(result.stdout)
-        if result.stderr:
-            print("STDERR:", result.stderr, file=sys.stderr)
-        return result.returncode == 0
-    finally:
-        os.unlink(prompt_file)
+    result = subprocess.run(
+        ['hermes', 'chat', '--yolo', '--query', prompt],
+        capture_output=True,
+        text=True,
+        timeout=600
+    )
+    print(result.stdout)
+    if result.stderr:
+        print("STDERR:", result.stderr, file=sys.stderr)
+    return result.returncode == 0
 
 
 def main():
