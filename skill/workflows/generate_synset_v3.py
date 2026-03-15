@@ -5,10 +5,10 @@ Synset Generation Driver v3 - Multilingual Grammar-Preserving Edition
 Creates properly aligned multilingual synset data with:
 - Natural grammar preserved in all languages
 - Function words/particles untagged
-- ILI sequence identical across languages
+- ILI sequence identical across languages (strict mode)
 
 Usage:
-    python generate_synset_v3.py [--ili N] [--langs en,cz,ja]
+    python generate_synset_v3.py [--ili N] [--langs en,cz,ja] [--verify-mode strict|loose]
 """
 
 import argparse
@@ -22,6 +22,7 @@ from datetime import datetime
 
 LANGUAGES = ['en', 'cz', 'ja']  # Expandable
 
+
 def get_model_info():
     """Get current model from Hermes config."""
     try:
@@ -34,6 +35,7 @@ def get_model_info():
     except:
         pass
     return "unknown"
+
 
 def get_next_ili():
     """Get next unprocessed ILI."""
@@ -59,7 +61,8 @@ def get_next_ili():
             return i
     return None
 
-def invoke_hermes(ili_num: int, model: str, langs: list):
+
+def invoke_hermes(ili_num: int, model: str, langs: list, verify_mode: str):
     """Invoke Hermes with full multilingual grammar-preserving workflow."""
     
     lang_list = ','.join(langs)
@@ -82,13 +85,25 @@ OUTPUT STRUCTURE: data/synsets/ili_{ili_num}/
       ja.txt      # Same ILI sequence as en.txt
   meta.json       # Model, timestamp, validation
 
+VERIFICATION MODE: {verify_mode}
+
+STRICT MODE (default):
+- All ILI counts must match exactly across languages
+- If EN has ILI_12345 appearing 3 times, JA must also have 3 times
+- This FIGHTS LLM LAZINESS where languages drop ILI repetitions
+
+LOOSE MODE:
+- All unique ILIs must appear in all languages
+- Counts may differ between languages
+- Allows language-specific expression differences
+
 PHASE 1 - RESEARCH:
 1. mcp_wordnet_get_synset(ili="i{ili_num}")
 2. Explore 2-3 related synsets (hypernyms/hyponyms)
 
 PHASE 2 - WRITE NATURAL:
 For each language in {lang_list}:
-  Write natural/{{lang}}.txt
+  Write {model}/natural/{{lang}}.txt
   - Wikipedia quality definition
   - Proper grammar for that language
   - 3-5 sentences
@@ -96,7 +111,7 @@ For each language in {lang_list}:
 
 PHASE 3 - ANNOTATE:
 For each language in {lang_list}:
-  Write ili/{{lang}}.txt
+  Write {model}/ili/{{lang}}.txt
   - Tag EVERY content word with ILI
   - Format: <|ILI_NNNNN|>word
   - DO NOT tag function words:
@@ -105,31 +120,33 @@ For each language in {lang_list}:
     * JA: は、を、が、に、で、と、等
 
 PHASE 4 - MERGE (CRITICAL CONSTRAINT):
-Write merged/{{lang}}.txt for each language:
+Write {model}/merged/{{lang}}.txt for each language:
 
 CONSTRAINTS:
-1. All languages MUST have EXACT same ILI sequence
+1. All languages MUST have EXACT same ILI sequence (strict mode)
+   OR all unique ILIs must appear (loose mode)
 2. Grammar must be correct (not stubbed)
 3. Preserve: tense, quantity, gender where applicable
 4. Function words untagged
 5. Japanese particles untagged
 
-EXAMPLE of correct merged/ structure:
+EXAMPLE of correct merged/ structure (strict mode):
 
-merged/en.txt:
+{model}/merged/en.txt:
 <|ILI_73081|>Thraco-Phrygian <|ILI_025997|>was proposed as an 
 <|ILI_005091|>extinct <|ILI_081247|>branch of the ...
 
-merged/ja.txt:
+{model}/merged/ja.txt:
 <|ILI_73081|>トラキア・フリギア語族は<|ILI_025997|>提案された
 <|ILI_005091|>死滅した<|ILI_081247|>分枝で、...
 
 Both have SAME ILI count (15 each) and SAME ILI order.
 
 PHASE 5 - VALIDATE:
-Run: python /home/ubt18/synsets/skill/scripts/verify_alignment.py data/synsets/ili_{ili_num}
+Run: python /home/ubt18/synsets/skill/scripts/verify_alignment.py \\
+  data/synsets/ili_{ili_num}/{model} --mode {verify_mode}
 
-If validation fails, revise merged/ files until aligned.
+If {verify_mode} verification fails, revise merged/ files until passed.
 
 PHASE 6 - METADATA:
 Write meta.json with:
@@ -137,6 +154,7 @@ Write meta.json with:
 - model: "{model}"
 - timestamp: ISO8601
 - languages: {langs}
+- verification_mode: "{verify_mode}"
 - ilis_per_lang: {{"en": N, "cz": N, "ja": N}}
 - alignment_verified: true/false
 
@@ -144,7 +162,8 @@ RULES:
 - 250 tool call budget
 - Grammar must be NATURAL, not SVO-stubbed
 - Function words stay untagged
-- ILI sequence must match across all languages
+- ILI sequence must match across all languages (strict mode)
+- OR all unique ILIs must appear in all languages (loose mode)
 - Validation must pass before commit
 
 Start with research."""
@@ -168,11 +187,14 @@ Start with research."""
     finally:
         os.unlink(prompt_file)
 
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--ili', type=int, help='Specific ILI')
     parser.add_argument('--langs', default='en,cz,ja', help='Languages (comma-separated)')
     parser.add_argument('--model', help='Model override')
+    parser.add_argument('--verify-mode', choices=['strict', 'loose'], default='strict',
+                       help='Verification mode (default: strict)')
     args = parser.parse_args()
     
     model = args.model or get_model_info()
@@ -187,29 +209,32 @@ def main():
         print("All ILIs processed!")
         return
     
-    print(f"Processing ILI {ili} with model {model}, languages: {langs}")
+    print(f"Processing ILI {ili} with model {model}, languages: {langs}, mode: {args.verify_mode}")
     
-    success = invoke_hermes(ili, model, langs)
+    success = invoke_hermes(ili, model, langs, args.verify_mode)
     
     if success:
         # Validate
-        ili_dir = f"/home/ubt18/synsets/data/synsets/ili_{ili}"
+        ili_dir = f"/home/ubt18/synsets/data/synsets/ili_{ili}/{model}"
         result = subprocess.run(
-            ['python3', '/home/ubt18/synsets/skill/scripts/verify_alignment.py', ili_dir],
+            ['python3', '/home/ubt18/synsets/skill/scripts/verify_alignment.py',
+             ili_dir, '--mode', args.verify_mode],
             capture_output=True, text=True
         )
         print(result.stdout)
         
         if result.returncode == 0:
             # Commit
-            subprocess.run(['git', '-C', '/home/ubt18/synsets', 'add', ili_dir])
+            subprocess.run(['git', '-C', '/home/ubt18/synsets', 'add', 
+                          f'data/synsets/ili_{ili}/'])
             subprocess.run(['git', '-C', '/home/ubt18/synsets', 'commit', '-m',
-                          f'Add synset ILI {ili} [{model}] v3'])
+                          f'Add synset ILI {ili} [{model}] v3-{args.verify_mode}'])
             print(f"✓ Completed ILI {ili}")
         else:
-            print(f"⚠ ILI {ili} needs alignment fixes")
+            print(f"⚠ ILI {ili} needs alignment fixes (mode: {args.verify_mode})")
     else:
         print(f"✗ Failed ILI {ili}")
+
 
 if __name__ == "__main__":
     main()

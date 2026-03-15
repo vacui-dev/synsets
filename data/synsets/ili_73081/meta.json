@@ -52,5 +52,12 @@
   },
   "workflow_version": "2.0",
   "alignment_verified": true,
-  "alignment_mismatches": []
+  "alignment_mismatches": [],
+  "models": {
+    "kimi-k2.5": {
+      "alignment_verified": true,
+      "verification_mode": "loose",
+      "alignment_mismatches": []
+    }
+  }
 }

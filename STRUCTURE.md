@@ -102,6 +102,34 @@ Both have same ILI count and order, though Japanese grammar differs.
 }
 ```
 
+## Validation Modes
+
+Two verification modes to combat LLM laziness:
+
+### Strict Mode (default)
+All ILI counts must match exactly across languages.
+
+```bash
+python skill/scripts/verify_alignment.py ili_XXXXX/MODEL_NAME --mode strict
+```
+
+- If EN has ILI_12345 appearing 3 times, JA must also have it 3 times
+- Fights LLM laziness where languages drop ILI repetitions
+- Ensures complete semantic alignment
+- Use when data quality is paramount
+
+### Loose Mode
+All unique ILIs must appear in all languages, counts may differ.
+
+```bash
+python skill/scripts/verify_alignment.py ili_XXXXX/MODEL_NAME --mode loose
+```
+
+- Allows language-specific expression differences
+- If EN has 3 occurrences and JA has 1, that's acceptable
+- Use when languages naturally express concepts differently
+- Still ensures all concepts are covered
+
 ## Validation
 
 Run verification:
