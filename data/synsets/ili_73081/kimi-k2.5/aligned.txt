@@ -1,0 +1,29 @@
+<|ILI_073081|>Thraco-Phrygian <|ILI_025997|>propose as <|ILI_005091|>extinct <|ILI_081247|>branch of <|ILI_073074|>Indo-European language <|ILI_079671|>family.
+
+<|ILI_073081|>Thraco-Phrygian <|ILI_034821|>encompass ancient language of <|ILI_073082|>Thracian and <|ILI_073083|>Phrygian people.
+
+This linguistic grouping remain hypothetical and controversial among historical linguist, with scholar suggesting closer relationship to Armenian.
+
+The branch consist primarily of two attested language: <|ILI_073082|>Thracian in eastern Balkans, and <|ILI_073083|>Phrygian in central Anatolia.
+
+Both language poorly attested, surviving through fragmentary inscription and glosses recorded by ancient authors.
+
+<|ILI_073082|>Thracian disappear by early Middle Ages, absorbed by Greek, Latin, and eventually Slavic language, while <|ILI_073083|>Phrygian survive longer with inscription dating into Roman period.
+
+Proposed connection to Armenian suggest that all three may form distinct sub-group within Indo-European.
+
+--- Chinese (same ILI structure) ---
+
+<|ILI_073081|>色雷斯-弗里吉亚语系被<|ILI_025997|>提议为<|ILI_005091|>灭绝的<|ILI_081247|>分支，属于<|ILI_073074|>印欧语系语言<|ILI_079671|>家族。
+
+<|ILI_073081|>色雷斯-弗里吉亚语系<|ILI_034821|>包含古代语言，包括<|ILI_073082|>色雷斯语和<|ILI_073083|>弗里吉亚语。
+
+这一语言学分组保持假设性和争议性，学者建议与亚美尼亚语有更密切关系。
+
+该分支主要由两种<|ILI_006121|>证实语言组成：<|ILI_073082|>色雷斯语在东巴尔干，<|ILI_073083|>弗里吉亚语在中部安纳托利亚。
+
+两种语言<|ILI_018212|>记录不足，通过<|ILI_002903|>残缺<|ILI_070148|>铭文和古代<|ILI_094200|>作者记录的<|ILI_071935|>注释保存。
+
+<|ILI_073082|>色雷斯语在<|ILI_009485|>早期<|ILI_009485|>中世纪<|ILI_023860|>消失，被<|ILI_092251|>希腊语、<|ILI_092364|>拉丁语和最终<|ILI_092334|>斯拉夫语<|ILI_029430|>吸收，而<|ILI_073083|>弗里吉亚语<|ILI_034765|>存续更久，<|ILI_070148|>铭文<|ILI_024850|>追溯至<|ILI_092364|>罗马时期。
+
+<|ILI_025997|>提议的与<|ILI_073079|>亚美尼亚语<|ILI_109383|>连接表明，三种语言可能在<|ILI_073074|>印欧语系内<|ILI_033966|>形成<|ILI_011566|>独特<|ILI_035589|>亚组。
