@@ -50,5 +50,7 @@
     "def_cz_ili": "kimi-k2.5/def_cz_ili.txt",
     "aligned": "kimi-k2.5/aligned.txt"
   },
-  "workflow_version": "2.0"
+  "workflow_version": "2.0",
+  "alignment_verified": true,
+  "alignment_mismatches": []
 }

@@ -1,0 +1,88 @@
+# Synset Data Structure v3.0
+
+## Directory Layout
+
+```
+data/synsets/
+  ili_XXXXXX/                    # One folder per ILI
+    meta.json                    # Model, timestamp, validation
+    natural/                     # Wikipedia-quality natural text
+      en.txt                     # English (proper grammar)
+      cz.txt                     # Chinese (proper grammar)
+      ja.txt                     # Japanese (proper grammar)
+    ili/                         # ILI-annotated versions
+      en.txt                     # English with ILI tags
+      cz.txt                     # Chinese with ILI tags
+      ja.txt                     # Japanese with ILI tags
+    merged/                      # Grammar-correct, ILI-aligned
+      en.txt                     # English (function words untagged)
+      cz.txt                     # Chinese (function words untagged)
+      ja.txt                     # Japanese (particles untagged)
+```
+
+## File Types
+
+### natural/*.txt
+Original Wikipedia-quality definitions.
+- Proper grammar for each language
+- No ILI annotations
+- May vary in length and detail per language
+
+### ili/*.txt
+Word-by-word ILI annotations.
+- Content words tagged: `<|ILI_12345|>word`
+- Function words untagged: `the`, `and`, `of`, etc.
+- Japanese particles untagged: `は`, `を`, `が`, etc.
+- Grammar preserved from natural version
+
+### merged/*.txt
+**Critical: All languages share exact ILI sequence.**
+
+Grammar is constrained but correct:
+- Tense preserved (was, is, will be)
+- Quantity preserved (a, the, plural markers)
+- Japanese particles present and untagged
+- ILI order identical across all languages
+
+Example:
+```
+# en.txt
+<|ILI_73081|>Thraco-Phrygian <|ILI_025997|>was proposed as an 
+<|ILI_005091|>extinct <|ILI_081247|>branch of the ...
+
+# ja.txt  
+<|ILI_73081|>トラキア・フリギア語族は<|ILI_025997|>提案された
+<|ILI_005091|>死滅した<|ILI_081247|>分枝で、...
+```
+
+Both have same ILI count and order, though Japanese grammar differs.
+
+## Validation
+
+Run verification:
+```bash
+python skill/scripts/verify_alignment.py data/synsets/ili_XXXXX
+```
+
+This checks:
+- Same ILI count per language
+- Same ILI order across languages
+- Reports mismatches
+
+## Machine Learning Pipeline
+
+Strip to ILI sequences only:
+```bash
+python skill/scripts/verify_alignment.py ili_XXXXX \
+  --strip --output-dir ili_only/
+```
+
+Produces:
+```
+ili_only/
+  en.ili    # <|ILI_73081|> <|ILI_025997|> <|ILI_005091|> ...
+  cz.ili
+  ja.ili
+```
+
+The residual (non-ILI text) can be processed separately for grammar learning.
