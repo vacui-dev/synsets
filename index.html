@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synsets — Interlingual Index Explorer</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            --light: #1a1a2e;
+            --dark: #f8f9fa;
+            --gray: #adb5bd;
+            --light-gray: #2d2d44;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--light-gray);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-left h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .header-left .subtitle {
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .header-right { display: flex; gap: 10px; align-items: center; }
+
+        .theme-toggle, .btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px 14px;
+            border-radius: var(--border-radius);
+            background-color: var(--light-gray);
+            color: var(--dark);
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .btn { background-color: var(--primary); color: white; }
+        .btn:hover { background-color: var(--primary-dark); }
+        .btn-secondary { background-color: var(--secondary); }
+        .btn-secondary:hover { background-color: #5e0aa1; }
+
+        .ili-tag {
+            font-size: 0.65em;
+            color: var(--secondary);
+            vertical-align: super;
+            opacity: 0.7;
+            font-family: monospace;
+            cursor: help;
+        }
+        .annotated-word {
+            border-bottom: 2px solid var(--primary);
+            cursor: pointer;
+            padding: 0 1px;
+            transition: background-color 0.15s;
+        }
+        .annotated-word:hover {
+            background-color: rgba(67, 97, 238, 0.15);
+        }
+        .btn-small { padding: 6px 12px; font-size: 0.85rem; }
+        .theme-toggle:hover { background-color: var(--gray); color: white; }
+
+        main { display: grid; grid-template-columns: 1fr; gap: 24px; }
+
+        @media (min-width: 992px) {
+            main { grid-template-columns: 2fr 1fr; }
+        }
+
+        .panel {
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid var(--light-gray);
+        }
+
+        .panel-title {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .text-display {
+            line-height: 2.2;
+            font-size: 1.15rem;
+            min-height: 120px;
+        }
+
+        .text-display .loading {
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        .word {
+            cursor: pointer;
+            position: relative;
+            display: inline;
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: var(--transition);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .word:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .word-plain {
+            display: inline;
+            color: var(--gray);
+        }
+
+        .popup {
+            position: absolute;
+            background-color: var(--light);
+            color: var(--dark);
+            padding: 16px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            border: 1px solid var(--light-gray);
+            width: 320px;
+            z-index: 1000;
+        }
+
+        body.dark-mode .popup {
+            background-color: #2d2d44;
+            border-color: #3d3d54;
+        }
+
+        .popup-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .popup-def { font-style: italic; margin: 6px 0; line-height: 1.4; }
+
+        .popup-pos {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 6px;
+        }
+
+        .popup-ili {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .stat-card {
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 12px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label { font-size: 0.8rem; color: var(--gray); }
+
+        .record-browser {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 16px 0;
+            gap: 8px;
+        }
+
+        .record-browser span { font-weight: 600; white-space: nowrap; }
+
+        .search-container { margin-top: 16px; }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 0.95rem;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        .search-results {
+            list-style: none;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 4px;
+        }
+
+        .search-result {
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .search-result:hover { background-color: var(--primary); color: white; }
+        .search-result .search-word { font-weight: 600; }
+        .search-result .search-def { font-size: 0.8rem; color: var(--gray); }
+        .search-result:hover .search-def { color: rgba(255,255,255,0.8); }
+
+        .highlight { font-weight: bold; color: var(--accent); }
+
+        .progress-bar {
+            height: 6px;
+            background-color: var(--light-gray);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 12px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .record-meta {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 12px;
+            padding-top: 8px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        footer a { color: var(--primary); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .container { padding: 12px; }
+            .header-left h1 { font-size: 1.6rem; }
+            .stats-container { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <h1>Synsets</h1>
+                <div class="subtitle">Interlingual Index Explorer &mdash; every content word linked to WordNet</div>
+            </div>
+            <div class="header-right">
+                <button class="btn btn-small" id="viewToggle">Show Annotated</button>
+                <button class="btn btn-small" id="exportData">Export JSONL</button>
+                <button class="theme-toggle" id="themeToggle">Dark Mode</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="panel">
+                <h2 class="panel-title">Annotated Text</h2>
+                <div class="text-display" id="textDisplay">
+                    <span class="loading">Loading annotation data...</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="record-browser">
+                    <button class="btn btn-small" id="prevRecord">&larr; Prev</button>
+                    <span id="recordCount">0 / 0</span>
+                    <button class="btn btn-small" id="nextRecord">Next &rarr;</button>
+                </div>
+                <div class="record-meta" id="recordMeta"></div>
+            </div>
+
+            <div class="panel">
+                <h2 class="panel-title">Statistics</h2>
+                <div class="stats-container" id="statsContainer"></div>
+
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search words or definitions...">
+                    <ul class="search-results" id="searchResults"></ul>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with <a href="https://github.com/vacui-dev/synsets">Synsets</a> &mdash; Hermes-4-405B + WordNet MCP Server</p>
+            <p>Every ILI ID verified against WordNet. Zero hallucination.</p>
+        </footer>
+    </div>
+
+    <script>
+        let currentRecord = 0;
+        let allRecords = [];
+        let cleanData = {}; // record_num -> clean_text from reconstruction
+        let wordMap = {};
+        let activePopup = null;
+        let showAnnotated = false;
+
+        // Try local path first, then raw GitHub URL for when opened locally
+        const DATA_FILES = [
+            'data/synsets_annotated.jsonl',
+            'https://raw.githubusercontent.com/vacui-dev/synsets/main/data/synsets_annotated.jsonl',
+        ];
+
+        const CLEAN_FILES = [];
+        for (let i = 0; i < 4; i++) {
+            CLEAN_FILES.push(`data/clean_batch_${i}.jsonl`);
+            CLEAN_FILES.push(`https://raw.githubusercontent.com/vacui-dev/synsets/main/data/clean_batch_${i}.jsonl`);
+        }
+
+        const textDisplay = document.getElementById('textDisplay');
+        const statsContainer = document.getElementById('statsContainer');
+        const recordCount = document.getElementById('recordCount');
+        const recordMeta = document.getElementById('recordMeta');
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        const exportDataBtn = document.getElementById('exportData');
+        const themeToggle = document.getElementById('themeToggle');
+        const viewToggle = document.getElementById('viewToggle');
+        const prevRecordBtn = document.getElementById('prevRecord');
+        const nextRecordBtn = document.getElementById('nextRecord');
+        const progressFill = document.getElementById('progressFill');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupEventListeners();
+            loadAllData();
+        });
+
+        function setupEventListeners() {
+            exportDataBtn.addEventListener('click', exportData);
+            themeToggle.addEventListener('click', toggleTheme);
+            viewToggle.addEventListener('click', () => {
+                showAnnotated = !showAnnotated;
+                viewToggle.textContent = showAnnotated ? 'Show Readable' : 'Show Annotated';
+                renderRecord(currentRecord);
+            });
+
+            prevRecordBtn.addEventListener('click', () => {
+                if (currentRecord > 0) { currentRecord--; renderRecord(currentRecord); }
+            });
+
+            nextRecordBtn.addEventListener('click', () => {
+                if (currentRecord < allRecords.length - 1) { currentRecord++; renderRecord(currentRecord); }
+            });
+
+            searchInput.addEventListener('input', debounce(handleSearch, 300));
+
+            document.addEventListener('click', (e) => {
+                if (activePopup && !e.target.closest('.popup') && !e.target.closest('.word')) {
+                    activePopup.remove();
+                    activePopup = null;
+                }
+                if (!e.target.matches('.search-result') && !e.target.closest('.search-result')) {
+                    searchResults.innerHTML = '';
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.target === searchInput) return;
+                if (e.key === 'ArrowLeft' && currentRecord > 0) {
+                    currentRecord--; renderRecord(currentRecord);
+                } else if (e.key === 'ArrowRight' && currentRecord < allRecords.length - 1) {
+                    currentRecord++; renderRecord(currentRecord);
+                }
+            });
+        }
+
+        async function loadAllData() {
+            const seen = new Set();
+            let loaded = 0;
+
+            for (const file of DATA_FILES) {
+                try {
+                    const resp = await fetch(file);
+                    if (!resp.ok) continue;
+                    const text = await resp.text();
+                    const lines = text.split('\n').filter(l => l.trim());
+                    for (const line of lines) {
+                        try {
+                            const record = JSON.parse(line);
+                            if (!seen.has(record.record_num)) {
+                                seen.add(record.record_num);
+                                allRecords.push(record);
+                            }
+                        } catch (e) { /* skip malformed lines */ }
+                    }
+                    loaded++;
+                    if (allRecords.length > 0) break; // stop after first successful source
+                } catch (e) { /* file not available */ }
+            }
+
+            // Fallback: try batch files if merged file not available
+            if (allRecords.length === 0) {
+                const batchFiles = [];
+                for (let i = 0; i < 12; i++) batchFiles.push(`data/retranslated_batch_${i}.jsonl`);
+                batchFiles.push('data/retranslated_merged.jsonl');
+                for (const file of batchFiles) {
+                    try {
+                        const resp = await fetch(file);
+                        if (!resp.ok) continue;
+                        const text = await resp.text();
+                        for (const line of text.split('\n').filter(l => l.trim())) {
+                            try {
+                                const record = JSON.parse(line);
+                                if (!seen.has(record.record_num)) {
+                                    seen.add(record.record_num);
+                                    allRecords.push(record);
+                                }
+                            } catch (e) {}
+                        }
+                    } catch (e) {}
+                }
+            }
+
+            allRecords.sort((a, b) => a.record_num - b.record_num);
+
+            if (allRecords.length === 0) {
+                textDisplay.innerHTML = '<span class="loading">No data files found. Run the annotation pipeline first.</span>';
+                return;
+            }
+
+            // Load clean/reconstructed data
+            for (const file of CLEAN_FILES) {
+                try {
+                    const resp = await fetch(file);
+                    if (!resp.ok) continue;
+                    const text = await resp.text();
+                    for (const line of text.split('\n').filter(l => l.trim())) {
+                        try {
+                            const r = JSON.parse(line);
+                            if (r.record_num !== undefined && r.clean_text) {
+                                cleanData[r.record_num] = r.clean_text;
+                            }
+                        } catch (e) {}
+                    }
+                } catch (e) {}
+            }
+
+            // If we have clean data, default to annotated view
+            if (Object.keys(cleanData).length > 0) {
+                showAnnotated = true;
+                viewToggle.textContent = 'Show Readable';
+            }
+
+            processRecords();
+
+            // Check URL hash for record number
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const params = new URLSearchParams(hash);
+                const r = params.get('record');
+                if (r) currentRecord = Math.min(parseInt(r), allRecords.length - 1);
+            }
+
+            renderRecord(currentRecord);
+            updateStats();
+        }
+
+        function processRecords() {
+            wordMap = {};
+            allRecords.forEach(record => {
+                if (!record.assignments) return;
+                record.assignments.forEach(a => {
+                    const key = a.word.toLowerCase();
+                    if (!wordMap[key]) wordMap[key] = [];
+                    wordMap[key].push({ ...a, record_num: record.record_num });
+                });
+            });
+        }
+
+        function renderRecord(index) {
+            if (allRecords.length === 0) return;
+            const record = allRecords[index];
+            recordCount.textContent = `${index + 1} / ${allRecords.length}`;
+            window.location.hash = `record=${index}`;
+
+            textDisplay.innerHTML = '';
+
+            const hasClean = cleanData[record.record_num];
+
+            if (showAnnotated && hasClean) {
+                renderAnnotatedView(hasClean, record);
+            } else {
+                renderReadableView(record);
+            }
+
+            // Progress
+            const progress = ((index + 1) / allRecords.length) * 100;
+            progressFill.style.width = `${progress}%`;
+
+            // Meta
+            const nHermes = record.hermes_ili_count || (record.assignments ? record.assignments.length : 0);
+            const nPreexisting = record.preexisting_ili_count || 0;
+            const cleanLabel = hasClean ? ' | Reconstructed' : '';
+            recordMeta.textContent = `Record #${record.record_num} | ${nHermes} Hermes-assigned + ${nPreexisting} pre-existing ILIs${cleanLabel}`;
+        }
+
+        function renderAnnotatedView(cleanText, record) {
+            // Parse <|ILI_NNNNNN|>word patterns
+            const iliWordRe = /<\|ILI_(\d+)\|>(\S+)/g;
+
+            // Build assignment lookup by ILI number
+            const assignmentsByIli = {};
+            if (record.assignments) {
+                record.assignments.forEach(a => {
+                    assignmentsByIli[a.ili] = a;
+                });
+            }
+
+            let lastIndex = 0;
+            let match;
+
+            while ((match = iliWordRe.exec(cleanText)) !== null) {
+                // Add text before this match
+                if (match.index > lastIndex) {
+                    const before = cleanText.slice(lastIndex, match.index);
+                    textDisplay.appendChild(document.createTextNode(before));
+                }
+
+                const iliNum = parseInt(match[1]);
+                const word = match[2];
+                const assignment = assignmentsByIli[iliNum];
+
+                // Create the ILI tag superscript
+                const tag = document.createElement('span');
+                tag.className = 'ili-tag';
+                tag.textContent = iliNum;
+                tag.title = `ILI #${iliNum}`;
+
+                // Create the annotated word
+                const span = document.createElement('span');
+                span.className = 'annotated-word';
+                span.textContent = word;
+                if (assignment) {
+                    span.title = `${assignment.definition || ''} (${assignment.pos || ''})`;
+                    span.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        showPopup(e, assignment);
+                    });
+                } else {
+                    span.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        showPopup(e, { word: word, ili: iliNum, definition: 'ILI #' + iliNum, pos: '' });
+                    });
+                }
+
+                textDisplay.appendChild(tag);
+                textDisplay.appendChild(span);
+
+                lastIndex = match.index + match[0].length;
+            }
+
+            // Add remaining text
+            if (lastIndex < cleanText.length) {
+                textDisplay.appendChild(document.createTextNode(cleanText.slice(lastIndex)));
+            }
+        }
+
+        function renderReadableView(record) {
+            // Use human_text (fully readable) if available
+            const text = record.human_text || record.original_text || '';
+
+            // Build word -> assignment lookup
+            const assignmentsByWord = {};
+            if (record.assignments) {
+                record.assignments.forEach(a => {
+                    const key = a.word.toLowerCase();
+                    if (!assignmentsByWord[key]) assignmentsByWord[key] = a;
+                });
+            }
+
+            // Tokenize text into words and non-words
+            const wordRe = /([a-zA-Z'-]+)/g;
+            let lastIndex = 0;
+            let match;
+
+            while ((match = wordRe.exec(text)) !== null) {
+                if (match.index > lastIndex) {
+                    textDisplay.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+                }
+
+                const word = match[1];
+                const assignment = assignmentsByWord[word.toLowerCase()];
+
+                if (assignment) {
+                    const span = document.createElement('span');
+                    span.className = 'word';
+                    span.textContent = word;
+                    span.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        showPopup(e, assignment);
+                    });
+                    textDisplay.appendChild(span);
+                } else {
+                    textDisplay.appendChild(document.createTextNode(word));
+                }
+
+                lastIndex = match.index + match[0].length;
+            }
+
+            if (lastIndex < text.length) {
+                textDisplay.appendChild(document.createTextNode(text.slice(lastIndex)));
+            }
+        }
+
+        function showPopup(event, assignment) {
+            if (activePopup) { activePopup.remove(); activePopup = null; }
+
+            const popup = document.createElement('div');
+            popup.className = 'popup';
+
+            const posLabels = { n: 'noun', v: 'verb', a: 'adjective', r: 'adverb', s: 'adj satellite' };
+            const posLabel = posLabels[assignment.pos] || assignment.pos || 'unknown';
+
+            popup.innerHTML = `
+                <button class="popup-close">&times;</button>
+                <div class="popup-title">${assignment.word}</div>
+                <div class="popup-def">${assignment.definition || 'No definition available'}</div>
+                <div style="margin-top:8px">
+                    <span class="popup-pos">${posLabel}</span>
+                    <span class="popup-ili">ILI #${assignment.ili}</span>
+                </div>
+            `;
+
+            popup.querySelector('.popup-close').addEventListener('click', (e) => {
+                e.stopPropagation();
+                popup.remove();
+                activePopup = null;
+            });
+
+            document.body.appendChild(popup);
+            activePopup = popup;
+
+            const rect = event.target.getBoundingClientRect();
+            let top = rect.bottom + window.scrollY + 8;
+            let left = rect.left + window.scrollX;
+
+            // Clamp to viewport
+            if (left + 320 > window.innerWidth) left = window.innerWidth - 330;
+            if (left < 10) left = 10;
+
+            popup.style.top = `${top}px`;
+            popup.style.left = `${left}px`;
+        }
+
+        function updateStats() {
+            statsContainer.innerHTML = '';
+
+            const totalRecords = allRecords.length;
+            let totalAssigned = 0;
+            let totalWords = 0;
+            const uniqueIlis = new Set();
+
+            allRecords.forEach(r => {
+                if (r.assignments) {
+                    totalAssigned += r.assignments.length;
+                    r.assignments.forEach(a => uniqueIlis.add(a.ili));
+                }
+                totalWords += (r.original_text || '').split(/\s+/).length;
+            });
+
+            const stats = [
+                { label: 'Records', value: totalRecords.toLocaleString() },
+                { label: 'Words Annotated', value: totalAssigned.toLocaleString() },
+                { label: 'Unique ILI Concepts', value: uniqueIlis.size.toLocaleString() },
+                { label: 'Avg Words/Record', value: totalRecords ? (totalAssigned / totalRecords).toFixed(1) : '0' },
+            ];
+
+            stats.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'stat-card';
+                card.innerHTML = `<div class="stat-value">${s.value}</div><div class="stat-label">${s.label}</div>`;
+                statsContainer.appendChild(card);
+            });
+        }
+
+        function handleSearch() {
+            const query = searchInput.value.trim().toLowerCase();
+            if (!query || query.length < 2) { searchResults.innerHTML = ''; return; }
+
+            searchResults.innerHTML = '';
+            let count = 0;
+
+            // Escape regex special chars
+            const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+            for (const [word, entries] of Object.entries(wordMap)) {
+                if (count >= 15) break;
+                if (word.includes(query) || entries.some(e => (e.definition || '').toLowerCase().includes(query))) {
+                    const li = document.createElement('li');
+                    li.className = 'search-result';
+                    li.innerHTML = `
+                        <div class="search-word">${highlightText(word, escaped)}</div>
+                        <div class="search-def">${highlightText((entries[0].definition || '').substring(0, 80), escaped)}</div>
+                    `;
+                    li.addEventListener('click', () => {
+                        const idx = allRecords.findIndex(r => r.record_num === entries[0].record_num);
+                        if (idx >= 0) { currentRecord = idx; renderRecord(currentRecord); }
+                        searchResults.innerHTML = '';
+                    });
+                    searchResults.appendChild(li);
+                    count++;
+                }
+            }
+        }
+
+        function highlightText(text, query) {
+            if (!query) return text;
+            return text.replace(new RegExp(`(${query})`, 'gi'), '<span class="highlight">$1</span>');
+        }
+
+        function exportData() {
+            if (allRecords.length === 0) return;
+            const blob = new Blob([allRecords.map(r => JSON.stringify(r)).join('\n')], { type: 'application/jsonl' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'synsets_annotated.jsonl';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+        }
+
+        function debounce(fn, ms) {
+            let t;
+            return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,2652 @@
+{
+  "description": "Golden ILI annotation examples from human-verified wordless data",
+  "num_examples": 136,
+  "examples": [
+    {
+      "text": "They can eat",
+      "annotations": [
+        {
+          "span": "capable",
+          "ili": 1694,
+          "pos": "a"
+        },
+        {
+          "span": "eat",
+          "ili": 27459,
+          "pos": "v"
+        }
+      ],
+      "source": "01_verb_subjunctions.json"
+    },
+    {
+      "text": "you must eat",
+      "annotations": [
+        {
+          "span": "must",
+          "ili": 4939,
+          "pos": "a"
+        },
+        {
+          "span": "eat",
+          "ili": 27459,
+          "pos": "v"
+        }
+      ],
+      "source": "01_verb_subjunctions.json"
+    },
+    {
+      "text": "I should eat",
+      "annotations": [
+        {
+          "span": "advisable",
+          "ili": 351,
+          "pos": "a"
+        },
+        {
+          "span": "eat",
+          "ili": 27459,
+          "pos": "v"
+        }
+      ],
+      "source": "01_verb_subjunctions.json"
+    },
+    {
+      "text": "I want to eat",
+      "annotations": [
+        {
+          "span": "desire/want",
+          "ili": 30852,
+          "pos": "v"
+        },
+        {
+          "span": "eat",
+          "ili": 27450,
+          "pos": "v"
+        }
+      ],
+      "source": "01_verb_subjunctions.json"
+    },
+    {
+      "text": "I will probably eat",
+      "annotations": [
+        {
+          "span": "belike/in all likelihood",
+          "ili": 19060,
+          "pos": "r"
+        },
+        {
+          "span": "eat",
+          "ili": 27459,
+          "pos": "v"
+        }
+      ],
+      "source": "01_verb_subjunctions.json"
+    },
+    {
+      "text": "should have been able to eat",
+      "annotations": [
+        {
+          "span": "expected",
+          "ili": 5093,
+          "pos": "a"
+        },
+        {
+          "span": "capable",
+          "ili": 1694,
+          "pos": "a"
+        },
+        {
+          "span": "eat",
+          "ili": 27459,
+          "pos": "v"
+        }
+      ],
+      "source": "01_verb_subjunctions.json"
+    },
+    {
+      "text": "to eat",
+      "annotations": [
+        {
+          "span": "eat",
+          "ili": 27459,
+          "pos": "v"
+        }
+      ],
+      "source": "02_japanese_verbs.json"
+    },
+    {
+      "text": "ate",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "02_japanese_verbs.json"
+    },
+    {
+      "text": "want to eat",
+      "annotations": [
+        {
+          "span": "desirable",
+          "ili": 4058,
+          "pos": "a"
+        },
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "02_japanese_verbs.json"
+    },
+    {
+      "text": "let's eat",
+      "annotations": [
+        {
+          "span": "volitional",
+          "ili": 14237,
+          "pos": "a"
+        },
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "02_japanese_verbs.json"
+    },
+    {
+      "text": "can eat",
+      "annotations": [
+        {
+          "span": "capable",
+          "ili": 1694,
+          "pos": "a"
+        },
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "02_japanese_verbs.json"
+    },
+    {
+      "text": "governor of california",
+      "annotations": [
+        {
+          "span": "CA",
+          "ili": 90272,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 84239,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "governor of california",
+      "annotations": [
+        {
+          "span": "CA",
+          "ili": 84239,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 90272,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "one who ate rice does not want to eat",
+      "annotations": [
+        {
+          "span": "person",
+          "ili": 91186,
+          "pos": "n"
+        },
+        {
+          "span": "eat",
+          "ili": 27450,
+          "pos": "v"
+        },
+        {
+          "span": "rice",
+          "ili": 78125,
+          "pos": "n"
+        },
+        {
+          "span": "desire/want",
+          "ili": 30852,
+          "pos": "v"
+        },
+        {
+          "span": "eat",
+          "ili": 27450,
+          "pos": "v"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "one who ate rice does not want to eat",
+      "annotations": [
+        {
+          "span": "rice",
+          "ili": 78125,
+          "pos": "n"
+        },
+        {
+          "span": "eat",
+          "ili": 27450,
+          "pos": "v"
+        },
+        {
+          "span": "person",
+          "ili": 91186,
+          "pos": "n"
+        },
+        {
+          "span": "undesirable/unwanted",
+          "ili": 4064,
+          "pos": "a"
+        },
+        {
+          "span": "eat",
+          "ili": 27450,
+          "pos": "v"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "This is being eaten by me",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "There are cats",
+      "annotations": [
+        {
+          "span": "be/exist",
+          "ili": 34708,
+          "pos": "v"
+        },
+        {
+          "span": "cat",
+          "ili": 27178,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "city in France",
+      "annotations": [
+        {
+          "span": "city/metropolis/urban center",
+          "ili": 81847,
+          "pos": "n"
+        },
+        {
+          "span": "France/French Republic",
+          "ili": 83644,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "The pages of a book",
+      "annotations": [
+        {
+          "span": "page",
+          "ili": 69383,
+          "pos": "n"
+        },
+        {
+          "span": "book",
+          "ili": 70180,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "The wheel of the car",
+      "annotations": [
+        {
+          "span": "wheel",
+          "ili": 61096,
+          "pos": "n"
+        },
+        {
+          "span": "car",
+          "ili": 51496,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "The population of the city",
+      "annotations": [
+        {
+          "span": "population",
+          "ili": 91301,
+          "pos": "n"
+        },
+        {
+          "span": "city",
+          "ili": 81847,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "words of a sentence",
+      "annotations": [
+        {
+          "span": "word",
+          "ili": 69544,
+          "pos": "n"
+        },
+        {
+          "span": "sentence",
+          "ili": 69537,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "ingredients of a recipe",
+      "annotations": [
+        {
+          "span": "fixings/ingredient",
+          "ili": 78161,
+          "pos": "n"
+        },
+        {
+          "span": "formula/recipe",
+          "ili": 72162,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "cloud of despair",
+      "annotations": [
+        {
+          "span": "cloud(gloom(ambiance))",
+          "ili": 113334,
+          "pos": "n"
+        },
+        {
+          "span": "despair",
+          "ili": 76387,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "the leader of them all",
+      "annotations": [
+        {
+          "span": "leader",
+          "ili": 87225,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "clown of the class",
+      "annotations": [
+        {
+          "span": "buffoon/goof",
+          "ili": 89035,
+          "pos": "n"
+        },
+        {
+          "span": "class/grade",
+          "ili": 80413,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "he's a class clown",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 80413,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 89035,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "he's the class clown",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 80413,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 89035,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "he's the clown of the class",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 89035,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 80413,
+          "pos": "n"
+        }
+      ],
+      "source": "03_prepositions.json"
+    },
+    {
+      "text": "nontrivial",
+      "annotations": [
+        {
+          "span": "trivial",
+          "ili": 6991,
+          "pos": "a"
+        }
+      ],
+      "source": "04_compositions.json"
+    },
+    {
+      "text": "counterproductive",
+      "annotations": [
+        {
+          "span": "counterproductive",
+          "ili": 6354,
+          "pos": "a"
+        }
+      ],
+      "source": "04_compositions.json"
+    },
+    {
+      "text": "oversimplified",
+      "annotations": [
+        {
+          "span": "oversimplify",
+          "ili": 34536,
+          "pos": "v"
+        }
+      ],
+      "source": "04_compositions.json"
+    },
+    {
+      "text": "orange juice is fruit juice",
+      "annotations": [
+        {
+          "span": "orange juice",
+          "ili": 78945,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 78938,
+          "pos": "n"
+        }
+      ],
+      "source": "05_elaboration.json"
+    },
+    {
+      "text": "orange juice is juice of oranges",
+      "annotations": [
+        {
+          "span": "juice",
+          "ili": 78945,
+          "pos": "n"
+        },
+        {
+          "span": "orange(citrous fruit)",
+          "ili": 78937,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 77762,
+          "pos": "n"
+        }
+      ],
+      "source": "05_elaboration.json"
+    },
+    {
+      "text": "sunkiss is an orange juice",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 78945,
+          "pos": "n"
+        }
+      ],
+      "source": "05_elaboration.json"
+    },
+    {
+      "text": "drink this orange juice",
+      "annotations": [
+        {
+          "span": "drink/imbibe",
+          "ili": 27466,
+          "pos": "v"
+        },
+        {
+          "span": "",
+          "ili": 78945,
+          "pos": "n"
+        }
+      ],
+      "source": "05_elaboration.json"
+    },
+    {
+      "text": "I am eating it",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "05_elaboration.json"
+    },
+    {
+      "text": "\u91d1\u6301\u3061 is someone who is rich",
+      "annotations": [
+        {
+          "span": "rich",
+          "ili": 91209,
+          "pos": "a"
+        },
+        {
+          "span": "",
+          "ili": 35562,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 11080,
+          "pos": "n"
+        }
+      ],
+      "source": "05_elaboration.json"
+    },
+    {
+      "text": "\u91d1\u6301\u3061 means someone who is rich in japanese",
+      "annotations": [
+        {
+          "span": "intend/mean/signify",
+          "ili": 26268,
+          "pos": "v"
+        },
+        {
+          "span": "rich",
+          "ili": 35562,
+          "pos": "a"
+        },
+        {
+          "span": "\u65e5\u672c\u8a9e",
+          "ili": 11080,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 72985,
+          "pos": "n"
+        }
+      ],
+      "source": "05_elaboration.json"
+    },
+    {
+      "text": "The japanese word \u91d1\u6301\u3061 means someone who is rich",
+      "annotations": [
+        {
+          "span": "\u65e5\u672c\u8a9e",
+          "ili": 72985,
+          "pos": "n"
+        },
+        {
+          "span": "word",
+          "ili": 69544,
+          "pos": "n"
+        },
+        {
+          "span": "intend/mean/signify",
+          "ili": 26268,
+          "pos": "v"
+        },
+        {
+          "span": "rich",
+          "ili": 35562,
+          "pos": "a"
+        },
+        {
+          "span": "",
+          "ili": 11080,
+          "pos": "n"
+        }
+      ],
+      "source": "05_elaboration.json"
+    },
+    {
+      "text": "ice is frozen water",
+      "annotations": [
+        {
+          "span": "ice",
+          "ili": 115475,
+          "pos": "n"
+        },
+        {
+          "span": "frozen",
+          "ili": 115069,
+          "pos": "a"
+        },
+        {
+          "span": "",
+          "ili": 5915,
+          "pos": "n"
+        }
+      ],
+      "source": "05_elaboration.json"
+    },
+    {
+      "text": "ice is solid water",
+      "annotations": [
+        {
+          "span": "water ice",
+          "ili": 115475,
+          "pos": "n"
+        },
+        {
+          "span": "solid",
+          "ili": 115069,
+          "pos": "a"
+        },
+        {
+          "span": "",
+          "ili": 113097,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 12509,
+          "pos": "n"
+        }
+      ],
+      "source": "05_elaboration.json"
+    },
+    {
+      "text": "Bow down before your queen",
+      "annotations": [
+        {
+          "span": "bow/bow down",
+          "ili": 26108,
+          "pos": "v"
+        },
+        {
+          "span": "ahead/in front",
+          "ili": 18544,
+          "pos": "r"
+        },
+        {
+          "span": "dependent/subject",
+          "ili": 12904,
+          "pos": "a"
+        },
+        {
+          "span": "female monarch/queen",
+          "ili": 92393,
+          "pos": "n"
+        }
+      ],
+      "source": "06_reference.json"
+    },
+    {
+      "text": "what did she say?",
+      "annotations": [
+        {
+          "span": "state",
+          "ili": 26632,
+          "pos": "v"
+        }
+      ],
+      "source": "06_reference.json"
+    },
+    {
+      "text": "Kandy? Jeff told me about him. He seemed morose.",
+      "annotations": [
+        {
+          "span": "inform",
+          "ili": 25811,
+          "pos": "v"
+        },
+        {
+          "span": "appear/seem",
+          "ili": 32420,
+          "pos": "v"
+        },
+        {
+          "span": "dark/dour",
+          "ili": 6222,
+          "pos": "a"
+        }
+      ],
+      "source": "06_reference.json"
+    },
+    {
+      "text": "I saw the house, it was falling apart. I decided to buy a new house, it is better",
+      "annotations": [
+        {
+          "span": "abode",
+          "ili": 32402,
+          "pos": "n"
+        },
+        {
+          "span": "derelict",
+          "ili": 53274,
+          "pos": "a"
+        },
+        {
+          "span": "decide",
+          "ili": 3785,
+          "pos": "v"
+        },
+        {
+          "span": "buy/purchase",
+          "ili": 25196,
+          "pos": "v"
+        },
+        {
+          "span": "new",
+          "ili": 32788,
+          "pos": "a"
+        },
+        {
+          "span": "abode",
+          "ili": 8983,
+          "pos": "n"
+        },
+        {
+          "span": "better",
+          "ili": 53274,
+          "pos": "a"
+        },
+        {
+          "span": "",
+          "ili": 1267,
+          "pos": "n"
+        }
+      ],
+      "source": "06_reference.json"
+    },
+    {
+      "text": "I saw him give her the book that they bought, it was about cats",
+      "annotations": [
+        {
+          "span": "give",
+          "ili": 32402,
+          "pos": "v"
+        },
+        {
+          "span": "book",
+          "ili": 32755,
+          "pos": "n"
+        },
+        {
+          "span": "buy",
+          "ili": 70180,
+          "pos": "v"
+        },
+        {
+          "span": "",
+          "ili": 32788,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 27178,
+          "pos": "n"
+        }
+      ],
+      "source": "06_reference.json"
+    },
+    {
+      "text": "My friend's sister's cat ate its owner's sausage and their brother's conifer",
+      "annotations": [
+        {
+          "span": "friend",
+          "ili": 90098,
+          "pos": "n"
+        },
+        {
+          "span": "sis/sister",
+          "ili": 93018,
+          "pos": "n"
+        },
+        {
+          "span": "sausage",
+          "ili": 27178,
+          "pos": "n"
+        },
+        {
+          "span": "brother",
+          "ili": 27459,
+          "pos": "n"
+        },
+        {
+          "span": "conifer",
+          "ili": 77287,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 88708,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 105579,
+          "pos": "n"
+        }
+      ],
+      "source": "06_reference.json"
+    },
+    {
+      "text": "They watched themselves eating each other's food",
+      "annotations": [
+        {
+          "span": "watch",
+          "ili": 32507,
+          "pos": "v"
+        },
+        {
+          "span": "eat",
+          "ili": 27459,
+          "pos": "v"
+        },
+        {
+          "span": "food",
+          "ili": 77196,
+          "pos": "n"
+        },
+        {
+          "span": "exchange/interchange",
+          "ili": 33024,
+          "pos": "v"
+        }
+      ],
+      "source": "06_reference.json"
+    },
+    {
+      "text": "They gave each other gifts",
+      "annotations": [
+        {
+          "span": "reciprocally",
+          "ili": 20925,
+          "pos": "r"
+        },
+        {
+          "span": "give",
+          "ili": 32755,
+          "pos": "v"
+        },
+        {
+          "span": "gift",
+          "ili": 106363,
+          "pos": "n"
+        }
+      ],
+      "source": "06_reference.json"
+    },
+    {
+      "text": "This is better than that",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 1267,
+          "pos": "n"
+        }
+      ],
+      "source": "07_comparative.json"
+    },
+    {
+      "text": "This is the best of all",
+      "annotations": [
+        {
+          "span": "good",
+          "ili": 6163,
+          "pos": "a"
+        },
+        {
+          "span": "category/class",
+          "ili": 79319,
+          "pos": "n"
+        }
+      ],
+      "source": "07_comparative.json"
+    },
+    {
+      "text": "This is the least bad option",
+      "annotations": [
+        {
+          "span": "bad",
+          "ili": 6173,
+          "pos": "a"
+        },
+        {
+          "span": "option",
+          "ili": 67535,
+          "pos": "n"
+        }
+      ],
+      "source": "07_comparative.json"
+    },
+    {
+      "text": "an astronaut holding a flag",
+      "annotations": [
+        {
+          "span": "hold(in hands)",
+          "ili": 88341,
+          "pos": "v"
+        },
+        {
+          "span": "flag",
+          "ili": 27706,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 53796,
+          "pos": "n"
+        }
+      ],
+      "source": "08_implications.json"
+    },
+    {
+      "text": "an astronaut holding a meeting",
+      "annotations": [
+        {
+          "span": "hold(organize)",
+          "ili": 88341,
+          "pos": "v"
+        },
+        {
+          "span": "group meeting(formal gathering)",
+          "ili": 30405,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 80791,
+          "pos": "n"
+        }
+      ],
+      "source": "08_implications.json"
+    },
+    {
+      "text": "an astronaut holding both a flag and a meeting",
+      "annotations": [
+        {
+          "span": "hold(in hands)",
+          "ili": 88341,
+          "pos": "v"
+        },
+        {
+          "span": "simultaneously",
+          "ili": 27706,
+          "pos": "r"
+        },
+        {
+          "span": "",
+          "ili": 53796,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 18905,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 30405,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 80791,
+          "pos": "n"
+        }
+      ],
+      "source": "08_implications.json"
+    },
+    {
+      "text": "She came before I ate, after he had left",
+      "annotations": [
+        {
+          "span": "arrive/come",
+          "ili": 31766,
+          "pos": "v"
+        },
+        {
+          "span": "before/earlier",
+          "ili": 18504,
+          "pos": "r"
+        },
+        {
+          "span": "after",
+          "ili": 27459,
+          "pos": "r"
+        },
+        {
+          "span": "go away/leave",
+          "ili": 18505,
+          "pos": "v"
+        },
+        {
+          "span": "",
+          "ili": 31785,
+          "pos": "n"
+        }
+      ],
+      "source": "09_temporal.json"
+    },
+    {
+      "text": "I left before him",
+      "annotations": [
+        {
+          "span": "before/earlier",
+          "ili": 31785,
+          "pos": "r"
+        },
+        {
+          "span": "",
+          "ili": 18504,
+          "pos": "n"
+        }
+      ],
+      "source": "09_temporal.json"
+    },
+    {
+      "text": "I left before him",
+      "annotations": [
+        {
+          "span": "before/earlier",
+          "ili": 18504,
+          "pos": "r"
+        },
+        {
+          "span": "",
+          "ili": 31785,
+          "pos": "n"
+        }
+      ],
+      "source": "09_temporal.json"
+    },
+    {
+      "text": "I ate before he had left",
+      "annotations": [
+        {
+          "span": "before/earlier",
+          "ili": 27459,
+          "pos": "r"
+        },
+        {
+          "span": "after",
+          "ili": 18504,
+          "pos": "r"
+        },
+        {
+          "span": "go away/leave",
+          "ili": 18505,
+          "pos": "v"
+        },
+        {
+          "span": "",
+          "ili": 31785,
+          "pos": "n"
+        }
+      ],
+      "source": "09_temporal.json"
+    },
+    {
+      "text": "While they were eating, we arrived",
+      "annotations": [
+        {
+          "span": "arrive",
+          "ili": 27459,
+          "pos": "v"
+        },
+        {
+          "span": "",
+          "ili": 31766,
+          "pos": "n"
+        }
+      ],
+      "source": "09_temporal.json"
+    },
+    {
+      "text": "they were eating when we arrived",
+      "annotations": [
+        {
+          "span": "arrive",
+          "ili": 27459,
+          "pos": "v"
+        },
+        {
+          "span": "",
+          "ili": 31766,
+          "pos": "n"
+        }
+      ],
+      "source": "09_temporal.json"
+    },
+    {
+      "text": "we arrived during their meal",
+      "annotations": [
+        {
+          "span": "arrive",
+          "ili": 31766,
+          "pos": "v"
+        },
+        {
+          "span": "meal(occasion)",
+          "ili": 117364,
+          "pos": "n"
+        }
+      ],
+      "source": "09_temporal.json"
+    },
+    {
+      "text": "I ate cats",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 27178,
+          "pos": "n"
+        }
+      ],
+      "source": "10_emphasis.json"
+    },
+    {
+      "text": "cats that I ate",
+      "annotations": [
+        {
+          "span": "cat",
+          "ili": 27178,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "10_emphasis.json"
+    },
+    {
+      "text": "cats were eaten",
+      "annotations": [
+        {
+          "span": "cat",
+          "ili": 27178,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "10_emphasis.json"
+    },
+    {
+      "text": "the cat eats",
+      "annotations": [
+        {
+          "span": "cat",
+          "ili": 27178,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "10_emphasis.json"
+    },
+    {
+      "text": "the cat was eaten",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 27178,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "10_emphasis.json"
+    },
+    {
+      "text": "ate the cat",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 27178,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "10_emphasis.json"
+    },
+    {
+      "text": "did you say hello to her?",
+      "annotations": [
+        {
+          "span": "greet",
+          "ili": 26101,
+          "pos": "v"
+        }
+      ],
+      "source": "10_emphasis.json"
+    },
+    {
+      "text": "WHY did you greet HER? ew!",
+      "annotations": [
+        {
+          "span": "why",
+          "ili": 84881,
+          "pos": "n"
+        },
+        {
+          "span": "greet",
+          "ili": 26101,
+          "pos": "v"
+        },
+        {
+          "span": "distasteful",
+          "ili": 8897,
+          "pos": "a"
+        }
+      ],
+      "source": "10_emphasis.json"
+    },
+    {
+      "text": "It's a computer. why did you greet it?",
+      "annotations": [
+        {
+          "span": "computing machine",
+          "ili": 52237,
+          "pos": "n"
+        },
+        {
+          "span": "why",
+          "ili": 84881,
+          "pos": "n"
+        },
+        {
+          "span": "greet",
+          "ili": 26101,
+          "pos": "v"
+        }
+      ],
+      "source": "10_emphasis.json"
+    },
+    {
+      "text": "It's him! (accusatory)",
+      "annotations": [
+        {
+          "span": "accusation/charge",
+          "ili": 71869,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "It's him (explanatory)",
+      "annotations": [
+        {
+          "span": "account/explanation",
+          "ili": 71909,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "It would be him, I suppose (polite)",
+      "annotations": [
+        {
+          "span": "polite",
+          "ili": 3566,
+          "pos": "a"
+        },
+        {
+          "span": "rundown/summation/summing up",
+          "ili": 70459,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "It would humbly appear to be him (honorific)",
+      "annotations": [
+        {
+          "span": "honorific",
+          "ili": 10923,
+          "pos": "a"
+        },
+        {
+          "span": "proffer/proposition/suggestion",
+          "ili": 74295,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "Who ate? It's him.",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "The one who ate, who is it? It's him.",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "The one who ate? Him.",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 27459,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "The one who ate? It's him (seeking explanation)",
+      "annotations": [
+        {
+          "span": "account/explanation",
+          "ili": 27459,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 71909,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "The one who ate? It IS him! (assertive)",
+      "annotations": [
+        {
+          "span": "accusation/charge",
+          "ili": 27459,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 71869,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "hi",
+      "annotations": [
+        {
+          "span": "greeting/salutation",
+          "ili": 71323,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "greetings",
+      "annotations": [
+        {
+          "span": "formality/formalness",
+          "ili": 71323,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 62797,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "hey",
+      "annotations": [
+        {
+          "span": "informal",
+          "ili": 71323,
+          "pos": "a"
+        },
+        {
+          "span": "",
+          "ili": 5720,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "sup",
+      "annotations": [
+        {
+          "span": "greeting/salutation",
+          "ili": 71323,
+          "pos": "n"
+        },
+        {
+          "span": "slang expression/slang term",
+          "ili": 74279,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "hi with angry emoji",
+      "annotations": [
+        {
+          "span": "fury/madness/rage",
+          "ili": 71323,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 76256,
+          "pos": "n"
+        }
+      ],
+      "source": "11_sentiment.json"
+    },
+    {
+      "text": "the number 12 is two digits in decimal, one in hex",
+      "annotations": [
+        {
+          "span": "digit/figure",
+          "ili": 109085,
+          "pos": "n"
+        },
+        {
+          "span": "decimal/denary",
+          "ili": 10503,
+          "pos": "a"
+        },
+        {
+          "span": "digit/figure",
+          "ili": 109085,
+          "pos": "n"
+        },
+        {
+          "span": "hex/hexadecimal",
+          "ili": 15433,
+          "pos": "a"
+        }
+      ],
+      "source": "12_numbers.json"
+    },
+    {
+      "text": "3 cardinal numbers are 4, 12 and 16, the 2nd of which is 12",
+      "annotations": [
+        {
+          "span": "example/instance",
+          "ili": 67469,
+          "pos": "n"
+        },
+        {
+          "span": "cardinal number",
+          "ili": 108155,
+          "pos": "n"
+        }
+      ],
+      "source": "12_numbers.json"
+    },
+    {
+      "text": "2+2=4",
+      "annotations": [
+        {
+          "span": "amount/sum/total",
+          "ili": 39978,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 67673,
+          "pos": "n"
+        }
+      ],
+      "source": "12_numbers.json"
+    },
+    {
+      "text": "I'm #1!",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 1254,
+          "pos": "n"
+        }
+      ],
+      "source": "12_numbers.json"
+    },
+    {
+      "text": "I'm 1st!",
+      "annotations": [
+        {
+          "span": "ranking",
+          "ili": 112832,
+          "pos": "n"
+        }
+      ],
+      "source": "12_numbers.json"
+    },
+    {
+      "text": "closedai announced a new service",
+      "annotations": [
+        {
+          "span": "controlled",
+          "ili": 3322,
+          "pos": "a"
+        },
+        {
+          "span": "AI",
+          "ili": 39845,
+          "pos": "n"
+        },
+        {
+          "span": "open",
+          "ili": 10968,
+          "pos": "a"
+        },
+        {
+          "span": "AI",
+          "ili": 39845,
+          "pos": "n"
+        },
+        {
+          "span": "company",
+          "ili": 79556,
+          "pos": "n"
+        },
+        {
+          "span": "announce/declare",
+          "ili": 26426,
+          "pos": "v"
+        },
+        {
+          "span": "new",
+          "ili": 11346,
+          "pos": "a"
+        },
+        {
+          "span": "service",
+          "ili": 41723,
+          "pos": "n"
+        }
+      ],
+      "source": "13_wordplay.json"
+    },
+    {
+      "text": "the english word for strawberries is strawberries",
+      "annotations": [
+        {
+          "span": "English language",
+          "ili": 73104,
+          "pos": "n"
+        },
+        {
+          "span": "word",
+          "ili": 69544,
+          "pos": "n"
+        },
+        {
+          "span": "intend/mean/signify",
+          "ili": 26268,
+          "pos": "v"
+        },
+        {
+          "span": "",
+          "ili": 77753,
+          "pos": "n"
+        }
+      ],
+      "source": "13_wordplay.json"
+    },
+    {
+      "text": "How many 'r's are in strawberries?",
+      "annotations": [
+        {
+          "span": "amount/measure/quantity",
+          "ili": 35594,
+          "pos": "n"
+        },
+        {
+          "span": "R/r",
+          "ili": 72403,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 73104,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 69544,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 26268,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 77753,
+          "pos": "n"
+        }
+      ],
+      "source": "13_wordplay.json"
+    },
+    {
+      "text": "there are three 'r's in strawberries (concept)",
+      "annotations": [
+        {
+          "span": "R/r",
+          "ili": 34708,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 72403,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 73104,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 69544,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 26268,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 77753,
+          "pos": "n"
+        }
+      ],
+      "source": "13_wordplay.json"
+    },
+    {
+      "text": "there are three 'r's in 'strawberries' (string)",
+      "annotations": [
+        {
+          "span": "be/exist",
+          "ili": 34708,
+          "pos": "v"
+        },
+        {
+          "span": "R/r",
+          "ili": 72403,
+          "pos": "n"
+        }
+      ],
+      "source": "13_wordplay.json"
+    },
+    {
+      "text": "there are no 'r's in strawberries (playful)",
+      "annotations": [
+        {
+          "span": "R/r",
+          "ili": 34708,
+          "pos": "n"
+        },
+        {
+          "span": "playful",
+          "ili": 72403,
+          "pos": "a"
+        },
+        {
+          "span": "",
+          "ili": 77753,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 11620,
+          "pos": "n"
+        }
+      ],
+      "source": "13_wordplay.json"
+    },
+    {
+      "text": "Did you ask you-know-who about it?",
+      "annotations": [
+        {
+          "span": "ask",
+          "ili": 25608,
+          "pos": "v"
+        },
+        {
+          "span": "know",
+          "ili": 24735,
+          "pos": "v"
+        }
+      ],
+      "source": "14_punctuation.json"
+    },
+    {
+      "text": "He told me 'say hello again'",
+      "annotations": [
+        {
+          "span": "state",
+          "ili": 26632,
+          "pos": "v"
+        },
+        {
+          "span": "state",
+          "ili": 26632,
+          "pos": "v"
+        },
+        {
+          "span": "hello",
+          "ili": 71336,
+          "pos": "n"
+        },
+        {
+          "span": "again",
+          "ili": 18372,
+          "pos": "r"
+        }
+      ],
+      "source": "14_punctuation.json"
+    },
+    {
+      "text": "*really bad* idea",
+      "annotations": [
+        {
+          "span": "really",
+          "ili": 18320,
+          "pos": "r"
+        },
+        {
+          "span": "bad",
+          "ili": 6173,
+          "pos": "a"
+        },
+        {
+          "span": "idea",
+          "ili": 67535,
+          "pos": "n"
+        }
+      ],
+      "source": "14_punctuation.json"
+    },
+    {
+      "text": "I love parens. (left parenthesis is '(')",
+      "annotations": [
+        {
+          "span": "love",
+          "ili": 30611,
+          "pos": "v"
+        },
+        {
+          "span": "parenthesis",
+          "ili": 72482,
+          "pos": "n"
+        },
+        {
+          "span": "left(position)",
+          "ili": 82313,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 72482,
+          "pos": "n"
+        }
+      ],
+      "source": "14_punctuation.json"
+    },
+    {
+      "text": "The sunset wept gold",
+      "annotations": [
+        {
+          "span": "sundown/sunset",
+          "ili": 116934,
+          "pos": "n"
+        },
+        {
+          "span": "cry/weep",
+          "ili": 22107,
+          "pos": "v"
+        },
+        {
+          "span": "beam/shine",
+          "ili": 35500,
+          "pos": "v"
+        },
+        {
+          "span": "amber/gold(color)",
+          "ili": 63078,
+          "pos": "n"
+        },
+        {
+          "span": "gold(concept of value)",
+          "ili": 64006,
+          "pos": "n"
+        }
+      ],
+      "source": "15_metaphors.json"
+    },
+    {
+      "text": "danger noodle",
+      "annotations": [
+        {
+          "span": "danger",
+          "ili": 113417,
+          "pos": "n"
+        },
+        {
+          "span": "dangerous/unsafe",
+          "ili": 11296,
+          "pos": "a"
+        },
+        {
+          "span": "noodle",
+          "ili": 77447,
+          "pos": "n"
+        },
+        {
+          "span": "snake",
+          "ili": 44390,
+          "pos": "n"
+        },
+        {
+          "span": "cute",
+          "ili": 903,
+          "pos": "a"
+        }
+      ],
+      "source": "15_metaphors.json"
+    },
+    {
+      "text": "you what? that's sick!",
+      "annotations": [
+        {
+          "span": "do/execute/perform",
+          "ili": 30309,
+          "pos": "v"
+        },
+        {
+          "span": "ill/sick",
+          "ili": 14100,
+          "pos": "a"
+        },
+        {
+          "span": "evocative/redolent",
+          "ili": 10836,
+          "pos": "a"
+        },
+        {
+          "span": "amazing/awe-inspiring",
+          "ili": 6996,
+          "pos": "a"
+        },
+        {
+          "span": "slang",
+          "ili": 74279,
+          "pos": "n"
+        }
+      ],
+      "source": "16_slang.json"
+    },
+    {
+      "text": "Cats are cute",
+      "annotations": [
+        {
+          "span": "cat",
+          "ili": 27178,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 7988,
+          "pos": "n"
+        }
+      ],
+      "source": "17_japanese_specific.json"
+    },
+    {
+      "text": "ended up eating (completely / regrettably)",
+      "annotations": [
+        {
+          "span": "all/altogether/completely",
+          "ili": 19554,
+          "pos": "r"
+        },
+        {
+          "span": "eat",
+          "ili": 27459,
+          "pos": "v"
+        }
+      ],
+      "source": "17_japanese_specific.json"
+    },
+    {
+      "text": "The teacher is here (honorific)",
+      "annotations": [
+        {
+          "span": "honorific",
+          "ili": 93557,
+          "pos": "a"
+        },
+        {
+          "span": "be/exist",
+          "ili": 10923,
+          "pos": "v"
+        },
+        {
+          "span": "",
+          "ili": 34708,
+          "pos": "n"
+        }
+      ],
+      "source": "17_japanese_specific.json"
+    },
+    {
+      "text": "died while eating",
+      "annotations": [
+        {
+          "span": "eat",
+          "ili": 27459,
+          "pos": "v"
+        },
+        {
+          "span": "buy the farm",
+          "ili": 23529,
+          "pos": "v"
+        }
+      ],
+      "source": "17_japanese_specific.json"
+    },
+    {
+      "text": "The word chorizo is pronounced differently in English vs Spanish",
+      "annotations": [
+        {
+          "span": "word",
+          "ili": 69544,
+          "pos": "n"
+        },
+        {
+          "span": "meaning/substance",
+          "ili": 67944,
+          "pos": "n"
+        },
+        {
+          "span": "chorizo",
+          "ili": 77292,
+          "pos": "n"
+        },
+        {
+          "span": "articulate/enunciate",
+          "ili": 26483,
+          "pos": "v"
+        },
+        {
+          "span": "English language",
+          "ili": 73104,
+          "pos": "n"
+        },
+        {
+          "span": "Latin America",
+          "ili": 84080,
+          "pos": "n"
+        },
+        {
+          "span": "Spanish language",
+          "ili": 73223,
+          "pos": "n"
+        }
+      ],
+      "source": "18_pronunciation.json"
+    },
+    {
+      "text": "superman is a character. soup or man is a question",
+      "annotations": [
+        {
+          "span": "fictitious character",
+          "ili": 87055,
+          "pos": "n"
+        },
+        {
+          "span": "soup",
+          "ili": 76617,
+          "pos": "n"
+        },
+        {
+          "span": "adult male",
+          "ili": 91182,
+          "pos": "n"
+        },
+        {
+          "span": "enquiry",
+          "ili": 74460,
+          "pos": "n"
+        }
+      ],
+      "source": "18_pronunciation.json"
+    },
+    {
+      "text": "By the time I finish writing this, you will have already left",
+      "annotations": [
+        {
+          "span": "event",
+          "ili": 35586,
+          "pos": "n"
+        },
+        {
+          "span": "complete/finish",
+          "ili": 24131,
+          "pos": "v"
+        },
+        {
+          "span": "write",
+          "ili": 26548,
+          "pos": "v"
+        },
+        {
+          "span": "already",
+          "ili": 18319,
+          "pos": "r"
+        },
+        {
+          "span": "",
+          "ili": 31785,
+          "pos": "n"
+        }
+      ],
+      "source": "19_complex.json"
+    },
+    {
+      "text": "By the time I finish writing this, you will have already left",
+      "annotations": [
+        {
+          "span": "",
+          "ili": 24131,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 26548,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 35586,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 18319,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 31785,
+          "pos": "n"
+        }
+      ],
+      "source": "19_complex.json"
+    },
+    {
+      "text": "If you had told me earlier that you needed it",
+      "annotations": [
+        {
+          "span": "earlier/in the first place",
+          "ili": 25811,
+          "pos": "r"
+        },
+        {
+          "span": "need",
+          "ili": 19273,
+          "pos": "v"
+        },
+        {
+          "span": "",
+          "ili": 27561,
+          "pos": "n"
+        }
+      ],
+      "source": "19_complex.json"
+    },
+    {
+      "text": "I would have given it to you before she asked for it",
+      "annotations": [
+        {
+          "span": "ask for/bespeak",
+          "ili": 32755,
+          "pos": "v"
+        },
+        {
+          "span": "",
+          "ili": 18504,
+          "pos": "n"
+        },
+        {
+          "span": "",
+          "ili": 25463,
+          "pos": "n"
+        }
+      ],
+      "source": "19_complex.json"
+    },
+    {
+      "text": "Next week, I'll have John show Mary",
+      "annotations": [
+        {
+          "span": "future/next/succeeding",
+          "ili": 7058,
+          "pos": "a"
+        },
+        {
+          "span": "hebdomad/week",
+          "ili": 116937,
+          "pos": "n"
+        },
+        {
+          "span": "cause/do/make",
+          "ili": 29966,
+          "pos": "v"
+        },
+        {
+          "span": "demonstrate",
+          "ili": 32498,
+          "pos": "v"
+        }
+      ],
+      "source": "19_complex.json"
+    },
+    {
+      "text": "A: cammie was excited to put you in a bacon sandwich / B: ...what?",
+      "annotations": [
+        {
+          "span": "speaker/utterer",
+          "ili": 93180,
+          "pos": "n"
+        },
+        {
+          "span": "excited",
+          "ili": 451,
+          "pos": "a"
+        },
+        {
+          "span": "put/place",
+          "ili": 29197,
+          "pos": "v"
+        },
+        {
+          "span": "bacon",
+          "ili": 77287,
+          "pos": "n"
+        },
+        {
+          "span": "sandwich",
+          "ili": 77434,
+          "pos": "n"
+        },
+        {
+          "span": "interrogative",
+          "ili": 93180,
+          "pos": "a"
+        },
+        {
+          "span": "",
+          "ili": 17746,
+          "pos": "n"
+        }
+      ],
+      "source": "20_nonsensical.json"
+    },
+    {
+      "text": "three books",
+      "annotations": [
+        {
+          "span": "book",
+          "ili": 70180,
+          "pos": "n"
+        }
+      ],
+      "source": "21_chinese_specific.json"
+    },
+    {
+      "text": "Elephants have long noses",
+      "annotations": [
+        {
+          "span": "elephant",
+          "ili": 42919,
+          "pos": "n"
+        },
+        {
+          "span": "nose/olfactory organ",
+          "ili": 67327,
+          "pos": "n"
+        },
+        {
+          "span": "big/large",
+          "ili": 7530,
+          "pos": "a"
+        }
+      ],
+      "source": "21_chinese_specific.json"
+    },
+    {
+      "text": "He finished writing the letter",
+      "annotations": [
+        {
+          "span": "complete/finish",
+          "ili": 24131,
+          "pos": "v"
+        },
+        {
+          "span": "write",
+          "ili": 26548,
+          "pos": "v"
+        },
+        {
+          "span": "letter(written message)",
+          "ili": 72098,
+          "pos": "n"
+        }
+      ],
+      "source": "21_chinese_specific.json"
+    },
+    {
+      "text": "I understood (by listening)",
+      "annotations": [
+        {
+          "span": "hear/listen",
+          "ili": 25100,
+          "pos": "v"
+        },
+        {
+          "span": "know/understand",
+          "ili": 24735,
+          "pos": "v"
+        }
+      ],
+      "source": "21_chinese_specific.json"
+    },
+    {
+      "text": "I have been to China (at some point in the past)",
+      "annotations": [
+        {
+          "span": "already",
+          "ili": 18319,
+          "pos": "r"
+        },
+        {
+          "span": "arrive/come",
+          "ili": 31766,
+          "pos": "v"
+        },
+        {
+          "span": "China",
+          "ili": 83565,
+          "pos": "n"
+        }
+      ],
+      "source": "21_chinese_specific.json"
+    },
+    {
+      "text": "You must leave",
+      "annotations": [
+        {
+          "span": "must",
+          "ili": 4939,
+          "pos": "a"
+        },
+        {
+          "span": "go away/leave",
+          "ili": 31785,
+          "pos": "v"
+        }
+      ],
+      "source": "22_french_specific.json"
+    },
+    {
+      "text": "I want (some) bread",
+      "annotations": [
+        {
+          "span": "desire/want",
+          "ili": 30852,
+          "pos": "v"
+        },
+        {
+          "span": "bread",
+          "ili": 77487,
+          "pos": "n"
+        }
+      ],
+      "source": "22_french_specific.json"
+    },
+    {
+      "text": "I gave it to him",
+      "annotations": [
+        {
+          "span": "give",
+          "ili": 32755,
+          "pos": "v"
+        }
+      ],
+      "source": "22_french_specific.json"
+    },
+    {
+      "text": "I only eat rice",
+      "annotations": [
+        {
+          "span": "only/solely",
+          "ili": 18939,
+          "pos": "r"
+        },
+        {
+          "span": "eat",
+          "ili": 27459,
+          "pos": "v"
+        },
+        {
+          "span": "rice",
+          "ili": 78125,
+          "pos": "n"
+        }
+      ],
+      "source": "22_french_specific.json"
+    },
+    {
+      "text": "Yesterday I saw a movie",
+      "annotations": [
+        {
+          "span": "day(24 hours)",
+          "ili": 116932,
+          "pos": "n"
+        },
+        {
+          "span": "see",
+          "ili": 32402,
+          "pos": "v"
+        },
+        {
+          "span": "film/motion picture",
+          "ili": 72152,
+          "pos": "n"
+        }
+      ],
+      "source": "23_german_specific.json"
+    },
+    {
+      "text": "He gets up at 6 o'clock",
+      "annotations": [
+        {
+          "span": "arise/get up/rise",
+          "ili": 28937,
+          "pos": "v"
+        },
+        {
+          "span": "hour/time of day",
+          "ili": 116928,
+          "pos": "n"
+        }
+      ],
+      "source": "23_german_specific.json"
+    },
+    {
+      "text": "pleasure derived from another's misfortune",
+      "annotations": [
+        {
+          "span": "joy/pleasure",
+          "ili": 75944,
+          "pos": "n"
+        },
+        {
+          "span": "bad luck/misfortune",
+          "ili": 75996,
+          "pos": "n"
+        }
+      ],
+      "source": "23_german_specific.json"
+    },
+    {
+      "text": "I know that he will come",
+      "annotations": [
+        {
+          "span": "know",
+          "ili": 24735,
+          "pos": "v"
+        },
+        {
+          "span": "arrive/come",
+          "ili": 31766,
+          "pos": "v"
+        }
+      ],
+      "source": "23_german_specific.json"
+    },
+    {
+      "text": "The soup is hot (right now)",
+      "annotations": [
+        {
+          "span": "soup",
+          "ili": 76617,
+          "pos": "n"
+        },
+        {
+          "span": "hot(temperature)",
+          "ili": 5777,
+          "pos": "a"
+        }
+      ],
+      "source": "24_spanish_specific.json"
+    },
+    {
+      "text": "I'm glad you're here",
+      "annotations": [
+        {
+          "span": "glad/happy",
+          "ili": 4777,
+          "pos": "a"
+        },
+        {
+          "span": "be/exist",
+          "ili": 34708,
+          "pos": "v"
+        },
+        {
+          "span": "here",
+          "ili": 18537,
+          "pos": "r"
+        }
+      ],
+      "source": "24_spanish_specific.json"
+    },
+    {
+      "text": "Spanish is spoken here",
+      "annotations": [
+        {
+          "span": "here",
+          "ili": 18537,
+          "pos": "r"
+        },
+        {
+          "span": "speak/talk",
+          "ili": 26424,
+          "pos": "v"
+        },
+        {
+          "span": "Spanish language",
+          "ili": 73223,
+          "pos": "n"
+        }
+      ],
+      "source": "24_spanish_specific.json"
+    },
+    {
+      "text": "My grandma makes the best tortillas",
+      "annotations": [
+        {
+          "span": "grandmother/grandma",
+          "ili": 93057,
+          "pos": "n"
+        },
+        {
+          "span": "cute",
+          "ili": 903,
+          "pos": "a"
+        },
+        {
+          "span": "cook/fix/make/prepare",
+          "ili": 29455,
+          "pos": "v"
+        },
+        {
+          "span": "good",
+          "ili": 6163,
+          "pos": "a"
+        },
+        {
+          "span": "tortilla",
+          "ili": 77464,
+          "pos": "n"
+        }
+      ],
+      "source": "24_spanish_specific.json"
+    },
+    {
+      "text": "Would you like some tea?",
+      "annotations": [
+        {
+          "span": "desire/want",
+          "ili": 30852,
+          "pos": "v"
+        },
+        {
+          "span": "tea",
+          "ili": 78946,
+          "pos": "n"
+        }
+      ],
+      "source": "25_cross_cultural.json"
+    },
+    {
+      "text": "ate",
+      "annotations": [
+        {
+          "span": "eat",
+          "ili": 27459,
+          "pos": "v"
+        }
+      ],
+      "source": "25_cross_cultural.json"
+    },
+    {
+      "text": "Apparently he came (I heard)",
+      "annotations": [
+        {
+          "span": "apparently/evidently",
+          "ili": 19022,
+          "pos": "r"
+        },
+        {
+          "span": "arrive/come",
+          "ili": 31766,
+          "pos": "v"
+        }
+      ],
+      "source": "25_cross_cultural.json"
+    }
+  ]
+}
