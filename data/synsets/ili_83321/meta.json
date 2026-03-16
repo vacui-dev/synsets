@@ -1,0 +1,34 @@
+{
+  "ili": 83321,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T06:48:06.283706",
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
+  "generation_method": "v4_independent_per_language",
+  "wordnets": {
+    "en": "ewn:2020",
+    "zh": "omw-cmn:1.3 (no form entries, annotated via English WN)",
+    "ja": "omw-ja:1.3"
+  },
+  "synset_info": {
+    "pos": "n",
+    "definition": "a peninsula between the Red Sea and the Persian Gulf; strategically important for its oil resources",
+    "lemmas_en": [
+      "Arabia",
+      "Arabian Peninsula"
+    ],
+    "lemmas_ja": [],
+    "relations": {
+      "instance_hypernym": "peninsula (i85958)",
+      "holo_part": "Asia (i85019)",
+      "mero_part": [
+        "Saudi Arabia (i83946)",
+        "Oman (i83860)",
+        "Yemen (i84795)"
+      ]
+    }
+  }
+}
