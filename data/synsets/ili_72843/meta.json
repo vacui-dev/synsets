@@ -1,0 +1,29 @@
+{
+  "ili": 72843,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T06:18:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language",
+  "verification": "strict",
+  "ili_details": {
+    "pos": "n",
+    "definition": "the Dhegiha dialect spoken by the Osage",
+    "lemmas": ["Osage"],
+    "hypernym": {
+      "ili_id": "i72825",
+      "definition": "a branch of the Siouan languages"
+    },
+    "sibling_hyponyms": [
+      "i72831 (Kansa)",
+      "i72842 (Omaha)",
+      "i72845 (Ponca)",
+      "i72848 (Quapaw)"
+    ]
+  },
+  "token_count": 20,
+  "shared_ilis": [
+    35575, 37557, 61349, 61363, 67410, 69375, 69527, 72825, 72843, 72914,
+    74268, 79319, 80056, 81092, 81104, 82283, 93180, 109489, 113270
+  ],
+  "notes": "v4 independent generation: EN wrote directly in English, CZ wrote directly in Chinese (中文提示→中文出力), JA wrote directly in Japanese (日本語プロンプト→日本語出力). No translation flow, no English bias."
+}
