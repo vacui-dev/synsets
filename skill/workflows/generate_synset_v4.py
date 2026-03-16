@@ -21,6 +21,7 @@ from datetime import datetime
 LANGUAGES = {
     'en': {'name': 'English', 'prompt_lang': 'English', 'wordnet': 'ewn:2020'},
     'zh': {'name': 'Chinese', 'prompt_lang': 'Chinese', 'wordnet': 'omw-zh:1.3'},
+    'cz': {'name': 'Chinese', 'prompt_lang': 'Chinese', 'wordnet': 'omw-zh:1.3'},  # alias for zh
     'ja': {'name': 'Japanese', 'prompt_lang': 'Japanese', 'wordnet': 'omw-ja:1.3'},
 }
 
@@ -108,6 +109,24 @@ Location: data/synsets/ili_{ili_num}/{model}/natural/en.txt
 
 位置：data/synsets/ili_{ili_num}/{model}/natural/zh.txt
       data/synsets/ili_{ili_num}/{model}/ili/zh.txt""",
+
+        'cz': f"""为同义词集 ILI {ili_num} 生成中文定义。
+
+研究：使用 mcp_wordnet_get_synset(ili="i{ili_num}") 查询中文WordNet。
+
+撰写：chinese.txt
+- 维基百科质量的中文定义
+- 3-5句话，涵盖：是什么、上下文、用法、关系
+- 不要从其他语言翻译——直接用中文写作
+- 自然使用中文语法和表达习惯
+
+然后标注：chinese_ili.txt
+- 使用 mcp_wordnet_lookup_word 为实词标注ILI
+- 格式： <|ILI_NNNNN|>词
+- 不要标注：的、了、在、和、或、与等虚词
+
+位置：data/synsets/ili_{ili_num}/{model}/natural/cz.txt
+      data/synsets/ili_{ili_num}/{model}/ili/cz.txt""",
 
         'ja': f"""同義語セット ILI {ili_num} の日本語定義を生成します。
 
