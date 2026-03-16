@@ -1,0 +1,84 @@
+{
+  "ili": 51633,
+  "model": "opus-4",
+  "timestamp": "2026-03-16T05:59:17.236145",
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
+  "generation_method": "independent_per_language",
+  "description": "Catapult - medieval siege engine",
+  "ili_definition": "an engine that provided medieval artillery used during sieges; a heavy war engine for hurling large stones and other missiles",
+  "english_lemmas": [
+    "catapult"
+  ],
+  "chinese_lemmas": [
+    "抛石机",
+    "投石器",
+    "投石机"
+  ],
+  "japanese_lemmas": [
+    "トレビュシェット"
+  ],
+  "hyponyms": [
+    "trebuchet",
+    "mangonel",
+    "onager"
+  ],
+  "hypernym": "engine (war engine)",
+  "pos": "n",
+  "models": {
+    "opus-4": {
+      "alignment_verified": false,
+      "verification_mode": "loose",
+      "alignment_mismatches": [
+        {
+          "language": "zh",
+          "issue": "ili_set_mismatch",
+          "mode": "loose",
+          "missing": [
+            "97803",
+            "81754",
+            "22389",
+            "17071",
+            "10027"
+          ],
+          "extra": [
+            "34794",
+            "117433",
+            "64253",
+            "22460",
+            "36544",
+            "8913",
+            "51625"
+          ]
+        },
+        {
+          "language": "en",
+          "issue": "ili_set_mismatch",
+          "mode": "loose",
+          "missing": [
+            "27417",
+            "112940",
+            "18503",
+            "55642",
+            "18180",
+            "7579",
+            "40496"
+          ],
+          "extra": [
+            "29933",
+            "33943",
+            "50194",
+            "53421",
+            "8913",
+            "51625"
+          ]
+        }
+      ]
+    }
+  },
+  "verification": "independent_generation_skipped",
+  "verification_note": "v4 independent generation: each language has unique ILI coverage by design"
+}
