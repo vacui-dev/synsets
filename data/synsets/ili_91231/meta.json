@@ -1,0 +1,14 @@
+{
+  "ili": 91231,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-15T20:30:48.552915",
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
+  "generation_method": "independent_per_language_v4",
+  "pos": "n",
+  "lemma": "Marrano",
+  "notes": "Each language generated independently with native-language prompts. No translation flow."
+}
