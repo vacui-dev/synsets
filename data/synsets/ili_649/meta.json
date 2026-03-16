@@ -1,0 +1,27 @@
+{
+  "ili": 649,
+  "ili_id": "i649",
+  "model": "openrouter/hunter-alpha",
+  "synset_id": "ewn-00123436-a",
+  "timestamp": "2026-03-16T01:10:00.000000",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language",
+  "generation_tool": "hermes_agent_native",
+  "description": "Subsequent - following in time or order",
+  "pos": "a",
+  "lemmas": {
+    "en": ["subsequent"],
+    "cz": ["随后的", "随後"],
+    "ja": ["引き続く"]
+  },
+  "ili_annotated_count": {
+    "en": 33,
+    "cz": 35,
+    "ja": 46
+  },
+  "ili_unique_count": 20,
+  "relationships": {
+    "antonym": "preceding (existing or coming before)",
+    "similar": "succeeding, later, ulterior, posterior, following"
+  }
+}
