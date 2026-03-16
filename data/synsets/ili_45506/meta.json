@@ -1,0 +1,22 @@
+{
+  "ili": 45506,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T10:32:00",
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
+  "concept": "shock troops",
+  "lemmas": {
+    "en": "shock troops",
+    "zh": "突击部队",
+    "ja": "突撃部隊"
+  },
+  "definition_en": "soldiers who are specially trained and armed to lead an assault",
+  "generation_method": "independent_per_language_v4",
+  "wordnet_synsets": {
+    "en": "ewn-08290925-n",
+    "ja": "omw-ja-08274004-n"
+  }
+}
