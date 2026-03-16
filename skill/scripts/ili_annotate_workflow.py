@@ -61,7 +61,7 @@ STOPWORDS = frozenset({
     "etc", "e", "g", "ie", "vs", "non",
 })
 
-ILITOKEN_RE = re.com...) 
+ILITOKEN_RE = re.compile(r"<\|(?:i|ILI_)(\d+)\|>")
 
 # ---------------------------------------------------------------------------
 # Text Processing

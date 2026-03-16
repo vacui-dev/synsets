@@ -153,11 +153,17 @@ def lookup_phrase(words: list[str]) -> list[dict]:
     ]
 
 def get_synset(ili: str) -> dict | None:
-    """Get synset details by ILI ID."""
+    """Get synset details by ILI ID.
+
+    Supports formats: i35152, ILI_035152, 35152, <|i35152|>, <|ILI_035152|>
+    """
+    import re as _re
     conn = get_db()
-    # Handle various ILI formats
-    ili_clean = ili.replace("ILI_", "").replace("<|", "").replace("|>", "").replace("i", "")
-    ili_formatted = f"i{ili_clean}"
+    # Extract numeric ILI ID from any format
+    m = _re.search(r'(\d+)', ili)
+    if not m:
+        return None
+    ili_formatted = f"i{int(m.group(1))}"
     
     # Get synset info + definition from definitions table
     row = conn.execute("""
@@ -226,14 +232,16 @@ def search_definitions(query: str) -> list[dict]:
     if not words:
         return []
     
-    # Search in ILI definitions
+    # Search in definitions
     patterns = [f"%{w}%" for w in words]
-    placeholders = " OR ".join(["i.definition LIKE ?"] * len(words))
-    
+    where_clauses = ["LOWER(d.definition) LIKE ?"] * len(words)
+    placeholders = " AND ".join(where_clauses)
+
     rows = conn.execute(f"""
-        SELECT DISTINCT i.id as ili, sy.pos, i.definition
-        FROM ilis i
-        JOIN synsets sy ON sy.ili_rowid = i.rowid
+        SELECT DISTINCT i.id as ili, sy.pos, d.definition
+        FROM definitions d
+        JOIN synsets sy ON d.synset_rowid = sy.rowid
+        JOIN ilis i ON i.rowid = sy.ili_rowid
         WHERE {placeholders}
         LIMIT 20
     """, patterns).fetchall()
