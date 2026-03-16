@@ -1,0 +1,14 @@
+{
+  "ili": 59406,
+  "model": "v4-independent",
+  "timestamp": "2026-03-16T03:25:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language",
+  "synset": {
+    "pos": "n",
+    "definition": "a soft padded sofa",
+    "lemmas": ["squab"],
+    "hypernyms": [{"ili": "i59184", "pos": "n", "definition": "an upholstered seat for more than one person"}],
+    "hyponyms": []
+  }
+}
