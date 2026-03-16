@@ -1,0 +1,27 @@
+{
+  "ili": 38357,
+  "ili_id": "i38357",
+  "lemma": "give-and-go",
+  "pos": "n",
+  "definition_en": "a basketball maneuver; one offensive player passes the ball to another, then runs toward the basket to take a return pass",
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T05:06:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language_v4",
+  "verification": "strict",
+  "wordnet_sources": {
+    "en": "ewn:2020",
+    "cz": "manual (no Chinese WordNet available)",
+    "ja": "omw-ja:1.3 (partial)"
+  },
+  "hypernym_chain": [
+    {"ili": "i38357", "def": "a basketball maneuver"},
+    {"ili": "i38354", "def": "a play executed by a basketball team"},
+    {"ili": "i38323", "def": "a preset plan of action in team sports"}
+  ],
+  "annotations_count": {
+    "en": 18,
+    "cz": 15,
+    "ja": 16
+  }
+}
