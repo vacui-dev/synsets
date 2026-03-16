@@ -1,0 +1,17 @@
+{
+  "ili": 12434,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T11:15:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language_v4",
+  "verification": "manual",
+  "word": "serrulate",
+  "pos": "s",
+  "wordnet_definition": "minutely serrated",
+  "related": {
+    "hypernym": "i12416 (rough - of the margin of a leaf shape)",
+    "similar": "i12433 (serrated - notched like a saw with teeth pointing toward the apex)",
+    "domain": "i68597 (botany - the branch of biology that studies plants)"
+  },
+  "notes": "v4.0 independent generation: EN prompt in English, CZ prompt in Chinese, JA prompt in Japanese. No translation flow, no English bias."
+}
