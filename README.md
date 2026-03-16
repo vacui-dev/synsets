@@ -6,9 +6,11 @@
 **Built for the [Nous Research Hermes Agent Hackathon 2026](https://nousresearch.com)** 
 Designed to be integrated with the **Hermes Agent IDE**. All project commits after the initial foundation were generated autonomously by the Hermes Agent.
 
-[![](http://img.youtube.com/vi/PLACEHOLDER/0.jpg)](https://www.youtube.com/watch?v=PLACEHOLDER)
-_Watch the development of this repository._
-(Initial foundation created with [Claude Code](https://github.com/anthropics/claude-code)).
+[![](http://img.youtube.com/vi/PLACEHOLDER/0.jpg)](https://youtu.be/DKfrugnraeQ)
+
+_Watch a timelapse video of the latter development of this repository._
+
+https://youtu.be/DKfrugnraeQ
 
 ---
 
