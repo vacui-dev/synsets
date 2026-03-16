@@ -1,0 +1,38 @@
+{
+  "ili": 35000,
+  "ili_id": "i35000",
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T09:33:50.524543",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "v4_independent_per_language",
+  "pos": "v",
+  "wordnet_definition": "to show differences when compared; be different",
+  "lemmas": {
+    "en": [
+      "contrast",
+      "counterpoint"
+    ],
+    "cz": [
+      "对照",
+      "对比"
+    ],
+    "ja": [
+      "対照を成す",
+      "相違が際立つ"
+    ]
+  },
+  "relations_summary": {
+    "hypernym": "i34997 (be different)",
+    "hyponyms": [
+      "i34998",
+      "i35001",
+      "i35367"
+    ]
+  },
+  "verification": "manual",
+  "notes": "v4 workflow: each language generated independently with native-language prompts"
+}
