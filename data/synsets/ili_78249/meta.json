@@ -1,0 +1,19 @@
+{
+  "ili": 78249,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-15T23:49:00",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "v4_independent_per_language",
+  "verification": "manual",
+  "concept": "curry powder",
+  "pos": "n",
+  "lemmas": [
+    "curry powder"
+  ],
+  "hypernym": "i78162 (seasoning)",
+  "description": "Pungent spice blend of cumin, coriander, turmeric and other spices"
+}
