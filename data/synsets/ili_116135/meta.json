@@ -1,0 +1,33 @@
+{
+  "ili": 116135,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T15:16:10.738573",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "independent_per_language",
+  "verification": "strict",
+  "ili_id": "i116135",
+  "pos": "n",
+  "definition": "an antitoxin that counteracts the effects of venom from the bite of a snake or insect or other animal",
+  "lemmas": {
+    "en": [
+      "antivenin",
+      "antivenene"
+    ],
+    "zh": [
+      "抗蛇毒素",
+      "抗蛇毒血清"
+    ],
+    "ja": [
+      "抗毒素血清"
+    ]
+  },
+  "hypernym": {
+    "ili": "i116134",
+    "lemma": "antitoxin",
+    "definition": "an antibody that can neutralize a specific toxin"
+  }
+}
