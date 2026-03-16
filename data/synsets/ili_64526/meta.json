@@ -1,0 +1,11 @@
+{
+  "ili": 64526,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-15T19:52:00",
+  "languages": ["en", "zh", "ja"],
+  "generation_method": "independent_per_language",
+  "verification": "strict",
+  "pos": "n",
+  "definition": "(anatomy) any hollow cylindrical body structure",
+  "lemmas": ["tube", "tube-shaped structure"]
+}
