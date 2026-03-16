@@ -1,0 +1,13 @@
+{
+  "ili": 32918,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T10:20:58.813905",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "independent_per_language",
+  "version": "v4",
+  "notes": "Each language generated independently with native-language prompts. No translation flow."
+}
