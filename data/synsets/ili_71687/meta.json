@@ -1,0 +1,15 @@
+{
+  "ili": 71687,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T12:34:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language",
+  "verification": "strict",
+  "source_synset": {
+    "pos": "n",
+    "definition": "a bachelor's degree in arts and sciences",
+    "lemmas": ["AB", "Artium Baccalaurens", "BA", "Bachelor of Arts", "文学士"],
+    "hypernym": "i71686 - an academic degree conferred on someone who has successfully completed undergraduate studies",
+    "hypernym_2": "i71681 - an award conferred by a college or university signifying that the recipient has satisfactorily completed a course of study"
+  }
+}
