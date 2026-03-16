@@ -1,0 +1,19 @@
+{
+  "ili": 42045,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T15:30:00",
+  "languages": ["en", "zh", "ja"],
+  "generation_method": "v4_independent_per_language",
+  "synset_info": {
+    "lemmas_en": ["obfuscation", "mystification"],
+    "pos": "n",
+    "definition_en": "the activity of obscuring people's understanding, leaving them baffled or bewildered",
+    "hypernym": "activity (any specific behavior)"
+  },
+  "language_prompts": {
+    "en": "English prompt → English output",
+    "zh": "中文提示 → 中文输出",
+    "ja": "日本語プロンプト → 日本語出力"
+  },
+  "verification": "manual"
+}
