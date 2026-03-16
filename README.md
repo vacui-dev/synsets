@@ -3,7 +3,12 @@
 [![License: MOSL v2.0](https://img.shields.io/badge/License-MOSL%20v2.0-blue)](https://github.com/vacui-dev/synsets/blob/main/LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/vacui-dev/synsets)](https://github.com/vacui-dev/synsets/commits/main)
 
-**Built for the [Nous Research Hermes Agent Hackathon 2026](https://nousresearch.com)**
+**Built for the [Nous Research Hermes Agent Hackathon 2026](https://nousresearch.com)** 
+Designed to be integrated with the **Hermes Agent IDE**. All project commits after the initial foundation were generated autonomously by the Hermes Agent.
+
+[![](http://img.youtube.com/vi/PLACEHOLDER/0.jpg)](https://www.youtube.com/watch?v=PLACEHOLDER)
+_Watch the development of this repository._
+(Initial foundation created with [Claude Code](https://github.com/anthropics/claude-code)).
 
 ---
 
@@ -48,14 +53,14 @@ One layer instead of three. Across a 96-layer model, that's an enormous amount o
 
 ## What This Project Does
 
-Synsets is an autonomous pipeline that uses **Hermes-4-405B** as an agent to produce ILI-annotated training data at scale. The agent:
+Synsets is an autonomous pipeline that uses an agent to produce ILI-annotated training data at scale. The agent:
 
-1. Receives raw text (English definitions, multilingual content)
+1. Receives raw text
 2. Calls tools against a local **WordNet MCP server** to look up every content word
 3. Performs word sense disambiguation using context
 4. Outputs text where every content word carries its ILI concept ID
 
-The key architectural choice: **the disambiguation cost is paid once at data generation time, not per token at inference.** We use a frontier model (Hermes-4-405B) as a teacher to produce training data for a smaller model that will inherit disambiguated representations.
+The key architectural choice: **the disambiguation cost is paid once at data generation time, not per token at inference.** We use an agentic workflow to produce training data for models that will inherit disambiguated representations.
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -150,13 +155,34 @@ open index.html
 
 ## Data Methodology
 
-The included dataset was produced in two stages:
+The pipeline uses a strict two-pass architecture:
 
-1. **Confidence-based pre-processing**: Direct WordNet lookup with lemmatization assigned ILI tokens to high-confidence unambiguous words (~51 ILIs/record). Ambiguous words left as plaintext.
+### Pass 1: Natural Definitions (No ILI Awareness)
 
-2. **Hermes tool-use annotation**: Hermes-4-405B received each partially-annotated record and used WordNet tool calls to disambiguate and assign ILIs to remaining content words (~46 additional ILIs/record). Each ILI is traceable to a specific tool call — zero hallucination by design.
+The model writes Wikipedia-quality definitions in English, Chinese, and Japanese from its own knowledge. It has NO access to WordNet, ILI IDs, or synset information during this pass. This keeps the encyclopedic knowledge pure — untainted by the particularities of synset structure.
 
-Output (`data/synsets_annotated.jsonl`) includes both `human_text` (readable) and per-word `assignments` from Hermes, tracking which ILIs came from which method.
+### Pass 2: ILI Annotation (Post-Processing)
+
+The model receives the natural definitions from Pass 1 plus a pre-computed WordNet sense table for every content word. It annotates content words with ILI tags: `<|ILI_NNNNNN|>word`. Function words (determiners, prepositions, particles, auxiliaries) remain untagged.
+
+**Why two passes?** Synset information should be pure post-processing. If a model writes a definition while simultaneously thinking about ILI IDs, the synset structure leaks into the prose — definitions start mirroring WordNet's phrasing rather than reflecting genuine encyclopedic knowledge. Separation of concerns produces better data on both sides.
+
+### Batch Mode (Advanced Models)
+
+The `batch_generate.py` script processes multiple ILIs in parallel:
+- All WordNet lookups happen in one batch (not word-by-word)
+- All definitions generated in one pass (not sentence-by-sentence)
+- All annotations applied in one pass (not ILI-by-ILI)
+
+This is designed for models that can handle large context windows and parallel tool calls. Dumber models need hand-holding (one ILI, one sentence, one tool call at a time). Advanced models can handle 10+ ILIs × 3 languages × all tool lookups in a single shot.
+
+```bash
+# Batch generate 10 ILIs
+python skill/scripts/batch_generate.py --count 10
+
+# Specific range
+python skill/scripts/batch_generate.py --start 1000 --count 20
+```
 
 **Generate your own data.** The MCP server and annotation pipeline are the contribution. The included data is a demonstration, not a finished dataset.
 
@@ -190,6 +216,7 @@ Languages use ISO 639-1 codes: `en` (English), `zh` (Chinese), `ja` (Japanese).
 skill/
   scripts/
     common.py                  # Shared utilities (stopwords, lemmatizer, DB, ILI patterns)
+    batch_generate.py          # Two-pass batch synset generator (advanced models)
     hermes_tool_use.py         # Main annotation pipeline (tool-use loop)
     wordnet_mcp_server.py      # HTTP MCP server
     wordnet_mcp_server_stdio.py# stdio MCP server (for agent integration)
@@ -215,6 +242,11 @@ skill/
   workflows/
     generate_synset_v*.py      # Multilingual synset generation workflows
     annotate_text.yaml         # Text annotation workflow spec
+scripts/                        # Utility scripts (root-level, not part of skill)
+  check_ili.py                 # ILI validation helpers
+  find_ili.py                  # ILI search utilities
+  lookup_*.py                  # Various lookup scripts
+  process_batch_*.py           # Batch processing scripts
 data/
   synsets/                     # Multilingual ILI definitions
   synsets_annotated.jsonl      # Merged annotation output
@@ -234,10 +266,10 @@ index.html                     # Interactive web explorer
 
 ## Built With
 
-- **Hermes-4-405B** — autonomous agent for word sense disambiguation
+- **Autonomous Agentic Workflows** — for word sense disambiguation
 - **WordNet / CILI** — 120K synsets, 117K ILI mappings, 50+ languages
 - **MCP (Model Context Protocol)** — standard tool interface for agents
-- **Nous Research Inference API** — agent hosting
+- **Inference API** — agent hosting
 
 ## License
 
