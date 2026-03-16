@@ -1,0 +1,28 @@
+{
+  "ili": 59563,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T13:33:56.410479",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "synset_info": {
+    "pos": "n",
+    "english_lemmas": [
+      "stereo",
+      "stereoscopic photograph",
+      "stereoscopic picture"
+    ],
+    "english_definition": "two photographs taken from slightly different angles that appear three-dimensional when viewed together",
+    "japanese_lemmas": [
+      "ステレオ"
+    ],
+    "hypernym_ili": "i57211",
+    "hyponym_ilis": [
+      "i49992"
+    ]
+  },
+  "generation_method": "independent_per_language",
+  "version": "4.0"
+}
