@@ -1,0 +1,25 @@
+{
+  "ili": 60049,
+  "pos": "n",
+  "wordnet_definition": "a restaurant where tea and light meals are available",
+  "lemmas": {
+    "en": ["teashop", "teahouse", "tea parlor", "tea parlour", "tearoom"],
+    "ja": ["喫茶店", "ティーハウス", "ティールーム"]
+  },
+  "relations": {
+    "hypernyms": [
+      {"ili": "i58115", "pos": "n", "definition": "a building where people go to eat", "lemmas": ["restaurant", "eating house", "eatery"]}
+    ],
+    "hyponyms": [
+      {"ili": "i51311", "pos": "n", "definition": "a teashop where students in British universities can purchase light meals", "lemmas": ["buttery"]}
+    ],
+    "domain_region": [
+      {"ili": "i83373", "pos": "n", "definition": "a monarchy in northwestern Europe occupying most of the British Isles", "lemmas": ["United Kingdom"]}
+    ]
+  },
+  "timestamp": "2026-03-16T00:00:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "v4_independent_per_language",
+  "model": "openrouter/hunter-alpha",
+  "notes": "Chinese (cz) has no WordNet backing - generated independently. Each language written natively without translation."
+}
