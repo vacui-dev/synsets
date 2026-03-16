@@ -38,8 +38,11 @@ def extract_ili_sequence(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    # Find all ILI tags in order
-    ilis = re.findall(r'<\|ILI_(\d+)\|>', content)
+    # Find all ILI tags in order - support both formats:
+    # <|iNNNNN|> (current internal format) and <|ILI_NNNNN|> (legacy)
+    ilis = re.findall(r'<\|i(\d+)\|>', content)
+    if not ilis:
+        ilis = re.findall(r'<\|ILI_(\d+)\|>', content)
     return ilis
 
 
@@ -57,7 +60,7 @@ def strip_to_ili_only(filepath, output_path=None):
     if ilis is None:
         return None
     
-    result = ' '.join([f"<|ILI_{ili}|>" for ili in ilis])
+    result = ' '.join([f"<|i{ili}|>" for ili in ilis])
     
     if output_path:
         with open(output_path, 'w', encoding='utf-8') as f:

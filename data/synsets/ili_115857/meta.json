@@ -1,0 +1,26 @@
+{
+  "ili": 115857,
+  "ili_token": "i115857",
+  "lemma": "pepsinogen",
+  "pos": "n",
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-15T23:00:00",
+  "languages": ["en", "zh", "ja"],
+  "generation_method": "independent_per_language_v4",
+  "workflow": "generate_synset_v4",
+  "source": "ewn:2020",
+  "definition_en": "precursor of pepsin; stored in the stomach walls and converted to pepsin by hydrochloric acid in the stomach",
+  "hypernyms": [
+    {
+      "ili": "i114419",
+      "definition": "any of several complex proteins that are produced by cells and act as catalysts in specific biochemical reactions",
+      "lemma": "enzyme"
+    }
+  ],
+  "lemmas": ["pepsinogen"],
+  "annotation_counts": {
+    "en": {"total": 28, "unique": 18},
+    "zh": {"total": 32, "unique": 18},
+    "ja": {"total": 32, "unique": 19}
+  }
+}
