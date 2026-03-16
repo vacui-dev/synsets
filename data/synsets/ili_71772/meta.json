@@ -1,0 +1,21 @@
+{
+  "ili": 71772,
+  "model": "v4-independent",
+  "timestamp": "2026-03-16T04:00:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language",
+  "synset": {
+    "pos": "n",
+    "definition": "blunt criticism",
+    "lemmas": ["brickbat"],
+    "hypernyms": [
+      {
+        "ili": "i71771",
+        "pos": "n",
+        "definition": "disapproval expressed by pointing out faults or shortcomings",
+        "lemmas": ["criticism", "unfavorable judgment"]
+      }
+    ],
+    "hyponyms": []
+  }
+}
