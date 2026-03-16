@@ -1,0 +1,10 @@
+{"ili": "ili_1", "synset_id": "00001740-a", "words": ["able"], "en_def": "having the necessary means or skill to do something", "zh_def": "拥有做某事的必要手段或技能", "ja_def": "何かをするのに必要な手段や技能を持っている", "pos": "adjective"}
+{"ili": "ili_2", "synset_id": "00002098-a", "words": ["unable"], "en_def": "not having the necessary means or skill to do something", "zh_def": "没有必要的手段或技能去做某事", "ja_def": "何かをするのに必要な手段や技能を持っていない", "pos": "adjective"}
+{"ili": "ili_3", "synset_id": "00002312-a", "words": ["abaxial", "dorsal"], "en_def": "facing away from the axis of an organ or organism", "zh_def": "背离器官或生物体轴的", "ja_def": "器官や生物の軸から離れた向きの", "pos": "adjective"}
+{"ili": "ili_4", "synset_id": "00002684-a", "words": ["adaxial", "ventral"], "en_def": "nearest to or facing toward the axis of an organ or organism", "zh_def": "最靠近或朝向器官或生物体轴的", "ja_def": "器官や生物の軸に最も近い、または軸に向かう", "pos": "adjective"}
+{"ili": "ili_5", "synset_id": "00003093-a", "words": ["acroscopic"], "en_def": "facing or on the side toward the apex", "zh_def": "朝向顶端的或位于朝向顶端的一侧", "ja_def": "頂点に向かう側にある、またはその側を向いている", "pos": "adjective"}
+{"ili": "ili_6", "synset_id": "00003243-a", "words": ["basiscopic"], "en_def": "facing or on the side toward the base", "zh_def": "朝向基部的或位于朝向基部的一侧", "ja_def": "基部に向かう側にある、またはその側を向いている", "pos": "adjective"}
+{"ili": "ili_7", "synset_id": "00003384-a", "words": ["abducent", "abducting"], "en_def": "drawing away from the midline of the body or from an adjacent part", "zh_def": "从身体中线或相邻部位向外拉的", "ja_def": "身体の正中線または隣接する部分から離れる方向に動かす", "pos": "adjective"}
+{"ili": "ili_8", "synset_id": "00003736-a", "words": ["adducent", "adducting", "adductive"], "en_def": "drawing toward the midline of the body or toward an adjacent part", "zh_def": "向身体中线或相邻部位内拉的", "ja_def": "身体の正中線または隣接する部分に向かって引き寄せる", "pos": "adjective"}
+{"ili": "ili_9", "synset_id": "00004085-a", "words": ["nascent"], "en_def": "being born or beginning", "zh_def": "正在诞生或开始的", "ja_def": "生まれたばかりの、または始まったばかりの", "pos": "adjective"}
+{"ili": "ili_10", "synset_id": "00004275-a", "words": ["emerging"], "en_def": "coming into existence", "zh_def": "开始存在的", "ja_def": "存在し始めている", "pos": "adjective"}

@@ -1,0 +1,191 @@
+---
+name: generate_single_synset
+description: |
+  Generate complete synset data (EN definition, CZ definition, 
+  annotated versions) for ONE ILI in a single invocation.
+  
+  This workflow manages context by processing in phases:
+  1. Research phase - gather all synset info
+  2. Write phase - create EN and CZ text files  
+  3. Annotation phase - annotate word by word with lookups
+  
+  Each phase completes before next begins. Tool calls are 
+  concentrated in annotation phase with efficient batching.
+
+steps:
+  - id: research
+    description: Deep research on the target ILI
+    tool: mcp_wordnet_get_synset
+    input:
+      ili: "${ili_id}"
+    output: synset_info
+    
+  - id: explore_hypernyms
+    description: Understand broader context
+    tool: mcp_wordnet_get_synset
+    input:
+      ili: "${synset_info.hypernyms[0].ili}"
+    output: hypernym_info
+    condition: synset_info.hypernyms|length > 0
+    
+  - id: explore_hyponyms  
+    description: Understand narrower terms
+    tool: mcp_wordnet_get_synset
+    input:
+      ili: "${synset_info.hyponyms[0].ili}"
+    output: hyponym_info
+    condition: synset_info.hyponyms|length > 0
+
+  - id: write_english
+    description: Write Wikipedia-quality English definition
+    action: |
+      Based on research, write 3-5 sentence comprehensive definition.
+      Include: what it is, context, relationships, usage.
+      Save to: data/synsets/ili_${ili_num}/ili_${ili_num}_def_en.txt
+    tool: write_file
+    input:
+      path: "data/synsets/ili_${ili_num}/ili_${ili_num}_def_en.txt"
+      content: "${english_definition}"
+
+  - id: write_chinese
+    description: Write Chinese translation  
+    action: |
+      Translate English definition accurately.
+      Maintain technical terms appropriately.
+      Save to: data/synsets/ili_${ili_num}/ili_${ili_num}_def_zh.txt
+    tool: write_file
+    input:
+      path: "data/synsets/ili_${ili_num}/ili_${ili_num}_def_zh.txt"
+      content: "${chinese_definition}"
+
+  - id: annotate_english
+    description: Annotate English definition with ILI tokens
+    action: |
+      Read English file, then word-by-word:
+      1. Check if word is content word (not stopword)
+      2. Call mcp_wordnet_lookup_word for each content word
+      3. Insert <|ILI_NNNNN|> before each annotated word
+      4. Save to _annotated.txt
+    sub_steps:
+      - extract_words
+      - lookup_each_word
+      - insert_tokens
+      - write_annotated
+
+  - id: annotate_chinese
+    description: Annotate Chinese definition with ILI tokens
+    action: |
+      Same process as English but with Chinese text.
+      Use same ILI IDs (language-neutral).
+      Skip Chinese function words.
+    sub_steps:
+      - extract_words
+      - lookup_each_word
+      - insert_tokens
+      - write_annotated
+
+  - id: commit
+    description: Commit the new synset files
+    tool: terminal
+    input:
+      command: |
+        cd /home/ubt18/synsets && \
+        git add data/synsets/ili_${ili_num}/ && \
+        git commit -m "Add synset ILI ${ili_num}" && \
+        git push
+
+parameters:
+  ili_num:
+    type: integer
+    description: ILI number to process (1-117480)
+    required: true
+    
+  ili_id:
+    type: string
+    description: Full ILI ID like "i73081"
+    default: "i${ili_num}"
+
+context_management:
+  # After each major phase, context can be compressed
+  # Previous tool results are summarized, not kept raw
+  compress_after:
+    - research
+    - write_english
+    - annotate_english
+  
+  # Keep these in context
+  preserve:
+    - synset_info.definition
+    - synset_info.lemmas
+    - synset_info.ili
+    - current_file_being_annotated
+
+examples:
+  - input:
+      ili_num: 73081
+    expected_flow:
+      - Get synset info for i73081 (Thraco-Phrygian)
+      - Explore hypernym i73074 (Indo-European)
+      - Explore hyponyms i73082 (Thracian), i73083 (Phrygian)
+      - Write comprehensive EN definition
+      - Write CZ translation
+      - Annotate both with ILI tokens
+      - Commit files
+---
+
+# Synset Generation Workflow
+
+This workflow generates complete annotated synset data for ONE ILI.
+
+## Context Management
+
+The key insight: **Process one synset per invocation** with fresh context.
+
+Instead of:
+- One long conversation with 100,000 tool calls
+
+We do:
+- 117,480 separate invocations
+- Each with 50-200 tool calls
+- Each completes one synset fully
+- Context resets between synsets
+
+## Running at Scale
+
+### Option 1: Cron Job (Automated)
+```bash
+# Generate 10 synsets every hour
+cronjob create --name synset-generator \
+  --schedule "0 * * * *" \
+  --prompt "Generate 10 random synsets using /home/ubt18/synsets/skill/workflows/generate_synset.py --count 10"
+```
+
+### Option 2: Batch Script
+```bash
+# Run 100 synsets now
+python /home/ubt18/synsets/skill/workflows/generate_synset.py --count 100
+```
+
+### Option 3: Continuous Daemon
+```bash
+# Keep generating until all 117,480 done
+while true; do
+  python /home/ubt18/synsets/skill/workflows/generate_synset.py
+  sleep 5
+done
+```
+
+## Tool Call Budget
+
+Per synset:
+- 1 get_synset (main)
+- 1-3 get_synset (hypernyms/hyponyms)
+- ~10 lookup_word (key terms)
+- 2 write_file (EN, CZ)
+- ~50-100 lookup_word (annotation)
+- 2 write_file (annotated)
+- 1 terminal (git commit)
+
+Total: ~70-120 tool calls per synset
+
+With 200 tool call limit: Safe margin for complex synsets

@@ -1,133 +1,132 @@
-# Synsets — Autonomous ILI Annotation with Hermes-4-405B
+# Synsets — Concept-Based Tokenization for Language Models
 
 [![License: MOSL v2.0](https://img.shields.io/badge/License-MOSL%20v2.0-blue)](https://github.com/vacui-dev/synsets/blob/main/LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/vacui-dev/synsets)](https://github.com/vacui-dev/synsets/commits/main)
 
-**Built for the [Nous Research Hermes Agent Hackathon 2026](https://nousresearch.com)**
+**Built for the [Nous Research Hermes Agent Hackathon 2026](https://nousresearch.com)** 
+Designed to be integrated with the **Hermes Agent IDE**. All project commits after the initial foundation were generated autonomously by the Hermes Agent.
 
-Synsets is a tool that uses **Hermes-4-405B** as an autonomous agent to annotate text with [Interlingual Index](https://cili.globalwordnet.org/) (ILI) identifiers from WordNet. Hermes calls tools against a local **WordNet MCP server**, performs word sense disambiguation in context, and produces annotated text where every content word is linked to a language-neutral concept ID.
+[![](http://img.youtube.com/vi/PLACEHOLDER/0.jpg)](https://www.youtube.com/watch?v=PLACEHOLDER)
+_Watch the development of this repository._
+(Initial foundation created with [Claude Code](https://github.com/anthropics/claude-code)).
 
-## How It Works
+---
+
+## The Problem
+
+Every LLM in production today tokenizes text the same way: BPE or SentencePiece, trained on byte-level co-occurrence statistics. These algorithms are agnostic to meaning. "Bank" gets one token whether it's a riverbank or a financial institution. "Apple" is closer to "iPhone" than to "fruit" in embedding space. "Azure" vectors toward "Microsoft," not "blue."
+
+This is a [documented, measurable problem](https://aclanthology.org/2024.emnlp-main.272.pdf). But it's worse than the paper shows — it's not just that embeddings are polluted. It's that **every transformer layer** must re-derive meaning from context, burning attention on a problem that could be solved once at tokenization. The model's finite compute is spent on disambiguation instead of reasoning.
+
+Current models think like this:
 
 ```
-┌─────────────────────────────────────────────────────┐
-│  Hermes-4-405B (via Nous Inference API)             │
-│  ┌───────────────────────────────────────────────┐  │
-│  │  System prompt: "You are an ILI annotator.    │  │
-│  │  For EVERY content word, call a tool first.   │  │
-│  │  Never guess an ILI ID from memory."          │  │
-│  └───────────────────┬───────────────────────────┘  │
-│                      │ tool_calls                    │
-│                      ▼                               │
-│  ┌─────────────────────────────────────────────┐    │
-│  │  Tool Execution Loop                        │    │
-│  │  1. Hermes emits tool_call (lookup_word)    │    │
-│  │  2. Local executor runs query against MCP   │    │
-│  │  3. Results returned as tool message        │    │
-│  │  4. Repeat until Hermes returns final text  │    │
-│  └─────────────────────────────────────────────┘    │
-└─────────────────────────────────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────────┐
-│  WordNet MCP Server (localhost:8741)                 │
-│                                                     │
-│  GET /lookup?word=represent&pos=v                    │
-│  GET /phrase?words=orange+juice                      │
-│  GET /synset?ili=i35152                              │
-│  GET /search?q=financial+institution                 │
-│  GET /health                                        │
-│                                                     │
-│  SQLite backend: 120K synsets, 117K ILI mappings    │
-│  Auto-lemmatization: -s, -ed, -ing, -ies, -ly, etc │
-│  Threaded HTTP server, persistent DB connection     │
-└─────────────────────────────────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────────┐
-│  Output: JSONL with per-word ILI assignments        │
-│                                                     │
-│  {                                                  │
-│    "record_num": 42,                                │
-│    "original_text": "The concept of realm ...",     │
-│    "retranslated_text": "The <|i67543|> of ...",    │
-│    "assignments": [                                 │
-│      {"word":"concept","ili":67543,"pos":"n",       │
-│       "definition":"an abstract or general idea"}   │
-│    ]                                                │
-│  }                                                  │
-└─────────────────────────────────────────────────────┘
+"The bank approved the loan"
+ → [bank] → embedding is ambiguous
+ → layer 1: attends to "loan" → maybe financial?
+ → layer 2: attends to "approved" → probably financial
+ → layer 3: confident it's financial institution
+ → ...model can now start actual reasoning
 ```
 
-## What is ILI?
+Three layers of attention, just to figure out which "bank" this is. Multiply by every content word, every sentence, every forward pass.
 
-The **Interlingual Index** (ILI) provides language-neutral concept IDs from the [Collaborative Interlingual Index](https://cili.globalwordnet.org/) (CILI). Each ILI ID maps to a WordNet synset — a group of words sharing the same meaning. ILI IDs are stable across languages: `i67543` means "an abstract or general idea" whether you're working in English, Dutch, Japanese, or any other language with a linked WordNet.
+## The Solution
 
-This makes ILI-annotated text a bridge between natural language and structured semantics. The same annotated corpus can be used for:
-- Cross-lingual NLP (word sense alignment across languages)
-- Semantic search (query by concept, not surface form)
-- Training data for word sense disambiguation models
-- Knowledge graph construction
+**Interlingual Index (ILI)** concept IDs from [CILI](https://cili.globalwordnet.org/) (Collaborative Interlingual Index) provide ~120K language-neutral concept identifiers, each mapped to a WordNet synset. Every concept gets a unique token:
 
-## Beyond Annotation: Concept-Based Tokenization
+```
+bank (financial) → ILI_092258
+bank (river)     → ILI_092416
+bank (rely on)   → ILI_017203
+```
 
-Current LLM tokenizers (BPE, SentencePiece) encode **co-occurrence patterns**, not meaning. "Bank" always gets the same token ID whether it means a financial institution or a riverbank. The embedding layer flattens every type of relationship — semantic, brand, metaphorical — into a single vector, and attention has to sort it out. This is a [documented problem](https://aclanthology.org/2024.emnlp-main.272.pdf): "Azure" is closer to "Microsoft" than to "blue" in most model embedding spaces. "Apple" is closer to "iPhone" than to "fruit."
+A model trained on ILI-annotated text receives pre-disambiguated input. The meaning is in the vocabulary. Attention is freed for actual reasoning — inference, planning, composition — rather than spent on the tax of ambiguity.
 
-ILI solves this at the vocabulary level. Each concept gets a unique token: `bank (financial)` and `bank (river)` are different IDs, not the same token requiring disambiguation. ~120K language-neutral concepts, already mapped across 50+ languages via WordNet's [Collaborative Interlingual Index](https://cili.globalwordnet.org/). A model trained on ILI-tokenized text would have semantic grounding that BPE cannot provide — and it would be inherently multilingual, since the same concept ID works regardless of input language.
+```
+"The <|ILI_092258|> approved the loan"
+ → [ILI_092258] → embedding is unambiguous (financial institution)
+ → layer 1: already knows the meaning → moves to reasoning
+```
 
-**This tool builds the training data.** Hermes-4-405B autonomously disambiguates every content word against WordNet, producing ILI-annotated text at scale. The disambiguation cost is paid once at data generation time, not per token at inference. Almost nobody has tried using ILI as a model vocabulary — the [wordnet community](https://cili.globalwordnet.org/) uses it for dataset linking, not model training. This project bridges that gap.
+One layer instead of three. Across a 96-layer model, that's an enormous amount of reclaimed compute.
+
+## What This Project Does
+
+Synsets is an autonomous pipeline that uses an agent to produce ILI-annotated training data at scale. The agent:
+
+1. Receives raw text
+2. Calls tools against a local **WordNet MCP server** to look up every content word
+3. Performs word sense disambiguation using context
+4. Outputs text where every content word carries its ILI concept ID
+
+The key architectural choice: **the disambiguation cost is paid once at data generation time, not per token at inference.** We use an agentic workflow to produce training data for models that will inherit disambiguated representations.
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  Hermes-4-405B Agent                                    │
+│                                                         │
+│  System: "You MUST call lookup_word for EVERY content   │
+│  word. You WILL hallucinate ILI IDs from memory.        │
+│  USE THE TOOLS."                                        │
+│                                                         │
+│  ┌─────────────┐    ┌──────────────┐    ┌────────────┐  │
+│  │ lookup_word │───→│ WordNet MCP  │───→│ ILI senses │  │
+│  │ "bank"      │    │ Server       │    │ returned   │  │
+│  └─────────────┘    └──────────────┘    └────────────┘  │
+│         │                                    │          │
+│         └──────── context ───────────────────┘          │
+│                        │                                │
+│                        ▼                                │
+│              Disambiguated ILI assignment               │
+│              bank → ILI_092258 (financial)              │
+└─────────────────────────────────────────────────────────┘
+                         │
+                         ▼
+              ILI-annotated training corpus
+              (120K concepts, 50+ languages)
+```
+
+## Why This Matters
+
+**For model architecture:** ILI tokens collapse the distinction between "knowing a word" and "knowing a concept." A model trained on ILI text learns concept-level representations directly. The embedding layer becomes a concept space, not a subword soup. This is the difference between learning statistics and learning meaning.
+
+**For multilinguality:** ILI IDs are language-neutral. `ILI_092258` means "financial institution" in English, Chinese, Japanese, Arabic, and 46 other languages with linked WordNets. A model with ILI tokens in its vocabulary is inherently multilingual — the concept space doesn't need to be learned separately per language.
+
+**For reasoning:** Disambiguation is a necessary precondition for reasoning. A model that must disambiguate "bank" before it can reason about finances is doing two tasks. ILI separates these concerns: disambiguation at the data layer, reasoning at the model layer.
+
+**For the field:** Nobody has seriously tried this. The WordNet community uses ILI for dataset linking. The ML community uses BPE because it works well enough. This project bridges the gap — producing the training data that makes concept-based tokenization experimentally accessible.
 
 ## The MCP Server
 
-The core infrastructure piece is a **WordNet MCP server** that exposes the full English WordNet as REST endpoints:
+A local WordNet server exposes the full English WordNet via the Model Context Protocol:
 
 ```bash
-# Start the server
+# Start
 python3 skill/scripts/wordnet_mcp_server.py
 
-# Endpoints
-curl "http://localhost:8741/lookup?word=bank&pos=n"     # All noun senses of "bank"
-curl "http://localhost:8741/phrase?words=credit+card"    # Multi-word expressions
-curl "http://localhost:8741/synset?ili=i35152"           # Full synset details + relations
-curl "http://localhost:8741/search?q=financial+body"     # Search definitions
-curl "http://localhost:8741/health"                      # Server status
+# Or use stdio transport (for Hermes Agent integration)
+python3 skill/scripts/wordnet_mcp_server_stdio.py
 ```
 
-The server loads the WordNet SQLite database once, holds it in memory with WAL mode and 64MB cache, and handles concurrent requests via threading. It auto-lemmatizes queries (stripping `-s`, `-ed`, `-ing`, `-ies`, `-ly`, `-ness`, `-ment` suffixes) so inflected forms resolve correctly.
-
-Any MCP-compatible agent can connect to this server — it's a general-purpose WordNet API, not Hermes-specific.
-
-## How Hermes Uses Tools
-
-Hermes-4-405B's tool-use capabilities drive the annotation pipeline. The system prompt forces tool usage:
-
-> *"You MUST call `lookup_word` for EVERY content word before assigning an ILI ID. You WILL hallucinate ILI IDs if you try to produce them from memory. Do NOT assign any ILI without first receiving tool results."*
-
-The tool-use loop:
-1. **Hermes receives text** and a list of 3 tools (`lookup_word`, `lookup_phrase`, `search_definition`)
-2. **Hermes emits `tool_calls`** — typically 5-15 calls per text passage, batching related lookups
-3. **Local executor** forwards each call to the MCP server and returns results
-4. **Hermes reads results**, disambiguates senses using context, and emits the final annotated text with ILI tokens
-
-This architecture means **every ILI ID is traceable** to a specific WordNet tool call. Zero hallucination — if WordNet doesn't have a sense for a word, Hermes skips it rather than guessing.
-
-## Real Example
-
-**Input:** `"The concept of realm boundaries challenges imagination"`
-
-**Tool calls by Hermes:**
+**HTTP Endpoints:**
 ```
-lookup_word("concept", pos="n")    → i67543: "an abstract or general idea..."
-lookup_word("realm", pos="n")      → i113279: "a domain in which something is dominant"
-lookup_word("boundaries", pos="n") → i81782: "the line or plane indicating the limit..."
-lookup_word("challenges", pos="v") → [skipped — ambiguous in context]
-lookup_word("imagination", pos="n")→ i66470: "the formation of a mental image..."
+GET /lookup?word=bank&pos=n          → all noun senses of "bank"
+GET /phrase?words=credit+card         → multi-word expressions
+GET /synset?ili=i92258                → full synset + relations
+GET /search?q=financial+institution   → definition search
+GET /health                           → server status
 ```
 
-**Output:**
-```
-The <|i67543|>concept of <|i113279|>realm <|i81782|>boundaries challenges <|i66470|>imagination
-```
+**MCP Tools (stdio):**
+- `lookup_word(word, pos?)` — all senses for a word
+- `lookup_phrase(words)` — multi-word expression lookup
+- `get_synset(ili)` — synset details by ILI ID
+- `search_definitions(query)` — search by concept description
+
+The server loads the WordNet SQLite database (~120K synsets, ~117K ILI mappings) once, holds it in memory with WAL mode and 64MB cache, and handles concurrent requests via threading. Auto-lemmatization strips `-s`, `-ed`, `-ing`, `-ies`, `-ly`, `-ness`, `-ment` so inflected forms resolve correctly.
+
+Any MCP-compatible agent can connect. Not Hermes-specific.
 
 ## Quick Start
 
@@ -135,66 +134,147 @@ The <|i67543|>concept of <|i113279|>realm <|i81782|>boundaries challenges <|i664
 # 1. Install WordNet database
 python3 -c 'import wn; wn.download("ewn:2020")'
 
-# 2. Set your API key
-echo "NOUS_API_KEY=your_key" > .env
+# 2. Set API key
+echo "NOUS_API_KEY=sk-..." > .env
 
-# 3. Start the MCP server
+# 3. Start MCP server
 python3 skill/scripts/wordnet_mcp_server.py &
 
-# 4. Run annotation (single record)
+# 4. Annotate a single record
 python3 skill/scripts/hermes_tool_use.py --record 0 --limit 50
 
-# 5. Run batch annotation (parallelized)
+# 5. Batch annotation
 python3 skill/scripts/hermes_tool_use.py --batch --start 0 --count 100
 
-# 6. View results — open index.html in a browser
+# 6. Validate output
+python3 skill/scripts/validate.py data/retranslated_v1.jsonl
+
+# 7. View results
+open index.html
 ```
-
-## Interactive Explorer
-
-Open [`index.html`](index.html) in a browser to explore annotated text. Every content word is clickable — click any word to see its ILI ID, part of speech, and WordNet definition. Arrow keys navigate between records. Supports search, export, and dark mode.
 
 ## Data Methodology
 
-The included dataset was produced in two stages:
+The pipeline uses a strict two-pass architecture:
 
-1. **Confidence-based pre-processing**: An initial pass assigned ILI tokens to high-confidence words using direct WordNet lookup with lemmatization. This produced partially-annotated text where ~51 ILIs per record were assigned automatically based on exact and lemmatized matches. No disambiguation was performed — ambiguous words were left as plaintext.
+### Pass 1: Natural Definitions (No ILI Awareness)
 
-2. **Hermes tool-use annotation**: Hermes-4-405B received each partially-annotated record and used WordNet tool calls to disambiguate and assign ILIs to the remaining content words (~46 additional ILIs per record). Hermes performs actual word sense disambiguation — reading all candidate senses from WordNet and selecting the correct one based on surrounding context.
+The model writes Wikipedia-quality definitions in English, Chinese, and Japanese from its own knowledge. It has NO access to WordNet, ILI IDs, or synset information during this pass. This keeps the encyclopedic knowledge pure — untainted by the particularities of synset structure.
 
-The merged output (`data/synsets_annotated.jsonl`) includes both `human_text` (fully readable English) and per-word `assignments` from Hermes. Each record tracks `preexisting_ili_count` vs `hermes_ili_count` so you can see exactly which ILIs came from which method.
+### Pass 2: ILI Annotation (Post-Processing)
 
-**We encourage re-generating the data** rather than reusing ours. The MCP server and annotation pipeline are the contribution — the included data is a demonstration, not a finished dataset.
+The model receives the natural definitions from Pass 1 plus a pre-computed WordNet sense table for every content word. It annotates content words with ILI tags: `<|ILI_NNNNNN|>word`. Function words (determiners, prepositions, particles, auxiliaries) remain untagged.
 
-## Project Structure
+**Why two passes?** Synset information should be pure post-processing. If a model writes a definition while simultaneously thinking about ILI IDs, the synset structure leaks into the prose — definitions start mirroring WordNet's phrasing rather than reflecting genuine encyclopedic knowledge. Separation of concerns produces better data on both sides.
+
+### Batch Mode (Advanced Models)
+
+The `batch_generate.py` script processes multiple ILIs in parallel:
+- All WordNet lookups happen in one batch (not word-by-word)
+- All definitions generated in one pass (not sentence-by-sentence)
+- All annotations applied in one pass (not ILI-by-ILI)
+
+This is designed for models that can handle large context windows and parallel tool calls. Dumber models need hand-holding (one ILI, one sentence, one tool call at a time). Advanced models can handle 10+ ILIs × 3 languages × all tool lookups in a single shot.
+
+```bash
+# Batch generate 10 ILIs
+python skill/scripts/batch_generate.py --count 10
+
+# Specific range
+python skill/scripts/batch_generate.py --start 1000 --count 20
+```
+
+**Generate your own data.** The MCP server and annotation pipeline are the contribution. The included data is a demonstration, not a finished dataset.
+
+## Multilingual Synset Generation
+
+The `data/synsets/` directory contains multilingual (English, Chinese, Japanese) ILI-annotated definitions generated via parallel autonomous agents. Each ILI gets a directory:
+
+```
+data/synsets/ili_XXXXXX/
+  meta.json                          # ILI metadata, validation, model info
+  MODEL_NAME/                        # e.g., kimi-k2.5, claude-opus-4.6
+    natural/
+      en.txt                         # English definition
+      zh.txt                         # Chinese definition
+      ja.txt                         # Japanese definition
+    ili/
+      en.txt                         # English with ILI tags
+      zh.txt                         # Chinese with ILI tags
+      ja.txt                         # Japanese with ILI tags
+    merged/
+      en.txt                         # Grammar-correct, ILI-aligned
+      zh.txt                         # Grammar-correct, ILI-aligned
+      ja.txt                         # Grammar-correct, ILI-aligned
+```
+
+Languages use ISO 639-1 codes: `en` (English), `zh` (Chinese), `ja` (Japanese).
+
+## Architecture
 
 ```
 skill/
   scripts/
-    hermes_tool_use.py         # Hermes tool-use annotation pipeline
-    wordnet_mcp_server.py      # WordNet MCP server (REST API)
+    common.py                  # Shared utilities (stopwords, lemmatizer, DB, ILI patterns)
+    batch_generate.py          # Two-pass batch synset generator (advanced models)
+    hermes_tool_use.py         # Main annotation pipeline (tool-use loop)
+    wordnet_mcp_server.py      # HTTP MCP server
+    wordnet_mcp_server_stdio.py# stdio MCP server (for agent integration)
     merge_results.py           # Post-processing: merge, deduplicate, humanize
+    validate.py                # Quality assurance: ILI existence + POS matching
+    reconstruct.py             # Sentence-by-sentence refinement pass
+    hermes_annotate.py         # Alternative: Hermes does WSD, then WordNet resolution
+    hermes_disambiguate.py     # Alternative: batch disambiguation
+    hermes_disambiguate_v2.py  # Alternative: local candidates + Hermes picks
     hermes_direct.py           # Direct Hermes messaging utility
+    ili_lookup.py              # WordNet lookup via wn package
+    extract_gaps.py            # Extract content words from ILI gaps
+    filter_core.py             # Filter to core 9,461 well-defined concepts
+    compress_ili.py            # .cili format encoder/decoder
+    convert_synset_corpus.py   # Convert synset files to dataset format
+    batch_convert.py           # Batch plaintext → ILI annotation
+    verify_alignment.py        # Verify multilingual ILI alignment
+    ili_annotate_workflow.py   # Hermes Agent native workflow
   SKILL.md                     # Hermes Agent skill specification
+  references/
+    format_spec.md             # ILI sidecar format specification
+    golden_examples.json       # Human-verified annotation examples
+  workflows/
+    generate_synset_v*.py      # Multilingual synset generation workflows
+    annotate_text.yaml         # Text annotation workflow spec
+scripts/                        # Utility scripts (root-level, not part of skill)
+  check_ili.py                 # ILI validation helpers
+  find_ili.py                  # ILI search utilities
+  lookup_*.py                  # Various lookup scripts
+  process_batch_*.py           # Batch processing scripts
 data/
-  synsets_annotated.jsonl      # Merged output (human-readable + assignments)
+  synsets/                     # Multilingual ILI definitions
+  synsets_annotated.jsonl      # Merged annotation output
   stats.json                   # Summary statistics
-  retranslated_batch_*.jsonl   # Raw batch worker output
 index.html                     # Interactive web explorer
 ```
 
-## Built With Hermes
+## What's Next
 
-This project demonstrates Hermes-4-405B's autonomous agent capabilities:
+1. **Train a model on ILI text.** The data exists. The question is whether a transformer trained on concept-tokenized text learns different representations — and whether those representations transfer better across languages.
 
-- **Tool use**: Hermes calls 3 custom tools against a local WordNet MCP server, making 5-15 tool calls per text passage to look up every content word
-- **Word sense disambiguation**: Hermes reads all candidate senses returned by WordNet and selects the correct one based on surrounding context
-- **Batch autonomy**: Each record is processed end-to-end by Hermes with no human intervention — Hermes decides which tools to call, how many rounds of lookup to perform, and when it has enough information to assign final ILI IDs
-- **Zero hallucination by design**: The system prompt and tool architecture ensure Hermes never assigns an ILI ID without first receiving it from a tool call. If WordNet doesn't have an entry, Hermes skips the word
-- **Skill specification**: The [`SKILL.md`](skill/SKILL.md) file defines the annotation workflow in Hermes Agent skill format
+2. **Expand languages.** ILI is mapped to WordNets in 50+ languages. The pipeline supports any language — just point it at a different WordNet.
+
+3. **Scale annotation.** The included corpus is ~200 records. The pipeline can process thousands in parallel. Hermes handles the disambiguation; you provide the text.
+
+4. **Hybrid tokenization.** ILI tokens for content words, BPE for function words and morphology. Best of both worlds — disambiguated concepts where it matters, subword flexibility where it doesn't.
+
+## Built With
+
+- **Autonomous Agentic Workflows** — for word sense disambiguation
+- **WordNet / CILI** — 120K synsets, 117K ILI mappings, 50+ languages
+- **MCP (Model Context Protocol)** — standard tool interface for agents
+- **Inference API** — agent hosting
 
 ## License
 
-[MOSL v2.0](LICENSE) (Mandatory Open Source License) — See [LICENSE](LICENSE)
+[MOSL v2.0](LICENSE) (Mandatory Open Source License). Forks and branches encouraged. Contributions grant the Author additional usage rights per Section 4.
 
-Forks and branches are encouraged. Contributions submitted to this repository grant the Author additional usage rights per the Contributor License (Section 4).
+---
+
+*The tokenizer is the bottleneck. This is how we break it.*

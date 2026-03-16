@@ -1,0 +1,30 @@
+{
+  "ili": 56662,
+  "lemma": "nunnery",
+  "model": "kimi-k2.5",
+  "timestamp": "2026-03-15T16:00:00.000000",
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
+  "wordnet_source": "ewn:2020",
+  "structure_version": "4.0",
+  "files": {
+    "natural": {
+      "en": "moonshotai/kimi-k2.5/natural/en.txt",
+      "zh": "moonshotai/kimi-k2.5/natural/zh.txt",
+      "ja": "moonshotai/kimi-k2.5/natural/ja.txt"
+    },
+    "ili": {
+      "en": "moonshotai/kimi-k2.5/ili/en.txt",
+      "zh": "moonshotai/kimi-k2.5/ili/zh.txt",
+      "ja": "moonshotai/kimi-k2.5/ili/ja.txt"
+    },
+    "merged": {
+      "en": "moonshotai/kimi-k2.5/merged/en.txt",
+      "zh": "moonshotai/kimi-k2.5/merged/zh.txt",
+      "ja": "moonshotai/kimi-k2.5/merged/ja.txt"
+    }
+  }
+}

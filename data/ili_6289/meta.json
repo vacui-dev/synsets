@@ -1,0 +1,52 @@
+{
+  "ili": 6289,
+  "lemma": "lovesick",
+  "model": "kimi-k2.5",
+  "timestamp": "2026-03-15T15:55:00Z",
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
+  "wordnet_source": "ewn:2020",
+  "structure_version": "4.0",
+  "files": {
+    "natural": {
+      "en": "kimi-k2.5/natural/en.txt",
+      "zh": "kimi-k2.5/natural/zh.txt",
+      "ja": "kimi-k2.5/natural/ja.txt"
+    },
+    "ili": {
+      "en": "kimi-k2.5/ili/en.txt",
+      "zh": "kimi-k2.5/ili/zh.txt",
+      "ja": "kimi-k2.5/ili/ja.txt"
+    },
+    "merged": {
+      "en": "kimi-k2.5/merged/en.txt",
+      "zh": "kimi-k2.5/merged/zh.txt",
+      "ja": "kimi-k2.5/merged/ja.txt"
+    }
+  },
+  "models": {
+    "kimi-k2.5": {
+      "alignment_verified": false,
+      "verification_mode": "strict",
+      "alignment_mismatches": [
+        {
+          "language": "zh",
+          "issue": "total_count_mismatch",
+          "expected": 34,
+          "actual": 33,
+          "mode": "strict"
+        },
+        {
+          "language": "en",
+          "issue": "total_count_mismatch",
+          "expected": 34,
+          "actual": 14,
+          "mode": "strict"
+        }
+      ]
+    }
+  }
+}

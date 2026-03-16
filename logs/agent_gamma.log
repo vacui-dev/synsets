@@ -1,0 +1,226 @@
+========================================
+AGENT GAMMA LOG - Synset Annotation Batch
+Started: 2026-03-15T16:52:00
+Batch: ILI 201-300
+Status: CLAIMED
+========================================
+
+[2026-03-15T16:52:00] INFO: Read COORDINATION.txt
+[2026-03-15T16:52:00] INFO: Claimed batch 201-300
+[2026-03-15T16:52:00] INFO: Starting synset annotation process
+
+[2026-03-15T16:54:16.182588] WordNet initialized successfully
+[2026-03-15T16:54:16.182670] Starting batch processing for ILIs 201-300
+[2026-03-15T16:54:16.182962] ERROR processing i201: no such synset: i201
+[2026-03-15T16:54:16.183204] ERROR processing i202: no such synset: i202
+[2026-03-15T16:54:16.183441] ERROR processing i203: no such synset: i203
+[2026-03-15T16:54:16.183665] ERROR processing i204: no such synset: i204
+[2026-03-15T16:54:16.183894] ERROR processing i205: no such synset: i205
+[2026-03-15T16:54:16.184114] ERROR processing i206: no such synset: i206
+[2026-03-15T16:54:16.184332] ERROR processing i207: no such synset: i207
+[2026-03-15T16:54:16.184549] ERROR processing i208: no such synset: i208
+[2026-03-15T16:54:16.184765] ERROR processing i209: no such synset: i209
+[2026-03-15T16:54:16.184981] ERROR processing i210: no such synset: i210
+[2026-03-15T16:54:16.185195] ERROR processing i211: no such synset: i211
+[2026-03-15T16:54:16.185410] ERROR processing i212: no such synset: i212
+[2026-03-15T16:54:16.185623] ERROR processing i213: no such synset: i213
+[2026-03-15T16:54:16.185903] ERROR processing i214: no such synset: i214
+[2026-03-15T16:54:16.186118] ERROR processing i215: no such synset: i215
+[2026-03-15T16:54:16.186334] ERROR processing i216: no such synset: i216
+[2026-03-15T16:54:16.186549] ERROR processing i217: no such synset: i217
+[2026-03-15T16:54:16.186761] ERROR processing i218: no such synset: i218
+[2026-03-15T16:54:16.186980] ERROR processing i219: no such synset: i219
+[2026-03-15T16:54:16.187193] ERROR processing i220: no such synset: i220
+[2026-03-15T16:54:16.187420] ERROR processing i221: no such synset: i221
+[2026-03-15T16:54:16.187634] ERROR processing i222: no such synset: i222
+[2026-03-15T16:54:16.187846] ERROR processing i223: no such synset: i223
+[2026-03-15T16:54:16.188072] ERROR processing i224: no such synset: i224
+[2026-03-15T16:54:16.188285] ERROR processing i225: no such synset: i225
+[2026-03-15T16:54:16.188497] ERROR processing i226: no such synset: i226
+[2026-03-15T16:54:16.188708] ERROR processing i227: no such synset: i227
+[2026-03-15T16:54:16.188919] ERROR processing i228: no such synset: i228
+[2026-03-15T16:54:16.189129] ERROR processing i229: no such synset: i229
+[2026-03-15T16:54:16.189341] ERROR processing i230: no such synset: i230
+[2026-03-15T16:54:16.189551] ERROR processing i231: no such synset: i231
+[2026-03-15T16:54:16.189766] ERROR processing i232: no such synset: i232
+[2026-03-15T16:54:16.189976] ERROR processing i233: no such synset: i233
+[2026-03-15T16:54:16.190186] ERROR processing i234: no such synset: i234
+[2026-03-15T16:54:16.190399] ERROR processing i235: no such synset: i235
+[2026-03-15T16:54:16.190608] ERROR processing i236: no such synset: i236
+[2026-03-15T16:54:16.190819] ERROR processing i237: no such synset: i237
+[2026-03-15T16:54:16.191031] ERROR processing i238: no such synset: i238
+[2026-03-15T16:54:16.191241] ERROR processing i239: no such synset: i239
+[2026-03-15T16:54:16.191458] ERROR processing i240: no such synset: i240
+[2026-03-15T16:54:16.191670] ERROR processing i241: no such synset: i241
+[2026-03-15T16:54:16.191882] ERROR processing i242: no such synset: i242
+[2026-03-15T16:54:16.192092] ERROR processing i243: no such synset: i243
+[2026-03-15T16:54:16.192305] ERROR processing i244: no such synset: i244
+[2026-03-15T16:54:16.192535] ERROR processing i245: no such synset: i245
+[2026-03-15T16:54:16.192747] ERROR processing i246: no such synset: i246
+[2026-03-15T16:54:16.192961] ERROR processing i247: no such synset: i247
+[2026-03-15T16:54:16.193172] ERROR processing i248: no such synset: i248
+[2026-03-15T16:54:16.193385] ERROR processing i249: no such synset: i249
+[2026-03-15T16:54:16.193595] ERROR processing i250: no such synset: i250
+[2026-03-15T16:54:16.193817] ERROR processing i251: no such synset: i251
+[2026-03-15T16:54:16.194028] ERROR processing i252: no such synset: i252
+[2026-03-15T16:54:16.194239] ERROR processing i253: no such synset: i253
+[2026-03-15T16:54:16.194449] ERROR processing i254: no such synset: i254
+[2026-03-15T16:54:16.194659] ERROR processing i255: no such synset: i255
+[2026-03-15T16:54:16.194871] ERROR processing i256: no such synset: i256
+[2026-03-15T16:54:16.195085] ERROR processing i257: no such synset: i257
+[2026-03-15T16:54:16.195297] ERROR processing i258: no such synset: i258
+[2026-03-15T16:54:16.195523] ERROR processing i259: no such synset: i259
+[2026-03-15T16:54:16.195735] ERROR processing i260: no such synset: i260
+[2026-03-15T16:54:16.195944] ERROR processing i261: no such synset: i261
+[2026-03-15T16:54:16.196153] ERROR processing i262: no such synset: i262
+[2026-03-15T16:54:16.196362] ERROR processing i263: no such synset: i263
+[2026-03-15T16:54:16.196572] ERROR processing i264: no such synset: i264
+[2026-03-15T16:54:16.196783] ERROR processing i265: no such synset: i265
+[2026-03-15T16:54:16.197004] ERROR processing i266: no such synset: i266
+[2026-03-15T16:54:16.197216] ERROR processing i267: no such synset: i267
+[2026-03-15T16:54:16.197426] ERROR processing i268: no such synset: i268
+[2026-03-15T16:54:16.197636] ERROR processing i269: no such synset: i269
+[2026-03-15T16:54:16.197846] ERROR processing i270: no such synset: i270
+[2026-03-15T16:54:16.198056] ERROR processing i271: no such synset: i271
+[2026-03-15T16:54:16.198267] ERROR processing i272: no such synset: i272
+[2026-03-15T16:54:16.198478] ERROR processing i273: no such synset: i273
+[2026-03-15T16:54:16.198689] ERROR processing i274: no such synset: i274
+[2026-03-15T16:54:16.198903] ERROR processing i275: no such synset: i275
+[2026-03-15T16:54:16.199112] ERROR processing i276: no such synset: i276
+[2026-03-15T16:54:16.199328] ERROR processing i277: no such synset: i277
+[2026-03-15T16:54:16.199539] ERROR processing i278: no such synset: i278
+[2026-03-15T16:54:16.199749] ERROR processing i279: no such synset: i279
+[2026-03-15T16:54:16.199958] ERROR processing i280: no such synset: i280
+[2026-03-15T16:54:16.200176] ERROR processing i281: no such synset: i281
+[2026-03-15T16:54:16.200393] ERROR processing i282: no such synset: i282
+[2026-03-15T16:54:16.200603] ERROR processing i283: no such synset: i283
+[2026-03-15T16:54:16.200814] ERROR processing i284: no such synset: i284
+[2026-03-15T16:54:16.201022] ERROR processing i285: no such synset: i285
+[2026-03-15T16:54:16.201233] ERROR processing i286: no such synset: i286
+[2026-03-15T16:54:16.201441] ERROR processing i287: no such synset: i287
+[2026-03-15T16:54:16.201655] ERROR processing i288: no such synset: i288
+[2026-03-15T16:54:16.201865] ERROR processing i289: no such synset: i289
+[2026-03-15T16:54:16.202075] ERROR processing i290: no such synset: i290
+[2026-03-15T16:54:16.202286] ERROR processing i291: no such synset: i291
+[2026-03-15T16:54:16.202495] ERROR processing i292: no such synset: i292
+[2026-03-15T16:54:16.202705] ERROR processing i293: no such synset: i293
+[2026-03-15T16:54:16.202913] ERROR processing i294: no such synset: i294
+[2026-03-15T16:54:16.203123] ERROR processing i295: no such synset: i295
+[2026-03-15T16:54:16.203368] ERROR processing i296: no such synset: i296
+[2026-03-15T16:54:16.203581] ERROR processing i297: no such synset: i297
+[2026-03-15T16:54:16.203791] ERROR processing i298: no such synset: i298
+[2026-03-15T16:54:16.204001] ERROR processing i299: no such synset: i299
+[2026-03-15T16:54:16.204210] ERROR processing i300: no such synset: i300
+[2026-03-15T16:54:16.204320] COMPLETED processing batch 201-300
+[2026-03-15T16:54:16.204354] Total synsets processed: 0
+[2026-03-15T16:54:16.204386] Errors: 100
+[2026-03-15T16:54:16.204418] Output written to /home/ubt18/synsets/output/batch_201_300.tsv
+[2026-03-15T16:56:55.796778] Building ILI index...
+[2026-03-15T16:56:59.533776] Indexed 117480 synsets
+[2026-03-15T16:56:59.533894] Starting batch processing for ILIs 201-300
+[2026-03-15T16:56:59.534494] PROCESSED i201: pos=s, lemmas=hands-off
+[2026-03-15T16:56:59.534859] PROCESSED i202: pos=s, lemmas=unresisting, resistless
+[2026-03-15T16:56:59.535104] PROCESSED i203: pos=a, lemmas=active
+[2026-03-15T16:56:59.535374] PROCESSED i204: pos=s, lemmas=eruptive
+[2026-03-15T16:56:59.535713] PROCESSED i205: pos=a, lemmas=dormant, inactive
+[2026-03-15T16:56:59.535946] PROCESSED i206: pos=s, lemmas=quiescent
+[2026-03-15T16:56:59.536180] PROCESSED i207: pos=a, lemmas=extinct
+[2026-03-15T16:56:59.536223] WARNING: i208 not found in index
+[2026-03-15T16:56:59.536438] PROCESSED i209: pos=a, lemmas=active
+[2026-03-15T16:56:59.536765] PROCESSED i210: pos=s, lemmas=live, alive
+[2026-03-15T16:56:59.537085] PROCESSED i211: pos=a, lemmas=dynamic, active
+[2026-03-15T16:56:59.537316] PROCESSED i212: pos=a, lemmas=stative
+[2026-03-15T16:56:59.537532] PROCESSED i213: pos=a, lemmas=active
+[2026-03-15T16:56:59.537758] PROCESSED i214: pos=a, lemmas=passive
+[2026-03-15T16:56:59.537973] PROCESSED i215: pos=a, lemmas=active
+[2026-03-15T16:56:59.538197] PROCESSED i216: pos=s, lemmas=activated
+[2026-03-15T16:56:59.538428] PROCESSED i217: pos=s, lemmas=counteractive
+[2026-03-15T16:56:59.538657] PROCESSED i218: pos=s, lemmas=surface-active
+[2026-03-15T16:56:59.538874] PROCESSED i219: pos=a, lemmas=inactive
+[2026-03-15T16:56:59.539088] PROCESSED i220: pos=s, lemmas=quiescent
+[2026-03-15T16:56:59.539303] PROCESSED i221: pos=a, lemmas=active
+[2026-03-15T16:56:59.539532] PROCESSED i222: pos=a, lemmas=quiet
+[2026-03-15T16:56:59.539851] PROCESSED i223: pos=a, lemmas=existent, actual
+[2026-03-15T16:56:59.540082] PROCESSED i224: pos=s, lemmas=effective
+[2026-03-15T16:56:59.540405] PROCESSED i225: pos=a, lemmas=possible, potential
+[2026-03-15T16:56:59.540641] PROCESSED i226: pos=s, lemmas=latent
+[2026-03-15T16:56:59.540864] PROCESSED i227: pos=a, lemmas=acute
+[2026-03-15T16:56:59.541091] PROCESSED i228: pos=s, lemmas=subacute
+[2026-03-15T16:56:59.541312] PROCESSED i229: pos=a, lemmas=chronic
+[2026-03-15T16:56:59.541538] PROCESSED i230: pos=s, lemmas=degenerative
+[2026-03-15T16:56:59.541759] PROCESSED i231: pos=a, lemmas=virulent
+[2026-03-15T16:56:59.541982] PROCESSED i232: pos=s, lemmas=highly infective
+[2026-03-15T16:56:59.542230] PROCESSED i233: pos=s, lemmas=deadly
+[2026-03-15T16:56:59.542448] PROCESSED i234: pos=a, lemmas=avirulent
+[2026-03-15T16:56:59.542766] PROCESSED i235: pos=a, lemmas=adaptive, adaptative
+[2026-03-15T16:56:59.543088] PROCESSED i236: pos=s, lemmas=reconciling, accommodative
+[2026-03-15T16:56:59.543303] PROCESSED i237: pos=s, lemmas=adaptational
+[2026-03-15T16:56:59.543529] PROCESSED i238: pos=s, lemmas=adjustive
+[2026-03-15T16:56:59.543756] PROCESSED i239: pos=a, lemmas=maladaptive
+[2026-03-15T16:56:59.544081] PROCESSED i240: pos=s, lemmas=nonadaptive, dysfunctional
+[2026-03-15T16:56:59.544304] PROCESSED i241: pos=s, lemmas=maladjustive
+[2026-03-15T16:56:59.544523] PROCESSED i242: pos=a, lemmas=addicted
+[2026-03-15T16:56:59.544842] PROCESSED i243: pos=s, lemmas=alcohol-dependent, alcoholic
+[2026-03-15T16:56:59.545442] PROCESSED i244: pos=s, lemmas=strung-out, dependant, dependent, drug-addicted, h
+[2026-03-15T16:56:59.545669] PROCESSED i245: pos=a, lemmas=unaddicted
+[2026-03-15T16:56:59.545895] PROCESSED i246: pos=s, lemmas=clean
+[2026-03-15T16:56:59.546209] PROCESSED i247: pos=a, lemmas=habit-forming, addictive
+[2026-03-15T16:56:59.546425] PROCESSED i248: pos=a, lemmas=nonaddictive
+[2026-03-15T16:56:59.546648] PROCESSED i249: pos=a, lemmas=additive
+[2026-03-15T16:56:59.546962] PROCESSED i250: pos=s, lemmas=cumulative, accumulative
+[2026-03-15T16:56:59.547276] PROCESSED i251: pos=s, lemmas=addible, addable
+[2026-03-15T16:56:59.547597] PROCESSED i252: pos=s, lemmas=additional, extra
+[2026-03-15T16:56:59.547999] PROCESSED i253: pos=s, lemmas=complemental, complementary, completing
+[2026-03-15T16:56:59.548228] PROCESSED i254: pos=s, lemmas=incremental
+[2026-03-15T16:56:59.548452] PROCESSED i255: pos=s, lemmas=intercalary
+[2026-03-15T16:56:59.548767] PROCESSED i256: pos=s, lemmas=summational, summative
+[2026-03-15T16:56:59.549092] PROCESSED i257: pos=s, lemmas=supplementary, supplemental
+[2026-03-15T16:56:59.549319] PROCESSED i258: pos=a, lemmas=subtractive
+[2026-03-15T16:56:59.549545] PROCESSED i259: pos=s, lemmas=ablative
+[2026-03-15T16:56:59.549779] PROCESSED i260: pos=s, lemmas=reductive
+[2026-03-15T16:56:59.550000] PROCESSED i261: pos=a, lemmas=addressed
+[2026-03-15T16:56:59.550227] PROCESSED i262: pos=s, lemmas=self-addressed
+[2026-03-15T16:56:59.550451] PROCESSED i263: pos=a, lemmas=unaddressed
+[2026-03-15T16:56:59.550769] PROCESSED i264: pos=a, lemmas=adequate, equal
+[2026-03-15T16:56:59.551268] PROCESSED i265: pos=s, lemmas=up to, equal to, capable, adequate to
+[2026-03-15T16:56:59.551512] PROCESSED i266: pos=s, lemmas=competent
+[2026-03-15T16:56:59.551835] PROCESSED i267: pos=a, lemmas=inadequate, unequal
+[2026-03-15T16:56:59.552250] PROCESSED i268: pos=s, lemmas=wanting, deficient, lacking
+[2026-03-15T16:56:59.552665] PROCESSED i269: pos=s, lemmas=incapable, unequal to, incompetent
+[2026-03-15T16:56:59.553171] PROCESSED i270: pos=s, lemmas=short-handed, undermanned, understaffed, short-sta
+[2026-03-15T16:56:59.553396] PROCESSED i271: pos=a, lemmas=adhesive
+[2026-03-15T16:56:59.553621] PROCESSED i272: pos=s, lemmas=adherent
+[2026-03-15T16:56:59.553947] PROCESSED i273: pos=s, lemmas=agglutinative, agglutinate
+[2026-03-15T16:56:59.554177] PROCESSED i274: pos=s, lemmas=bondable
+[2026-03-15T16:56:59.554496] PROCESSED i275: pos=s, lemmas=coherent, tenacious
+[2026-03-15T16:56:59.554723] PROCESSED i276: pos=s, lemmas=cohesive
+[2026-03-15T16:56:59.555674] PROCESSED i277: pos=s, lemmas=gluey, viscous, viscid, sticky, pasty, gummy, muci
+[2026-03-15T16:56:59.556018] PROCESSED i278: pos=s, lemmas=gooey, icky
+[2026-03-15T16:56:59.556249] PROCESSED i279: pos=s, lemmas=gum-like
+[2026-03-15T16:56:59.556576] PROCESSED i280: pos=s, lemmas=gummy, gummed
+[2026-03-15T16:56:59.557102] PROCESSED i281: pos=s, lemmas=resiny, pitchy, resinous, tarry
+[2026-03-15T16:56:59.557333] PROCESSED i282: pos=s, lemmas=self-sealing
+[2026-03-15T16:56:59.557562] PROCESSED i283: pos=s, lemmas=stick-on
+[2026-03-15T16:56:59.557784] PROCESSED i284: pos=s, lemmas=sticky
+[2026-03-15T16:56:59.558011] PROCESSED i285: pos=a, lemmas=nonadhesive
+[2026-03-15T16:56:59.558333] PROCESSED i286: pos=s, lemmas=nonglutinous, nonviscid
+[2026-03-15T16:56:59.558823] PROCESSED i287: pos=s, lemmas=nonresinous, non-resiny, nonresiny, non-resinous
+[2026-03-15T16:56:59.559055] PROCESSED i288: pos=s, lemmas=ungummed
+[2026-03-15T16:56:59.559423] PROCESSED i289: pos=a, lemmas=procedural, adjective
+[2026-03-15T16:56:59.559738] PROCESSED i290: pos=a, lemmas=essential, substantive
+[2026-03-15T16:56:59.559999] PROCESSED i291: pos=a, lemmas=adoptable
+[2026-03-15T16:56:59.560283] PROCESSED i292: pos=a, lemmas=unadoptable
+[2026-03-15T16:56:59.560639] PROCESSED i293: pos=a, lemmas=decorated, adorned
+[2026-03-15T16:56:59.561435] PROCESSED i294: pos=s, lemmas=sequined, spangly, gemmed, spangled, beady, jewele
+[2026-03-15T16:56:59.561671] PROCESSED i295: pos=s, lemmas=bedaubed
+[2026-03-15T16:56:59.562091] PROCESSED i296: pos=s, lemmas=bespectacled, spectacled, monocled
+[2026-03-15T16:56:59.562529] PROCESSED i297: pos=s, lemmas=embossed, brocaded, raised
+[2026-03-15T16:56:59.562760] PROCESSED i298: pos=s, lemmas=buttony
+[2026-03-15T16:56:59.562991] PROCESSED i299: pos=s, lemmas=carbuncled
+[2026-03-15T16:56:59.563315] PROCESSED i300: pos=s, lemmas=champleve, cloisonne
+[2026-03-15T16:56:59.563703] ==================================================
+[2026-03-15T16:56:59.563744] BATCH 201-300 COMPLETE
+[2026-03-15T16:56:59.563778] Total synsets processed: 99
+[2026-03-15T16:56:59.563811] Errors/not found: 1
+[2026-03-15T16:56:59.563842] Output written to /home/ubt18/synsets/output/batch_201_300.tsv
+[2026-03-15T16:56:59.563874] ==================================================

@@ -1,0 +1,37 @@
+{
+  "ili": 86180,
+  "lemma": "shoreline",
+  "model": "kimi-k2.5",
+  "timestamp": "2026-03-15T15:52:00.000000",
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
+  "wordnet_source": "ewn:2020",
+  "structure_version": "4.0",
+  "files": {
+    "natural": {
+      "en": "natural/en.txt",
+      "zh": "natural/zh.txt",
+      "ja": "natural/ja.txt"
+    },
+    "ili": {
+      "en": "ili/en.txt",
+      "zh": "ili/zh.txt",
+      "ja": "ili/ja.txt"
+    },
+    "merged": {
+      "en": "merged/en.txt",
+      "zh": "merged/zh.txt",
+      "ja": "merged/ja.txt"
+    }
+  },
+  "models": {
+    "kimi-k2.5": {
+      "alignment_verified": true,
+      "verification_mode": "strict",
+      "alignment_mismatches": []
+    }
+  }
+}

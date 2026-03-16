@@ -1,0 +1,62 @@
+{
+  "ili": 3856,
+  "lemma": "sound",
+  "model": "claude-sonnet-4",
+  "timestamp": "2026-03-15T15:55:00.000000",
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
+  "wordnet_source": "ewn:2020",
+  "structure_version": "4.0",
+  "pos": "s",
+  "definition": "(of sleep) deep and complete",
+  "lemmas": [
+    "wakeless",
+    "profound",
+    "sound",
+    "heavy",
+    "heavier",
+    "heaviest"
+  ],
+  "files": {
+    "natural": {
+      "en": "claude-sonnet-4/natural/en.txt",
+      "zh": "claude-sonnet-4/natural/zh.txt",
+      "ja": "claude-sonnet-4/natural/ja.txt"
+    },
+    "ili": {
+      "en": "claude-sonnet-4/ili/en.txt",
+      "zh": "claude-sonnet-4/ili/zh.txt",
+      "ja": "claude-sonnet-4/ili/ja.txt"
+    },
+    "merged": {
+      "en": "claude-sonnet-4/merged/en.txt",
+      "zh": "claude-sonnet-4/merged/zh.txt",
+      "ja": "claude-sonnet-4/merged/ja.txt"
+    }
+  },
+  "models": {
+    "claude-sonnet-4": {
+      "alignment_verified": false,
+      "verification_mode": "strict",
+      "alignment_mismatches": [
+        {
+          "language": "zh",
+          "issue": "total_count_mismatch",
+          "expected": 28,
+          "actual": 24,
+          "mode": "strict"
+        },
+        {
+          "language": "en",
+          "issue": "total_count_mismatch",
+          "expected": 28,
+          "actual": 25,
+          "mode": "strict"
+        }
+      ]
+    }
+  }
+}
