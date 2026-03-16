@@ -1,0 +1,36 @@
+{
+  "ili": 83720,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T13:00:00",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "v4_independent_per_language",
+  "concept": {
+    "common_names": {
+      "en": "Libreville",
+      "zh": "利伯维尔",
+      "ja": "リーブルビル"
+    },
+    "pos": "n",
+    "definition": "the capital of Gabon"
+  },
+  "wordnet_source": {
+    "en": "English WordNet 2020",
+    "zh": "Chinese Open Wordnet 1.4 (not available for this ILI - independently generated)",
+    "ja": "Japanese Wordnet 1.4"
+  },
+  "relationships": {
+    "hypernym": {
+      "id": "ewn-08709407-n",
+      "definition": "the capital city of a nation"
+    },
+    "holonym": {
+      "id": "ewn-08965302-n",
+      "definition": "a republic on the west coast of Africa"
+    }
+  },
+  "note": "Chinese definition generated independently in native Chinese (not translated from English)"
+}
