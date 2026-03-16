@@ -1,0 +1,17 @@
+{
+  "ili": 60279,
+  "synset": "time-fuse",
+  "pos": "n",
+  "definition": "a fuse made to burn for a given time (especially to explode a bomb)",
+  "lemmas": [
+    "time-fuse"
+  ],
+  "timestamp": "2026-03-16T14:22:39.570344",
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
+  "generation_method": "v4_independent",
+  "description": "Each language generated independently with native-language prompts"
+}
