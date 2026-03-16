@@ -1,0 +1,18 @@
+{
+  "ili": 90858,
+  "definition": "a person having kinship with another or others",
+  "pos": "n",
+  "lemmas": {
+    "en": ["family", "kin", "kinsperson"],
+    "ja": ["一族", "一門", "親族", "親類", "家族", "身寄り", "親戚"]
+  },
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T01:30:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "v4_independent_per_language",
+  "verification": "manual",
+  "relations": {
+    "hypernym": {"synset": "ewn-10255246-n", "ili": 90856, "definition": "a person related by blood or marriage", "lemmas": ["relative", "relation"]},
+    "hyponym": {"synset": "ewn-09795963-n", "ili": 88109, "definition": "(anthropology) kin by marriage", "lemmas": ["affine"]}
+  }
+}
