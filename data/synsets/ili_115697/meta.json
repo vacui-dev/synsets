@@ -1,0 +1,40 @@
+{
+  "ili": 115697,
+  "ili_id": "i115697",
+  "model": "openrouter/hunter-alpha",
+  "synset_id": "ewn-14975076-n",
+  "timestamp": "2026-03-15T21:56:35.237195",
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
+  "generation_method": "independent_per_language",
+  "generation_tool": "hermes_agent_native",
+  "description": "Calomel (mercurous chloride) - a tasteless colorless powder used as a cathartic",
+  "lemmas": {
+    "en": [
+      "calomel",
+      "mercurous chloride"
+    ],
+    "zh": [
+      "甘汞",
+      "氯化亚汞"
+    ],
+    "ja": [
+      "カロメル",
+      "塩化第一水銀"
+    ]
+  },
+  "pos": "n",
+  "ili_annotated_count": {
+    "en": 14,
+    "zh": 14,
+    "ja": 14
+  },
+  "relationships": {
+    "hypernym": "any compound containing a chlorine atom",
+    "mero_substance": "mercury (metallic element)",
+    "holo_substance": "a mixture of calomel and limewater used on syphilitic sores"
+  }
+}

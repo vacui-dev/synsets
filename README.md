@@ -132,13 +132,18 @@ Any MCP-compatible agent can connect. Not Hermes-specific.
 
 ```bash
 # 1. Install WordNet database
-python3 -c 'import wn; wn.download("ewn:2020")'
+pip install wn wn-data
+python -m wn download ewn:2020
 
-# 2. Set API key
-echo "NOUS_API_KEY=sk-..." > .env
+# 2. Start MCP server (required for agent annotation)
+cd ~/synsets && python3 skill/scripts/wordnet_mcp_server.py &
 
-# 3. Start MCP server
-python3 skill/scripts/wordnet_mcp_server.py &
+# 3. Use in Hermes (just say):
+#    /disambiguate "The bank approved the loan"
+#    or: /synsets "any text here"
+#    or: Annotate: your text here
+
+# --- Standalone batch processing (no agent needed) ---
 
 # 4. Annotate a single record
 python3 skill/scripts/hermes_tool_use.py --record 0 --limit 50
@@ -151,6 +156,58 @@ python3 skill/scripts/validate.py data/retranslated_v1.jsonl
 
 # 7. View results
 open index.html
+```
+
+## Installing the Hermes Skill
+
+The synsets skill integrates with Hermes Agent for interactive text annotation. After installing the skill, use `/disambiguate` or `/synsets` to annotate any text.
+
+### Option 1: Via Skills Hub (recommended)
+
+```bash
+# Install from the skills hub
+hermes skills install synsets
+```
+
+### Option 2: Manual Installation
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/vacui-dev/synsets.git ~/synsets
+
+# 2. Copy skill to Hermes skills directory
+mkdir -p ~/.hermes/skills/mlops/models/
+cp -r ~/synsets/skill ~/.hermes/skills/mlops/models/synsets
+
+# 3. Install Python dependencies
+pip install wn wn-data
+
+# 4. Download WordNet data
+python -m wn download ewn:2020
+
+# 5. Start the MCP server (background)
+cd ~/synsets && python3 skill/scripts/wordnet_mcp_server.py &
+```
+
+### Option 3: Dev Mode (symlink for live editing)
+
+```bash
+# Symlink instead of copy — changes to skill/ take effect immediately
+mkdir -p ~/.hermes/skills/mlops/models/
+ln -s ~/synsets/skill ~/.hermes/skills/mlops/models/synsets
+```
+
+### Verifying Installation
+
+```bash
+# Check the skill is loaded
+ls ~/.hermes/skills/mlops/models/synsets/SKILL.md
+
+# Test the MCP server
+curl http://localhost:8741/health
+
+# Test in Hermes — should work after MCP server is running:
+# /disambiguate "test sentence"
 ```
 
 ## Data Methodology

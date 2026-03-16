@@ -1,0 +1,20 @@
+{
+  "ili": 36049,
+  "ili_id": "i36049",
+  "model": "openrouter/healer-alpha",
+  "timestamp": "2026-03-15T19:12:30.918154",
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
+  "generation_method": "independent_per_language",
+  "verification": "pending",
+  "pos": "n",
+  "lemmas": [
+    "shot",
+    "shooting"
+  ],
+  "definition_en": "the act of firing a projectile",
+  "notes": "v4 independent generation - each language written natively without translation"
+}

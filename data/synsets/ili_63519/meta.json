@@ -1,0 +1,20 @@
+{
+  "ili": 63519,
+  "pos": "n",
+  "definition": "the temporal property of becoming nearer in time",
+  "lemmas": ["approach", "coming", "approaching"],
+  "model": "independent-multilingual",
+  "timestamp": "2026-03-15T21:00:00",
+  "languages": ["en", "zh", "ja"],
+  "generation_method": "v4_independent_per_language",
+  "verification": "manual",
+  "relations": {
+    "hypernym": {"ili": 63518, "definition": "the time when something happens"},
+    "sibling_hyponyms": [
+      {"ili": 63520, "definition": "quality of coming early or earlier in time"},
+      {"ili": 63522, "definition": "quality of coming late or later in time"},
+      {"ili": 63525, "definition": "the quality or habit of adhering to an appointed time"}
+    ]
+  },
+  "notes": "Each language generated independently with native-language thinking. No translation flow. Chinese and Japanese definitions written directly in target language from conceptual understanding of the synset."
+}
