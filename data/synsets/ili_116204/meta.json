@@ -1,0 +1,21 @@
+{
+  "ili": 116204,
+  "model": "claude-opus-4-6",
+  "timestamp": "2026-03-16T11:51:00",
+  "languages": ["en", "zh", "ja"],
+  "generation_method": "independent_per_language_v4",
+  "verification": "manual",
+  "wordnet_data": {
+    "pos": "n",
+    "definition": "a polymeric silicone compound",
+    "lemmas": {
+      "en": ["silicone resin"],
+      "zh": ["硅树脂", "硅酮树脂"],
+      "ja": ["シリコン樹脂"]
+    },
+    "hypernym": {
+      "ili": "i113706",
+      "definition": "generic name for certain synthetic or semisynthetic materials that can be molded or extruded into objects or films or filaments or used for making e.g. coatings and adhesives"
+    }
+  }
+}
