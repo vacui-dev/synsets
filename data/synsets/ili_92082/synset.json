@@ -1,0 +1,266 @@
+{
+  "ili": 92082,
+  "pos": "n",
+  "definition_en": "someone who plies a trade",
+  "generation_method": "v4_independent",
+  "languages": {
+    "en": {
+      "text": "A plier or plyer is a person who regularly engages in and practices a particular trade or craft. The term emphasizes the active, ongoing nature of skilled work — not merely possessing knowledge of a trade, but continuously applying it in practice. Historically, \"plyer\" referred to someone who plied (worked steadily at) a specific occupation, such as a wheelwright, cooper, or weaver. The word belongs to a family of occupational terms derived from the verb \"ply,\" meaning to work at diligently. In modern usage, \"plier\" is relatively uncommon compared to more specific terms like artisan, craftsman, or tradesperson, but it retains the connotation of someone committed to the steady exercise of their craft.",
+      "annotated": "A <|i92082|>plier or <|i92082|>plyer is a <|i35562|>person who <|i19484|>regularly <|i33633|>engages in and <|i37557|>practices a <|i67454|>particular <|i38611|>trade or <|i38611|>craft. The <|i69608|>term <|i26649|>emphasizes the <|i188|>active, <|i3711|>ongoing <|i61872|>nature of <|i12305|>skilled <|i38422|>work — not merely <|i34832|>possessing <|i35575|>knowledge of a <|i38611|>trade, but <|i19458|>continuously <|i27417|>applying it in <|i37557|>practice. <|i18832|>Historically, \"<|i92082|>plyer\" <|i26697|>referred to someone who <|i57473|>plied (worked <|i18433|>steadily at) a <|i6067|>specific <|i38458|>occupation, such as a <|i94091|>wheelwright, <|i89218|>cooper, or <|i94064|>weaver. The <|i69544|>word <|i33240|>belongs to a <|i79671|>family of <|i16468|>occupational <|i69608|>terms <|i24922|>derived from the <|i69683|>verb \"<|i57473|>ply,\" <|i71150|>meaning to <|i38422|>work at <|i20305|>diligently. In <|i8431|>modern <|i40384|>usage, \"<|i92082|>plier\" is <|i2771|>relatively uncommon <|i61969|>compared to more <|i6067|>specific <|i69608|>terms like <|i89293|>artisan, <|i89295|>craftsman, or tradesperson, but it <|i35162|>retains the <|i71156|>connotation of someone <|i2909|>committed to the <|i12746|>steady <|i38707|>exercise of their <|i38611|>craft.",
+      "annotations": [
+        {
+          "span": "plier",
+          "ili": 92082
+        },
+        {
+          "span": "plyer",
+          "ili": 92082
+        },
+        {
+          "span": "person",
+          "ili": 35562
+        },
+        {
+          "span": "regularly",
+          "ili": 19484
+        },
+        {
+          "span": "engages",
+          "ili": 33633
+        },
+        {
+          "span": "practices",
+          "ili": 37557
+        },
+        {
+          "span": "particular",
+          "ili": 67454
+        },
+        {
+          "span": "trade",
+          "ili": 38611
+        },
+        {
+          "span": "craft.",
+          "ili": 38611
+        },
+        {
+          "span": "term",
+          "ili": 69608
+        },
+        {
+          "span": "emphasizes",
+          "ili": 26649
+        },
+        {
+          "span": "active,",
+          "ili": 188
+        },
+        {
+          "span": "ongoing",
+          "ili": 3711
+        },
+        {
+          "span": "nature",
+          "ili": 61872
+        },
+        {
+          "span": "skilled",
+          "ili": 12305
+        },
+        {
+          "span": "work",
+          "ili": 38422
+        },
+        {
+          "span": "possessing",
+          "ili": 34832
+        },
+        {
+          "span": "knowledge",
+          "ili": 35575
+        },
+        {
+          "span": "trade,",
+          "ili": 38611
+        },
+        {
+          "span": "continuously",
+          "ili": 19458
+        },
+        {
+          "span": "applying",
+          "ili": 27417
+        },
+        {
+          "span": "practice.",
+          "ili": 37557
+        },
+        {
+          "span": "Historically,",
+          "ili": 18832
+        },
+        {
+          "span": "plyer\"",
+          "ili": 92082
+        },
+        {
+          "span": "referred",
+          "ili": 26697
+        },
+        {
+          "span": "plied",
+          "ili": 57473
+        },
+        {
+          "span": "steadily",
+          "ili": 18433
+        },
+        {
+          "span": "specific",
+          "ili": 6067
+        },
+        {
+          "span": "occupation,",
+          "ili": 38458
+        },
+        {
+          "span": "wheelwright,",
+          "ili": 94091
+        },
+        {
+          "span": "cooper,",
+          "ili": 89218
+        },
+        {
+          "span": "weaver.",
+          "ili": 94064
+        },
+        {
+          "span": "word",
+          "ili": 69544
+        },
+        {
+          "span": "belongs",
+          "ili": 33240
+        },
+        {
+          "span": "family",
+          "ili": 79671
+        },
+        {
+          "span": "occupational",
+          "ili": 16468
+        },
+        {
+          "span": "terms",
+          "ili": 69608
+        },
+        {
+          "span": "derived",
+          "ili": 24922
+        },
+        {
+          "span": "verb",
+          "ili": 69683
+        },
+        {
+          "span": "ply,\"",
+          "ili": 57473
+        },
+        {
+          "span": "meaning",
+          "ili": 71150
+        },
+        {
+          "span": "work",
+          "ili": 38422
+        },
+        {
+          "span": "diligently.",
+          "ili": 20305
+        },
+        {
+          "span": "modern",
+          "ili": 8431
+        },
+        {
+          "span": "usage,",
+          "ili": 40384
+        },
+        {
+          "span": "plier\"",
+          "ili": 92082
+        },
+        {
+          "span": "relatively",
+          "ili": 2771
+        },
+        {
+          "span": "compared",
+          "ili": 61969
+        },
+        {
+          "span": "specific",
+          "ili": 6067
+        },
+        {
+          "span": "terms",
+          "ili": 69608
+        },
+        {
+          "span": "artisan,",
+          "ili": 89293
+        },
+        {
+          "span": "craftsman,",
+          "ili": 89295
+        },
+        {
+          "span": "retains",
+          "ili": 35162
+        },
+        {
+          "span": "connotation",
+          "ili": 71156
+        },
+        {
+          "span": "committed",
+          "ili": 2909
+        },
+        {
+          "span": "steady",
+          "ili": 12746
+        },
+        {
+          "span": "exercise",
+          "ili": 38707
+        },
+        {
+          "span": "craft.",
+          "ili": 38611
+        }
+      ]
+    },
+    "cz": {
+      "text": "从事某种手艺或行业的人，即定期从事并实践某一特定行业或手工艺的人。该词强调技能型工作的主动性和持续性——不仅仅是掌握某一行业的知识，而是持续地在实践中加以运用。从词源来看，\"plyer\"指的是稳定地从事某一特定职业的人，例如车轮匠、箍桶匠或织布匠。这个词属于由动词\"ply\"（意为勤奋地从事、经营）派生而成的职业术语家族。在现代用法中，\"plier\"相较于\"匠人\"\"技工\"或\"手艺人\"等更具体的术语来说较为少见，但它保留了对某人致力于持续从事其手艺的内涵。",
+      "annotated": "<|i33633|>从事某种<|i66541|>手艺或<|i38458|>行业的<|i35562|>人，即定期<|i33633|>从事并<|i37558|>实践某一<|i38458|>特定<|i38458|>行业或<|i66541|>手工艺的人。该<|i69608|>词<|i26649|>强调<|i66573|>技能型<|i38422|>工作的主动性<|i35182|>持续性——不仅仅<|i24749|>掌握某一<|i38458|>行业的<|i35575|>知识，而是<|i35182|>持续地在<|i37558|>实践中<|i34497|>加以<|i34497|>运用。从<|i69608|>词源来看，\"<|i92082|>plyer\"<|i26697|>指的是<|i12746|>稳定地<|i33633|>从事某一特定<|i38458|>职业的人，例如<|i94091|>车轮<|i89293|>匠、<|i89218|>箍桶<|i89293|>匠或<|i94064|>织布<|i89293|>匠。这个<|i69544|>词属于由<|i69683|>动词\"<|i57473|>ply\"<|i24922|>派生而成的<|i16468|>职业<|i69608|>术语家族。在<|i8431|>现代<|i40384|>用法中，\"<|i92082|>plier\"相较于\"<|i89293|>匠人\"\"<|i89293|>技工\"或\"<|i89293|>手艺人\"等更<|i6067|>具体的<|i69608|>术语来说较为少见，但它<|i35162|>保留了对某人<|i2909|>致力于<|i12746|>持续<|i38707|>从事其<|i38611|>手艺的内涵。",
+      "annotations": [
+        {
+          "span": "从事某种<|i66541|>手艺或<|i38458|>行业的<|i35562|>人，即定期<|i33633|>从事并<|i37558|>实践某一<|i38458|>特定<|i38458|>行业或<|i66541|>手工艺的人。该<|i69608|>词<|i26649|>强调<|i66573|>技能型<|i38422|>工作的主动性<|i35182|>持续性——不仅仅<|i24749|>掌握某一<|i38458|>行业的<|i35575|>知识，而是<|i35182|>持续地在<|i37558|>实践中<|i34497|>加以<|i34497|>运用。从<|i69608|>词源来看，\"<|i92082|>plyer\"<|i26697|>指的是<|i12746|>稳定地<|i33633|>从事某一特定<|i38458|>职业的人，例如<|i94091|>车轮<|i89293|>匠、<|i89218|>箍桶<|i89293|>匠或<|i94064|>织布<|i89293|>匠。这个<|i69544|>词属于由<|i69683|>动词\"<|i57473|>ply\"<|i24922|>派生而成的<|i16468|>职业<|i69608|>术语家族。在<|i8431|>现代<|i40384|>用法中，\"<|i92082|>plier\"相较于\"<|i89293|>匠人\"\"<|i89293|>技工\"或\"<|i89293|>手艺人\"等更<|i6067|>具体的<|i69608|>术语来说较为少见，但它<|i35162|>保留了对某人<|i2909|>致力于<|i12746|>持续<|i38707|>从事其<|i38611|>手艺的内涵。",
+          "ili": 33633
+        }
+      ]
+    },
+    "ja": {
+      "text": "ある<|i38611|>技能や<|i38458|>職業を<|i19484|>定期的に<|i33633|>従事し、<|i40103|>実践する<|i35562|>人のこと。この<|i69608|>語は、<|i12305|>熟練した<|i38422|>仕事の能動的かつ継続的な<|i61872|>性質を<|i26649|>強調する——単にある<|i38611|>職業の<|i35575|>知識を<|i34832|>有するだけでなく、それを<|i35182|>継続的に<|i37558|>実践において<|i27417|>活用することを意味する。歴史的には、「plyer」とは特定の<|i38458|>職業——例えば<|i94091|>車輪職人、<|i89218|>樽<|i89293|>職人、<|i94064|>織物<|i89293|>職人など——を<|i18433|>着実に<|i38422|>働く<|i87254|>労働者を指した。この<|i69544|>言葉は、「ply」（勤勉に<|i38422|>働く、<|i33633|>従事する）という<|i69683|>動詞から<|i24922|>派生した<|i16468|>職業<|i69608|>用語の<|i79671|>一員である。現代の<|i40384|>用法では、「plier」は<|i89293|>職人、<|i89294|>匠、<|i89295|>技工など、より<|i6067|>具体的な<|i69608|>語に比べて<|i2771|>一般的ではないが、自分の<|i38611|>技能への<|i2909|>献身的<|i12746|>な<|i38707|>取り組みという<|i71156|>含意を保っている。",
+      "annotated": "ある<|i38611|>技能や<|i38458|>職業を定期的に<|i33633|>従事し、<|i37558|>実践する<|i93320|>人のこと。この<|i69544|>語は、<|i5131|>熟練した<|i38467|>仕事の能動的かつ<|i63545|>継続的な<|i62954|>性質を<|i26649|>強調する——単にある<|i38611|>職業の<|i67975|>知識を<|i32775|>有するだけでなく、それを<|i35182|>継続的に<|i37558|>実践において<|i27417|>活用することを<|i67398|>意味する。歴史的には、「plyer」とは特定の<|i38458|>職業——例えば<|i57880|>車輪<|i89293|>職人、<|i55344|>樽<|i89293|>職人、<|i61053|>織物<|i89293|>職人など——を<|i12747|>着実に<|i33807|>働く<|i87254|>労働者を<|i26697|>指した。この<|i73863|>言葉は、「ply」（勤勉に<|i33807|>働く、<|i33633|>従事する）という<|i69699|>動詞から<|i81760|>派生した<|i16468|>職業<|i67643|>用語の<|i109480|>一員である。<|i116652|>現代の<|i40384|>用法では、「plier」は<|i89293|>職人、<|i88838|>匠、<|i93568|>技工など、より<|i61|>具体的な<|i69544|>語に比べて<|i13681|>一般的ではないが、自分の<|i38611|>技能への<|i40876|>献身的な<|i75988|>取り組みという<|i71177|>含意を<|i35162|>保っている。",
+      "annotations": [
+        {
+          "span": "技能や<|i38458|>職業を定期的に<|i33633|>従事し、<|i37558|>実践する<|i93320|>人のこと。この<|i69544|>語は、<|i5131|>熟練した<|i38467|>仕事の能動的かつ<|i63545|>継続的な<|i62954|>性質を<|i26649|>強調する——単にある<|i38611|>職業の<|i67975|>知識を<|i32775|>有するだけでなく、それを<|i35182|>継続的に<|i37558|>実践において<|i27417|>活用することを<|i67398|>意味する。歴史的には、「plyer」とは特定の<|i38458|>職業——例えば<|i57880|>車輪<|i89293|>職人、<|i55344|>樽<|i89293|>職人、<|i61053|>織物<|i89293|>職人など——を<|i12747|>着実に<|i33807|>働く<|i87254|>労働者を<|i26697|>指した。この<|i73863|>言葉は、「ply」（勤勉に<|i33807|>働く、<|i33633|>従事する）という<|i69699|>動詞から<|i81760|>派生した<|i16468|>職業<|i67643|>用語の<|i109480|>一員である。<|i116652|>現代の<|i40384|>用法では、「plier」は<|i89293|>職人、<|i88838|>匠、<|i93568|>技工など、より<|i61|>具体的な<|i69544|>語に比べて<|i13681|>一般的ではないが、自分の<|i38611|>技能への<|i40876|>献身的な<|i75988|>取り組みという<|i71177|>含意を<|i35162|>保っている。",
+          "ili": 38611
+        }
+      ]
+    }
+  }
+}

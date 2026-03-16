@@ -1,0 +1,13 @@
+{
+  "ili": 92082,
+  "pos": "n",
+  "lemmas_en": ["plier", "plyer"],
+  "definition_en": "someone who plies a trade",
+  "hypernyms": ["i87254"],
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T15:48:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "v4_independent",
+  "verification": "manual",
+  "notes": "v4 independent generation - each language researched and written natively. No translation flow. MCP WordNet server unavailable; used direct SQLite queries against ~/.wn_data/wn.db."
+}
