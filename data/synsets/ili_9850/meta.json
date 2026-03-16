@@ -1,0 +1,28 @@
+{
+  "ili": 9850,
+  "model": "claude-opus-4-6",
+  "timestamp": "2026-03-16T03:05:41.460281",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "v4_independent_per_language",
+  "synset": {
+    "pos": "s",
+    "lemmas_en": [
+      "dry"
+    ],
+    "definition_en": "having no adornment or coloration",
+    "head_adjective": {
+      "ili": 9845,
+      "lemma": "plain",
+      "definition": "not elaborate or elaborated; simple"
+    },
+    "examples": [
+      "dry facts",
+      "rattled off the facts in a dry mechanical manner"
+    ]
+  },
+  "notes": "Satellite adjective linked to head 'plain' (i9845). Each language generated independently with native-language prompts. Chinese/Japanese based on head adjective equivalents (朴素的/飾り気のない) as no direct synset exists in those WordNets."
+}
