@@ -1,0 +1,27 @@
+{
+  "ili": 89964,
+  "ili_id": "i89964",
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T08:10:04.161695",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "independent_per_language_v4",
+  "generation_style": "v4_true_multilingual",
+  "description": {
+    "en": "fire watcher — WWII British civilian volunteer who spotted incendiary bombs",
+    "cz": "火警瞭望员——二战时期英国民间志愿防火人员",
+    "ja": "火災監視員——第二次世界大戦中のイギリス民間防火志願者"
+  },
+  "pos": "n",
+  "lemmas_en": [
+    "fire watcher"
+  ],
+  "sources": {
+    "wordnet": "ewn:2020",
+    "wordnet_zh": "omw-zh:1.3",
+    "wordnet_ja": "omw-ja:1.3"
+  }
+}
