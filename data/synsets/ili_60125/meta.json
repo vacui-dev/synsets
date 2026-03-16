@@ -1,0 +1,17 @@
+{
+  "ili": 60125,
+  "model": "claude-opus-4.6",
+  "timestamp": "2026-03-16T03:50:09.311015",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "independent_per_language_v4",
+  "wordnet_sources": {
+    "en": "ewn:2020",
+    "cz": "omw-cmn:1.4",
+    "ja": "omw-ja:1.4"
+  },
+  "verification": "strict"
+}
