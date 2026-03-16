@@ -1,0 +1,17 @@
+{
+  "ili": 76081,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T00:12:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language_v4",
+  "verification": "manual",
+  "synset": {
+    "lemmas": ["yearning", "hungriness", "longing"],
+    "pos": "n",
+    "definition": "prolonged unfulfilled desire or need",
+    "hypernyms": ["desire (i76067)"],
+    "hyponyms": ["yelp/hankering", "pining", "wishfulness", "wistfulness", "nostalgia", "discontent"]
+  },
+  "wordnet_source": "ewn:2020",
+  "notes": "v4 independent generation - each language written natively, not translated"
+}
