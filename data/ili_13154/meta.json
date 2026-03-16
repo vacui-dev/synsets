@@ -5,7 +5,7 @@
   "timestamp": "2026-03-15T15:54:36.545555",
   "languages": [
     "en",
-    "cz",
+    "zh",
     "ja"
   ],
   "wordnet_source": "ewn:2020",
@@ -13,17 +13,17 @@
   "files": {
     "natural": {
       "en": "natural/en.txt",
-      "cz": "natural/cz.txt",
+      "zh": "natural/zh.txt",
       "ja": "natural/ja.txt"
     },
     "ili": {
       "en": "ili/en.txt",
-      "cz": "ili/cz.txt",
+      "zh": "ili/zh.txt",
       "ja": "ili/ja.txt"
     },
     "merged": {
       "en": "merged/en.txt",
-      "cz": "merged/cz.txt",
+      "zh": "merged/zh.txt",
       "ja": "merged/ja.txt"
     }
   },

@@ -5,7 +5,7 @@
   "timestamp": "2026-03-15T15:55:00Z",
   "languages": [
     "en",
-    "cz",
+    "zh",
     "ja"
   ],
   "wordnet_source": "ewn:2020",
@@ -13,17 +13,17 @@
   "files": {
     "natural": {
       "en": "kimi-k2.5/natural/en.txt",
-      "cz": "kimi-k2.5/natural/cz.txt",
+      "zh": "kimi-k2.5/natural/zh.txt",
       "ja": "kimi-k2.5/natural/ja.txt"
     },
     "ili": {
       "en": "kimi-k2.5/ili/en.txt",
-      "cz": "kimi-k2.5/ili/cz.txt",
+      "zh": "kimi-k2.5/ili/zh.txt",
       "ja": "kimi-k2.5/ili/ja.txt"
     },
     "merged": {
       "en": "kimi-k2.5/merged/en.txt",
-      "cz": "kimi-k2.5/merged/cz.txt",
+      "zh": "kimi-k2.5/merged/zh.txt",
       "ja": "kimi-k2.5/merged/ja.txt"
     }
   },
@@ -33,7 +33,7 @@
       "verification_mode": "strict",
       "alignment_mismatches": [
         {
-          "language": "cz",
+          "language": "zh",
           "issue": "total_count_mismatch",
           "expected": 34,
           "actual": 33,

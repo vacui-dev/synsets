@@ -9,15 +9,15 @@ data/synsets/
     MODEL_NAME/                  # e.g., kimi-k2.5, claude-sonnet-4
       natural/                   # Wikipedia-quality natural text
         en.txt                   # English (proper grammar)
-        cz.txt                   # Chinese (proper grammar)
+        zh.txt                   # Chinese (proper grammar)
         ja.txt                   # Japanese (proper grammar)
       ili/                       # ILI-annotated versions
         en.txt                   # English with ILI tags
-        cz.txt                   # Chinese with ILI tags
+        zh.txt                   # Chinese with ILI tags
         ja.txt                   # Japanese with ILI tags
       merged/                    # Grammar-correct, ILI-aligned
         en.txt                   # English (function words untagged)
-        cz.txt                   # Chinese (function words untagged)
+        zh.txt                   # Chinese (function words untagged)
         ja.txt                   # Japanese (particles untagged)
 ```
 
@@ -69,12 +69,12 @@ Grammar is constrained but correct:
 Example:
 ```
 # kimi-k2.5/merged/en.txt
-<|ILI_73081|>Thraco-Phrygian <|ILI_025997|>was proposed as an 
+<|ILI_73081|>Thraco-Phrygian <|ILI_025997|>was proposed as an
 <|ILI_005091|>extinct <|ILI_081247|>branch of the ...
 
-# kimi-k2.5/merged/ja.txt  
-<|ILI_73081|>トラキア・フリギア語族は<|ILI_025997|>提案された
-<|ILI_005091|>死滅した<|ILI_081247|>分枝で、...
+# kimi-k2.5/merged/zh.txt
+<|ILI_73081|>色雷斯-弗里吉亚语族<|ILI_025997|>被提议为一个
+<|ILI_005091|>已灭绝的<|ILI_081247|>分支...
 ```
 
 Both have same ILI count and order, though Japanese grammar differs.
@@ -86,16 +86,16 @@ Both have same ILI count and order, though Japanese grammar differs.
   "ili": 73081,
   "primary_model": "kimi-k2.5",
   "timestamp": "2026-03-15T15:00:00Z",
-  "languages": ["en", "cz", "ja"],
+  "languages": ["en", "zh", "ja"],
   "models": {
     "kimi-k2.5": {
       "timestamp": "2026-03-15T15:00:00Z",
       "alignment_verified": true,
-      "ilis_per_lang": {"en": 15, "cz": 15, "ja": 15}
+      "ilis_per_lang": {"en": 15, "zh": 15, "ja": 15}
     }
   },
   "validation": {
-    "en_cz_ja_aligned": true,
+    "en_zh_ja_aligned": true,
     "all_langs_same_count": true,
     "all_langs_same_order": true
   }
@@ -158,7 +158,7 @@ Produces:
 ```
 ili_only/
   en.ili    # <|ILI_73081|> <|ILI_025997|> <|ILI_005091|> ...
-  cz.ili
+  zh.ili
   ja.ili
 ```
 

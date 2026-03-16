@@ -9,9 +9,9 @@ Generates:
     ili_XXXXXX/
       MODEL_NAME/
         def_en.txt          - English definition
-        def_cz.txt          - Chinese definition  
+        def_zh.txt          - Chinese definition  
         def_en_ili.txt      - English with ILI tokens
-        def_cz_ili.txt      - Chinese with ILI tokens
+        def_zh_ili.txt      - Chinese with ILI tokens
         aligned.txt         - Constrained multilingual (same ILIs, SVO grammar)
       meta.json             - Model info, timestamp, validation results
 """
@@ -78,19 +78,19 @@ PHASE 1 - RESEARCH:
 2. Explore 2-3 hypernyms/hyponyms for context
 
 PHASE 2 - WRITE INDEPENDENT DEFINITIONS:
-Write: {model}/def_en.txt and {model}/def_cz.txt
+Write: {model}/def_en.txt and {model}/def_zh.txt
 - Wikipedia quality, 3-5 sentences each
 - Natural grammar in each language
 - Cover: what, context, usage, relationships
 
 PHASE 3 - ANNOTATE:
-Write: {model}/def_en_ili.txt and {model}/def_cz_ili.txt
+Write: {model}/def_en_ili.txt and {model}/def_zh_ili.txt
 - Use mcp_wordnet_lookup_word for EVERY content word
 - Format: <|ILI_NNNNNN|>word
 - Skip function words
 
 PHASE 4 - ALIGNMENT PASS (CRITICAL):
-Compare def_en_ili.txt and def_cz_ili.txt:
+Compare def_en_ili.txt and def_zh_ili.txt:
 - Count ILI occurrences in each
 - If counts differ: REVISE to match
 
@@ -104,7 +104,7 @@ Write: {model}/aligned.txt
 PHASE 5 - METADATA:
 Write: meta.json
 {{"ili": {ili_num}, "model": "{model}", "timestamp": "ISO8601", 
-  "en_word_count": N, "cz_word_count": N, "aligned_ili_count": N,
+  "en_word_count": N, "zh_word_count": N, "aligned_ili_count": N,
   "validation": "passed|failed", "notes": "..."}}
 
 RULES:
@@ -146,20 +146,20 @@ def validate_alignment(ili_num: int, model: str) -> dict:
         return re.findall(r'<\|ILI_(\d+)\|>', content)
     
     enilis = extract_ilis(f"{base_dir}/def_en_ili.txt")
-    czilis = extract_ilis(f"{base_dir}/def_cz_ili.txt")
+    zh_ilis = extract_ilis(f"{base_dir}/def_zh_ili.txt")
     
     en_set = set(enilis)
-    cz_set = set(czilis)
+    zh_set = set(zh_ilis)
     
     return {
         "en_ili_count": len(enilis),
-        "cz_ili_count": len(czilis),
+        "zh_ili_count": len(zh_ilis),
         "en_unique": len(en_set),
-        "cz_unique": len(cz_set),
-        "common": len(en_set & cz_set),
-        "en_only": list(en_set - cz_set),
-        "cz_only": list(cz_set - en_set),
-        "aligned": en_set == cz_set and len(enilis) == len(czilis)
+        "zh_unique": len(zh_set),
+        "common": len(en_set & zh_set),
+        "en_only": list(en_set - zh_set),
+        "zh_only": list(zh_set - en_set),
+        "aligned": en_set == zh_set and len(enilis) == len(zh_ilis)
     }
 
 def main():

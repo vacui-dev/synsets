@@ -52,10 +52,10 @@ steps:
     action: |
       Translate English definition accurately.
       Maintain technical terms appropriately.
-      Save to: data/synsets/ili_${ili_num}/ili_${ili_num}_def_cz.txt
+      Save to: data/synsets/ili_${ili_num}/ili_${ili_num}_def_zh.txt
     tool: write_file
     input:
-      path: "data/synsets/ili_${ili_num}/ili_${ili_num}_def_cz.txt"
+      path: "data/synsets/ili_${ili_num}/ili_${ili_num}_def_zh.txt"
       content: "${chinese_definition}"
 
   - id: annotate_english

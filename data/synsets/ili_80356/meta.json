@@ -2,14 +2,20 @@
   "ili": 80356,
   "model": "openrouter/hunter-alpha",
   "timestamp": "2026-03-15T17:20:00",
-  "languages": ["en", "cz", "ja"],
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
   "generation_method": "independent_per_language",
   "verification": "strict",
   "concept": "chess club",
   "pos": "n",
   "synset_info": {
     "definition": "a club of people to play chess",
-    "lemmas": ["chess club"],
+    "lemmas": [
+      "chess club"
+    ],
     "hypernym": "i80347 (a formal association of people with similar interests)"
   }
 }

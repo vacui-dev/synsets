@@ -5,23 +5,27 @@
   "definition": "a bachelor's degree in engineering",
   "model": "kimi-k2.5",
   "timestamp": "2026-03-15T15:51:00Z",
-  "languages": ["en", "cz", "ja"],
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
   "generation_method": "manual_annotation",
   "wordnet_source": "princeton_english",
   "files": {
     "natural": {
       "en": "kimi-k2.5/natural/en.txt",
-      "cz": "kimi-k2.5/natural/cz.txt",
+      "zh": "kimi-k2.5/natural/zh.txt",
       "ja": "kimi-k2.5/natural/ja.txt"
     },
     "ili": {
       "en": "kimi-k2.5/ili/en.txt",
-      "cz": "kimi-k2.5/ili/cz.txt",
+      "zh": "kimi-k2.5/ili/zh.txt",
       "ja": "kimi-k2.5/ili/ja.txt"
     },
     "merged": {
       "en": "kimi-k2.5/merged/en.txt",
-      "cz": "kimi-k2.5/merged/cz.txt",
+      "zh": "kimi-k2.5/merged/zh.txt",
       "ja": "kimi-k2.5/merged/ja.txt"
     }
   }

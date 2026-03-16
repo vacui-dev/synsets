@@ -2,7 +2,11 @@
   "ili": 107705,
   "model": "moonshotai/kimi-k2.5",
   "timestamp": "2026-03-15T15:56:00Z",
-  "languages": ["en", "cz", "ja"],
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
   "generation_method": "independent_per_language",
   "verification": "language_specific_annotations",
   "description": "Leaching - natural/artificial process of extracting soluble substances by passing liquid through material"

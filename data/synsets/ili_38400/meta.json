@@ -5,12 +5,12 @@
   "pos": "n",
   "model": "openrouter/hunter-alpha",
   "timestamp": "2026-03-15T17:33:00",
-  "languages": ["en", "cz", "ja"],
+  "languages": ["en", "zh", "ja"],
   "generation_method": "independent_per_language",
   "version": "v4.0",
   "wordnets": {
     "en": "ewn:2020",
-    "cz": "omw-zh:1.3",
+    "zh": "omw-zh:1.3",
     "ja": "omw-ja:1.3"
   },
   "notes": "v4 independent generation — each language generated with native-language prompt, no translation flow"

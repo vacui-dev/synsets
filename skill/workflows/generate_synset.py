@@ -64,7 +64,7 @@ STEPS:
    - 3-5 sentences minimum
    - Include context, usage, relationships
    
-3. WRITE CHINESE: Create ili_{ili_num}_def_cz.txt  
+3. WRITE CHINESE: Create ili_{ili_num}_def_zh.txt  
    - Accurate translation of English
    - Maintain technical precision
    
@@ -73,7 +73,7 @@ STEPS:
    - Format: <|ILI_NNNNNN|>word
    - Skip: the, a, an, is, of, in, and, or, to, etc.
    
-5. ANNOTATE CHINESE: Create ili_{ili_num}_def_cz_annotated.txt
+5. ANNOTATE CHINESE: Create ili_{ili_num}_def_zh_annotated.txt
    - Same ILI IDs (language-neutral)
    - Skip Chinese function words
 

@@ -4,7 +4,7 @@
   "timestamp": "2026-03-15T17:02:36.900306",
   "languages": [
     "en",
-    "cz",
+    "zh",
     "ja"
   ],
   "generation_method": "v4-independent-per-language",
@@ -17,9 +17,9 @@
   "definition_en": "United States jurist noted for his liberal opinions (1841-1935)",
   "v4_notes": {
     "method": "Each language generated independently with native-language prompts",
-    "english_prompt": "English prompt \u2192 English output",
-    "chinese_prompt": "\u4e2d\u6587\u63d0\u793a \u2192 \u4e2d\u6587\u8f93\u51fa",
-    "japanese_prompt": "\u65e5\u672c\u8a9e\u30d7\u30ed\u30f3\u30d7\u30c8 \u2192 \u65e5\u672c\u8a9e\u51fa\u529b",
+    "english_prompt": "English prompt → English output",
+    "chinese_prompt": "中文提示 → 中文输出",
+    "japanese_prompt": "日本語プロンプト → 日本語出力",
     "alignment": "Conceptual alignment - all languages cover core concept (ILI 95569) and hypernym (ILI 90825)",
     "token_variance": "Expected - each language uses different ILI sets based on natural expression"
   },
@@ -44,7 +44,7 @@
           90825,
           95569
         ],
-        "cz": [
+        "zh": [
           7638,
           16672,
           68073,

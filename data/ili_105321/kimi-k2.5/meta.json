@@ -1,31 +1,38 @@
 {
   "ili": "i105321",
-  "lemmas": ["beefsteak fungus", "Fistulina hepatica"],
+  "lemmas": [
+    "beefsteak fungus",
+    "Fistulina hepatica"
+  ],
   "pos": "n",
   "source_definition": "a popular edible fungus with a cap the color of liver or raw meat; abundant in southeastern United States",
   "model": "kimi-k2.5",
   "timestamp": "2026-03-15T15:51:00Z",
-  "languages": ["en", "cz", "ja"],
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
   "files": {
     "natural": {
       "en": "natural/en.txt",
-      "cz": "natural/cz.txt",
+      "zh": "natural/zh.txt",
       "ja": "natural/ja.txt"
     },
     "ili": {
       "en": "ili/en.txt",
-      "cz": "ili/cz.txt",
+      "zh": "ili/zh.txt",
       "ja": "ili/ja.txt"
     },
     "merged": {
       "en": "merged/en.txt",
-      "cz": "merged/cz.txt",
+      "zh": "merged/zh.txt",
       "ja": "merged/ja.txt"
     }
   },
   "annotated_ili_count": {
     "en": 32,
-    "cz": 28,
+    "zh": 28,
     "ja": 30
   }
 }

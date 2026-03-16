@@ -8,7 +8,7 @@ Creates properly aligned multilingual synset data with:
 - ILI sequence identical across languages (strict mode)
 
 Usage:
-    python generate_synset_v3.py [--ili N] [--langs en,cz,ja] [--verify-mode strict|loose]
+    python generate_synset_v3.py [--ili N] [--langs en,zh,ja] [--verify-mode strict|loose]
 """
 
 import argparse
@@ -20,7 +20,7 @@ import sys
 import tempfile
 from datetime import datetime
 
-LANGUAGES = ['en', 'cz', 'ja']  # Expandable
+LANGUAGES = ['en', 'zh', 'ja']  # Expandable
 
 
 def get_model_info():
@@ -73,15 +73,15 @@ OUTPUT STRUCTURE: data/synsets/ili_{ili_num}/
   {model}/
     natural/      # Wikipedia quality, proper grammar
       en.txt
-      cz.txt  
+      zh.txt  
       ja.txt
     ili/          # ILI annotations (function words untagged)
       en.txt
-      cz.txt
+      zh.txt
       ja.txt      # Particles bare: は、を、が
     merged/       # Grammar-correct, ILI-aligned (CRITICAL)
       en.txt      # Same ILI sequence as ja.txt
-      cz.txt      # Same ILI sequence as ja.txt
+      zh.txt      # Same ILI sequence as ja.txt
       ja.txt      # Same ILI sequence as en.txt
   meta.json       # Model, timestamp, validation
 
@@ -155,7 +155,7 @@ Write meta.json with:
 - timestamp: ISO8601
 - languages: {langs}
 - verification_mode: "{verify_mode}"
-- ilis_per_lang: {{"en": N, "cz": N, "ja": N}}
+- ilis_per_lang: {{"en": N, "zh": N, "ja": N}}
 - alignment_verified: true/false
 
 RULES:
@@ -183,7 +183,7 @@ Start with research."""
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--ili', type=int, help='Specific ILI')
-    parser.add_argument('--langs', default='en,cz,ja', help='Languages (comma-separated)')
+    parser.add_argument('--langs', default='en,zh,ja', help='Languages (comma-separated)')
     parser.add_argument('--model', help='Model override')
     parser.add_argument('--verify-mode', choices=['strict', 'loose'], default='strict',
                        help='Verification mode (default: strict)')

@@ -6,7 +6,7 @@ Generates each language INDEPENDENTLY with language-specific prompts
 and native WordNet lookups (no English bias).
 
 Usage:
-    python generate_synset_v4.py [--ili N] [--langs en,cz,ja]
+    python generate_synset_v4.py [--ili N] [--langs en,zh,ja]
 """
 
 import argparse
@@ -20,7 +20,7 @@ from datetime import datetime
 
 LANGUAGES = {
     'en': {'name': 'English', 'prompt_lang': 'English', 'wordnet': 'ewn:2020'},
-    'cz': {'name': 'Chinese', 'prompt_lang': 'Chinese', 'wordnet': 'omw-zh:1.3'},
+    'zh': {'name': 'Chinese', 'prompt_lang': 'Chinese', 'wordnet': 'omw-zh:1.3'},
     'ja': {'name': 'Japanese', 'prompt_lang': 'Japanese', 'wordnet': 'omw-ja:1.3'},
 }
 
@@ -91,7 +91,7 @@ Then annotate: english_ili.txt
 Location: data/synsets/ili_{ili_num}/{model}/natural/en.txt
            data/synsets/ili_{ili_num}/{model}/ili/en.txt""",
 
-        'cz': f"""为同义词集 ILI {ili_num} 生成中文定义。
+        'zh': f"""为同义词集 ILI {ili_num} 生成中文定义。
 
 研究：使用 mcp_wordnet_get_synset(ili="i{ili_num}") 查询中文WordNet。
 
@@ -106,8 +106,8 @@ Location: data/synsets/ili_{ili_num}/{model}/natural/en.txt
 - 格式： <|ILI_NNNNN|>词
 - 不要标注：的、了、在、和、或、与等虚词
 
-位置：data/synsets/ili_{ili_num}/{model}/natural/cz.txt
-      data/synsets/ili_{ili_num}/{model}/ili/cz.txt""",
+位置：data/synsets/ili_{ili_num}/{model}/natural/zh.txt
+      data/synsets/ili_{ili_num}/{model}/ili/zh.txt""",
 
         'ja': f"""同義語セット ILI {ili_num} の日本語定義を生成します。
 
@@ -176,7 +176,7 @@ def create_merged_aligned(ili_num: int, model: str, langs: list):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--ili', type=int, help='Specific ILI')
-    parser.add_argument('--langs', default='en,cz,ja', help='Languages (comma-separated)')
+    parser.add_argument('--langs', default='en,zh,ja', help='Languages (comma-separated)')
     parser.add_argument('--model', help='Model override')
     parser.add_argument('--parallel', action='store_true', help='Generate languages in parallel')
     args = parser.parse_args()

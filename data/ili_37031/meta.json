@@ -5,7 +5,7 @@
   "timestamp": "2026-03-15T15:51:00Z",
   "languages": [
     "en",
-    "cz",
+    "zh",
     "ja"
   ],
   "wordnet_source": "ewn:2020",
@@ -13,27 +13,27 @@
   "files": {
     "natural": {
       "en": "claude-sonnet-4/natural/en.txt",
-      "cz": "claude-sonnet-4/natural/cz.txt",
+      "zh": "claude-sonnet-4/natural/zh.txt",
       "ja": "claude-sonnet-4/natural/ja.txt"
     },
     "ili": {
       "en": "claude-sonnet-4/ili/en.txt",
-      "cz": "claude-sonnet-4/ili/cz.txt",
+      "zh": "claude-sonnet-4/ili/zh.txt",
       "ja": "claude-sonnet-4/ili/ja.txt"
     },
     "merged": {
       "en": "claude-sonnet-4/merged/en.txt",
-      "cz": "claude-sonnet-4/merged/cz.txt",
+      "zh": "claude-sonnet-4/merged/zh.txt",
       "ja": "claude-sonnet-4/merged/ja.txt"
     }
   },
   "validation": {
-    "en_cz_ja_aligned": true,
+    "en_zh_ja_aligned": true,
     "all_langs_same_count": true,
     "all_langs_same_order": true,
     "ilis_per_lang": {
       "en": 3,
-      "cz": 3,
+      "zh": 3,
       "ja": 3
     }
   },
