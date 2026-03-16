@@ -1,0 +1,25 @@
+{
+  "ili": 25692,
+  "ili_id": "i25692",
+  "definition": "consent reluctantly",
+  "pos": "v",
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T04:40:00",
+  "languages": ["en", "zh", "ja"],
+  "generation_method": "v4_independent_per_language",
+  "verification": "manual",
+  "lemmas": {
+    "en": ["buckle under", "give in", "knuckle under", "succumb", "yield"],
+    "zh": ["屈从", "屈服", "投降", "让步"],
+    "ja": ["屈する", "服する"]
+  },
+  "synsets": {
+    "en": "ewn-00806138-v",
+    "zh": "omw-cmn-00804476-v",
+    "ja": "omw-ja-00804476-v"
+  },
+  "relations": {
+    "hypernym": "i25665 (give an affirmative reply to; respond favorably to)",
+    "hyponym": "i26011 (yield to another's wish or opinion)"
+  }
+}
