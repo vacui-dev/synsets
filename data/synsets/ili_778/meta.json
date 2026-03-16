@@ -1,0 +1,19 @@
+{
+  "ili": 778,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T09:55:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language",
+  "verification": "loose_expected_mismatch",
+  "verification_notes": "v4 independent generation: each language has different ILI counts (en=50, cz=50, ja=41) due to natural language-specific expressions. Strict alignment intentionally not enforced.",
+  "ili_counts": {
+    "en": {"total": 50, "unique": 40},
+    "cz": {"total": 50, "unique": 35},
+    "ja": {"total": 41, "unique": 33}
+  },
+  "synset": {
+    "pos": "s",
+    "definition": "not penetrable by bullets",
+    "lemmas": ["bulletproof"]
+  }
+}
