@@ -1,0 +1,24 @@
+{
+  "ili": 59505,
+  "model": "hunter-alpha",
+  "timestamp": "2026-03-16T08:50:00",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "independent_per_language_v4",
+  "wordnet": {
+    "en": "ewn:2020",
+    "cz": "omw-zh:1.3",
+    "ja": "omw-ja:1.3"
+  },
+  "synset": {
+    "pos": "n",
+    "lemmas": [
+      "stave",
+      "lag"
+    ],
+    "definition": "one of several thin slats of wood forming the sides of a barrel or bucket"
+  }
+}
