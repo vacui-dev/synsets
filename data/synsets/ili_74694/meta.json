@@ -1,0 +1,26 @@
+{
+  "ili": 74694,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T09:05:00",
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
+  "generation_method": "independent_per_language_v4",
+  "verification": "manual",
+  "pos": "n",
+  "definition_en": "a legal document calling someone to court to answer an indictment",
+  "lemmas": {
+    "en": [
+      "arraignment"
+    ],
+    "zh": [
+      "传讯",
+      "提讯"
+    ],
+    "ja": [
+      "起訴人呼出し"
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "span": "Arraignment",
+    "ili": 74694,
+    "pos": "n"
+  },
+  {
+    "span": "formal",
+    "ili": 5708,
+    "pos": "a"
+  },
+  {
+    "span": "legal",
+    "ili": 7638,
+    "pos": "a"
+  },
+  {
+    "span": "proceeding",
+    "ili": 41607,
+    "pos": "n"
+  },
+  {
+    "span": "defendant",
+    "ili": 88054,
+    "pos": "n"
+  },
+  {
+    "span": "court",
+    "ili": 80907,
+    "pos": "n"
+  },
+  {
+    "span": "hear",
+    "ili": 34223,
+    "pos": "v"
+  },
+  {
+    "span": "charges",
+    "ili": 70941,
+    "pos": "n"
+  },
+  {
+    "span": "plea",
+    "ili": 70937,
+    "pos": "n"
+  },
+  {
+    "span": "criminal",
+    "ili": 7650,
+    "pos": "s"
+  },
+  {
+    "span": "stage",
+    "ili": 117602,
+    "pos": "n"
+  },
+  {
+    "span": "arrest",
+    "ili": 35870,
+    "pos": "n"
+  },
+  {
+    "span": "trial",
+    "ili": 41656,
+    "pos": "n"
+  },
+  {
+    "span": "hearing",
+    "ili": 41672,
+    "pos": "n"
+  },
+  {
+    "span": "judge",
+    "ili": 90808,
+    "pos": "n"
+  },
+  {
+    "span": "reads",
+    "ili": 24882,
+    "pos": "v"
+  },
+  {
+    "span": "indictment",
+    "ili": 74690,
+    "pos": "n"
+  },
+  {
+    "span": "informs",
+    "ili": 25811,
+    "pos": "v"
+  },
+  {
+    "span": "rights",
+    "ili": 64172,
+    "pos": "n"
+  },
+  {
+    "span": "safeguard",
+    "ili": 39729,
+    "pos": "n"
+  },
+  {
+    "span": "opportunity",
+    "ili": 113114,
+    "pos": "n"
+  },
+  {
+    "span": "respond",
+    "ili": 25740,
+    "pos": "v"
+  },
+  {
+    "span": "prosecution",
+    "ili": 41666,
+    "pos": "n"
+  },
+  {
+    "span": "summons",
+    "ili": 74326,
+    "pos": "n"
+  },
+  {
+    "span": "subpoena",
+    "ili": 70920,
+    "pos": "n"
+  },
+  {
+    "span": "compel",
+    "ili": 34247,
+    "pos": "v"
+  },
+  {
+    "span": "appearance",
+    "ili": 41856,
+    "pos": "n"
+  },
+  {
+    "span": "states",
+    "ili": 26632,
+    "pos": "v"
+  }
+]
