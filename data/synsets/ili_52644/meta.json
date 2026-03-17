@@ -1,0 +1,18 @@
+{
+  "ili": 52644,
+  "pos": "n",
+  "definition": "a man's coat cut diagonally from the waist to the back of the knees",
+  "lemmas": ["cutaway", "カットウェイ"],
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-17T03:00:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "v4_independent_per_language",
+  "verification": "loose",
+  "ili_counts": {
+    "en": {"total": 18, "unique": 13},
+    "cz": {"total": 18, "unique": 13},
+    "ja": {"total": 18, "unique": 13}
+  },
+  "shared_ilis": [52644, 5708, 52086, 66113, 29494, 66201, 48074, 22034, 75876, 75871, 60835, 60586, 91182],
+  "notes": "v4.0 workflow: each language generated independently with native-language prompts. No translation flow, no English bias."
+}
