@@ -1,0 +1,26 @@
+{
+  "ili": 90209,
+  "model": "v4-independent",
+  "timestamp": "2026-03-16T22:06:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language",
+  "synset": {
+    "pos": "n",
+    "definition": "a girl or young woman with whom a man is romantically involved",
+    "lemmas": ["girlfriend", "girl", "lady friend"],
+    "hypernyms": [
+      {"ili": "i94168", "pos": "n", "definition": "an adult female person (as opposed to a man)"},
+      {"ili": "i87222", "pos": "n", "definition": "a person who loves someone or is loved by someone"}
+    ],
+    "hyponyms": []
+  },
+  "japanese": {
+    "lemmas": ["ガールフレンド", "アミ", "女友達", "彼女", "恋びと", "恋人", "意中の女"],
+    "definition": "男性と恋愛する女の子または若い女性"
+  },
+  "chinese": {
+    "lemmas": ["女朋友", "对象"],
+    "definition": null
+  },
+  "notes": "v4 independent generation - each language generated with native-language prompts. No English bias in Chinese/Japanese outputs."
+}
