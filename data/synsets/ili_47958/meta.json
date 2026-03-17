@@ -1,0 +1,19 @@
+{
+  "ili": 47958,
+  "lemmas": {
+    "en": ["suslik", "souslik", "Citellus citellus"],
+    "zh": ["地松鼠", "欧黄鼠"],
+    "ja": ["ススリック"]
+  },
+  "pos": "n",
+  "definition_en": "rather large central Eurasian ground squirrel",
+  "timestamp": "2026-03-16T20:25:00",
+  "languages": ["en", "zh", "ja"],
+  "generation_method": "independent_per_language_v4",
+  "model": "hermes-direct",
+  "annotation_counts": {
+    "en": 121,
+    "zh": 9,
+    "ja": 9
+  }
+}

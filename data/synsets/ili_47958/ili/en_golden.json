@@ -1,0 +1,611 @@
+{
+  "text": "The suslik (Citellus citellus) is a species of ground squirrel belonging to the family Sciuridae, native to the grasslands and steppes of central Eurasia. It is a relatively large rodent, distinguished from other ground squirrels by its robust body, short tail, and distinctive fur coloring that ranges from tawny brown to grayish on the dorsal side with lighter underparts. The species is primarily diurnal and fossorial, constructing elaborate underground burrow systems that serve as shelter from predators and extreme weather conditions.\n\nSusliks are known for their seasonal hibernation behavior, entering prolonged torpor during the cold months when food resources become scarce. During the active season, they feed on a varied diet of vegetation, seeds, roots, and occasionally insects, playing an important ecological role in seed dispersal and soil aeration through their burrowing activities. Their population dynamics are closely tied to the availability of suitable grassland habitats and the presence of natural predators such as raptors, foxes, and mustelids.\n\nThe species has significant paleontological importance, as the genus Citellus has an extensive fossil record dating back to the Miocene epoch, making it valuable for studying the evolutionary history of Eurasian rodents. Historically, susliks have also been viewed as agricultural pests due to their tendency to consume crop seeds and damage cultivated fields. Conservation concerns have emerged in recent decades as habitat loss from agricultural expansion and urbanization has led to population declines across parts of their range, prompting legal protections in several European countries.",
+  "annotated": "The <|ILI_47958|>suslik (Citellus citellus) is a <|ILI_79804|>species of <|ILI_85674|>ground <|ILI_47942|>squirrel belonging to the <|ILI_79671|>family Sciuridae, <|ILI_5676|>native to the <|ILI_82164|>grasslands and <|ILI_86244|>steppes of <|ILI_1832|>central Eurasia. It is a <|ILI_19229|>relatively <|ILI_7530|>large <|ILI_47794|>rodent, <|ILI_24985|>distinguished from other ground squirrels by its <|ILI_11164|>robust <|ILI_64381|>body, <|ILI_7884|>short <|ILI_46811|>tail, and distinctive <|ILI_114584|>fur <|ILI_76518|>coloring that <|ILI_35302|>ranges from tawny brown to grayish on the <|ILI_706|>dorsal <|ILI_82421|>side with <|ILI_6491|>lighter <|ILI_45309|>underparts. The species is <|ILI_18582|>primarily <|ILI_3781|>diurnal and <|ILI_14378|>fossorial, <|ILI_30008|>constructing elaborate underground <|ILI_85131|>burrow <|ILI_59913|>systems that <|ILI_35018|>serve as <|ILI_58783|>shelter from <|ILI_91216|>predators and extreme <|ILI_98170|>weather <|ILI_110109|>conditions.\n\nSusliks are <|ILI_24736|>known for their <|ILI_8195|>seasonal <|ILI_110580|>hibernation <|ILI_41782|>behavior, <|ILI_31821|>entering prolonged <|ILI_110579|>torpor during the <|ILI_6846|>cold <|ILI_117150|>months when <|ILI_35570|>food <|ILI_106763|>resources <|ILI_22460|>become <|ILI_78|>scarce. During the <|ILI_188|>active <|ILI_117324|>season, they <|ILI_27528|>feed on a <|ILI_13900|>varied <|ILI_76483|>diet of <|ILI_81457|>vegetation, <|ILI_105678|>seeds, <|ILI_105618|>roots, and <|ILI_18264|>occasionally <|ILI_46823|>insects, <|ILI_26954|>playing an <|ILI_6968|>important <|ILI_16547|>ecological <|ILI_39221|>role in <|ILI_105678|>seed <|ILI_37349|>dispersal and <|ILI_113194|>soil <|ILI_107308|>aeration through their <|ILI_31954|>burrowing <|ILI_37550|>activities. Their <|ILI_80126|>population <|ILI_68748|>dynamics are <|ILI_19227|>closely <|ILI_28095|>tied to the <|ILI_61847|>availability of suitable grassland <|ILI_82061|>habitats and the <|ILI_110283|>presence of <|ILI_8616|>natural predators such as <|ILI_43737|>raptors, <|ILI_46575|>foxes, and mustelids.\n\nThe species has <|ILI_11879|>significant <|ILI_15663|>paleontological <|ILI_64140|>importance, as the <|ILI_67589|>genus Citellus has an <|ILI_8314|>extensive <|ILI_89565|>fossil <|ILI_71411|>record <|ILI_34150|>dating back to the <|ILI_116683|>Miocene <|ILI_117376|>epoch, making it <|ILI_13871|>valuable for <|ILI_24957|>studying the <|ILI_17146|>evolutionary <|ILI_116663|>history of <|ILI_17306|>Eurasian <|ILI_47794|>rodents. <|ILI_18832|>Historically, susliks have also been <|ILI_25165|>viewed as <|ILI_15787|>agricultural <|ILI_111220|>pests <|ILI_728|>due to their <|ILI_69096|>tendency to <|ILI_27605|>consume <|ILI_105478|>crop seeds and <|ILI_23012|>damage <|ILI_30448|>cultivated <|ILI_82019|>fields. <|ILI_75701|>Conservation <|ILI_66717|>concerns have <|ILI_23844|>emerged in recent <|ILI_117123|>decades as <|ILI_82061|>habitat <|ILI_106744|>loss from agricultural <|ILI_37334|>expansion and <|ILI_113647|>urbanization has <|ILI_31738|>led to population <|ILI_107460|>declines across <|ILI_109475|>parts of their <|ILI_63922|>range, <|ILI_29990|>prompting <|ILI_7638|>legal <|ILI_39702|>protections in several <|ILI_16932|>European <|ILI_80079|>countries.",
+  "annotations": [
+    {
+      "span": "paleontological",
+      "ili": 15663,
+      "pos": "a"
+    },
+    {
+      "span": "distinguished",
+      "ili": 24985,
+      "pos": "v"
+    },
+    {
+      "span": "constructing",
+      "ili": 30008,
+      "pos": "v"
+    },
+    {
+      "span": "occasionally",
+      "ili": 18264,
+      "pos": "r"
+    },
+    {
+      "span": "availability",
+      "ili": 61847,
+      "pos": "n"
+    },
+    {
+      "span": "evolutionary",
+      "ili": 17146,
+      "pos": "a"
+    },
+    {
+      "span": "Historically",
+      "ili": 18832,
+      "pos": "r"
+    },
+    {
+      "span": "agricultural",
+      "ili": 15787,
+      "pos": "a"
+    },
+    {
+      "span": "Conservation",
+      "ili": 75701,
+      "pos": "n"
+    },
+    {
+      "span": "urbanization",
+      "ili": 113647,
+      "pos": "n"
+    },
+    {
+      "span": "hibernation",
+      "ili": 110580,
+      "pos": "n"
+    },
+    {
+      "span": "significant",
+      "ili": 11879,
+      "pos": "a"
+    },
+    {
+      "span": "protections",
+      "ili": 39702,
+      "pos": "n"
+    },
+    {
+      "span": "grasslands",
+      "ili": 82164,
+      "pos": "n"
+    },
+    {
+      "span": "relatively",
+      "ili": 19229,
+      "pos": "r"
+    },
+    {
+      "span": "underparts",
+      "ili": 45309,
+      "pos": "n"
+    },
+    {
+      "span": "conditions",
+      "ili": 110109,
+      "pos": "n"
+    },
+    {
+      "span": "vegetation",
+      "ili": 81457,
+      "pos": "n"
+    },
+    {
+      "span": "ecological",
+      "ili": 16547,
+      "pos": "a"
+    },
+    {
+      "span": "activities",
+      "ili": 37550,
+      "pos": "n"
+    },
+    {
+      "span": "population",
+      "ili": 80126,
+      "pos": "n"
+    },
+    {
+      "span": "importance",
+      "ili": 64140,
+      "pos": "n"
+    },
+    {
+      "span": "cultivated",
+      "ili": 30448,
+      "pos": "v"
+    },
+    {
+      "span": "primarily",
+      "ili": 18582,
+      "pos": "r"
+    },
+    {
+      "span": "fossorial",
+      "ili": 14378,
+      "pos": "a"
+    },
+    {
+      "span": "predators",
+      "ili": 91216,
+      "pos": "n"
+    },
+    {
+      "span": "resources",
+      "ili": 106763,
+      "pos": "n"
+    },
+    {
+      "span": "important",
+      "ili": 6968,
+      "pos": "a"
+    },
+    {
+      "span": "dispersal",
+      "ili": 37349,
+      "pos": "n"
+    },
+    {
+      "span": "burrowing",
+      "ili": 31954,
+      "pos": "v"
+    },
+    {
+      "span": "extensive",
+      "ili": 8314,
+      "pos": "a"
+    },
+    {
+      "span": "expansion",
+      "ili": 37334,
+      "pos": "n"
+    },
+    {
+      "span": "prompting",
+      "ili": 29990,
+      "pos": "v"
+    },
+    {
+      "span": "countries",
+      "ili": 80079,
+      "pos": "n"
+    },
+    {
+      "span": "squirrel",
+      "ili": 47942,
+      "pos": "n"
+    },
+    {
+      "span": "Eurasian",
+      "ili": 17306,
+      "pos": "a"
+    },
+    {
+      "span": "coloring",
+      "ili": 76518,
+      "pos": "n"
+    },
+    {
+      "span": "seasonal",
+      "ili": 8195,
+      "pos": "a"
+    },
+    {
+      "span": "behavior",
+      "ili": 41782,
+      "pos": "n"
+    },
+    {
+      "span": "entering",
+      "ili": 31821,
+      "pos": "v"
+    },
+    {
+      "span": "aeration",
+      "ili": 107308,
+      "pos": "n"
+    },
+    {
+      "span": "dynamics",
+      "ili": 68748,
+      "pos": "n"
+    },
+    {
+      "span": "habitats",
+      "ili": 82061,
+      "pos": "n"
+    },
+    {
+      "span": "presence",
+      "ili": 110283,
+      "pos": "n"
+    },
+    {
+      "span": "valuable",
+      "ili": 13871,
+      "pos": "a"
+    },
+    {
+      "span": "studying",
+      "ili": 24957,
+      "pos": "v"
+    },
+    {
+      "span": "tendency",
+      "ili": 69096,
+      "pos": "n"
+    },
+    {
+      "span": "concerns",
+      "ili": 66717,
+      "pos": "n"
+    },
+    {
+      "span": "declines",
+      "ili": 107460,
+      "pos": "n"
+    },
+    {
+      "span": "European",
+      "ili": 16932,
+      "pos": "a"
+    },
+    {
+      "span": "species",
+      "ili": 79804,
+      "pos": "n"
+    },
+    {
+      "span": "steppes",
+      "ili": 86244,
+      "pos": "n"
+    },
+    {
+      "span": "central",
+      "ili": 1832,
+      "pos": "a"
+    },
+    {
+      "span": "lighter",
+      "ili": 6491,
+      "pos": "a"
+    },
+    {
+      "span": "diurnal",
+      "ili": 3781,
+      "pos": "a"
+    },
+    {
+      "span": "systems",
+      "ili": 59913,
+      "pos": "n"
+    },
+    {
+      "span": "shelter",
+      "ili": 58783,
+      "pos": "n"
+    },
+    {
+      "span": "weather",
+      "ili": 98170,
+      "pos": "n"
+    },
+    {
+      "span": "insects",
+      "ili": 46823,
+      "pos": "n"
+    },
+    {
+      "span": "playing",
+      "ili": 26954,
+      "pos": "v"
+    },
+    {
+      "span": "closely",
+      "ili": 19227,
+      "pos": "r"
+    },
+    {
+      "span": "natural",
+      "ili": 8616,
+      "pos": "a"
+    },
+    {
+      "span": "raptors",
+      "ili": 43737,
+      "pos": "n"
+    },
+    {
+      "span": "Miocene",
+      "ili": 116683,
+      "pos": "n"
+    },
+    {
+      "span": "history",
+      "ili": 116663,
+      "pos": "n"
+    },
+    {
+      "span": "rodents",
+      "ili": 47794,
+      "pos": "n"
+    },
+    {
+      "span": "consume",
+      "ili": 27605,
+      "pos": "v"
+    },
+    {
+      "span": "emerged",
+      "ili": 23844,
+      "pos": "v"
+    },
+    {
+      "span": "decades",
+      "ili": 117123,
+      "pos": "n"
+    },
+    {
+      "span": "habitat",
+      "ili": 82061,
+      "pos": "n"
+    },
+    {
+      "span": "suslik",
+      "ili": 47958,
+      "pos": "n"
+    },
+    {
+      "span": "ground",
+      "ili": 85674,
+      "pos": "n"
+    },
+    {
+      "span": "family",
+      "ili": 79671,
+      "pos": "n"
+    },
+    {
+      "span": "native",
+      "ili": 5676,
+      "pos": "a"
+    },
+    {
+      "span": "rodent",
+      "ili": 47794,
+      "pos": "n"
+    },
+    {
+      "span": "robust",
+      "ili": 11164,
+      "pos": "a"
+    },
+    {
+      "span": "ranges",
+      "ili": 35302,
+      "pos": "v"
+    },
+    {
+      "span": "dorsal",
+      "ili": 706,
+      "pos": "a"
+    },
+    {
+      "span": "burrow",
+      "ili": 85131,
+      "pos": "n"
+    },
+    {
+      "span": "torpor",
+      "ili": 110579,
+      "pos": "n"
+    },
+    {
+      "span": "months",
+      "ili": 117150,
+      "pos": "n"
+    },
+    {
+      "span": "become",
+      "ili": 22460,
+      "pos": "v"
+    },
+    {
+      "span": "scarce",
+      "ili": 78,
+      "pos": "a"
+    },
+    {
+      "span": "active",
+      "ili": 188,
+      "pos": "a"
+    },
+    {
+      "span": "season",
+      "ili": 117324,
+      "pos": "n"
+    },
+    {
+      "span": "varied",
+      "ili": 13900,
+      "pos": "a"
+    },
+    {
+      "span": "fossil",
+      "ili": 89565,
+      "pos": "n"
+    },
+    {
+      "span": "record",
+      "ili": 71411,
+      "pos": "n"
+    },
+    {
+      "span": "dating",
+      "ili": 34150,
+      "pos": "v"
+    },
+    {
+      "span": "viewed",
+      "ili": 25165,
+      "pos": "v"
+    },
+    {
+      "span": "damage",
+      "ili": 23012,
+      "pos": "v"
+    },
+    {
+      "span": "fields",
+      "ili": 82019,
+      "pos": "n"
+    },
+    {
+      "span": "large",
+      "ili": 7530,
+      "pos": "a"
+    },
+    {
+      "span": "short",
+      "ili": 7884,
+      "pos": "a"
+    },
+    {
+      "span": "serve",
+      "ili": 35018,
+      "pos": "v"
+    },
+    {
+      "span": "known",
+      "ili": 24736,
+      "pos": "v"
+    },
+    {
+      "span": "seeds",
+      "ili": 105678,
+      "pos": "n"
+    },
+    {
+      "span": "roots",
+      "ili": 105618,
+      "pos": "n"
+    },
+    {
+      "span": "foxes",
+      "ili": 46575,
+      "pos": "n"
+    },
+    {
+      "span": "genus",
+      "ili": 67589,
+      "pos": "n"
+    },
+    {
+      "span": "epoch",
+      "ili": 117376,
+      "pos": "n"
+    },
+    {
+      "span": "pests",
+      "ili": 111220,
+      "pos": "n"
+    },
+    {
+      "span": "parts",
+      "ili": 109475,
+      "pos": "n"
+    },
+    {
+      "span": "range",
+      "ili": 63922,
+      "pos": "n"
+    },
+    {
+      "span": "legal",
+      "ili": 7638,
+      "pos": "a"
+    },
+    {
+      "span": "body",
+      "ili": 64381,
+      "pos": "n"
+    },
+    {
+      "span": "tail",
+      "ili": 46811,
+      "pos": "n"
+    },
+    {
+      "span": "side",
+      "ili": 82421,
+      "pos": "n"
+    },
+    {
+      "span": "cold",
+      "ili": 6846,
+      "pos": "a"
+    },
+    {
+      "span": "food",
+      "ili": 35570,
+      "pos": "n"
+    },
+    {
+      "span": "feed",
+      "ili": 27528,
+      "pos": "v"
+    },
+    {
+      "span": "diet",
+      "ili": 76483,
+      "pos": "n"
+    },
+    {
+      "span": "role",
+      "ili": 39221,
+      "pos": "n"
+    },
+    {
+      "span": "seed",
+      "ili": 105678,
+      "pos": "n"
+    },
+    {
+      "span": "soil",
+      "ili": 113194,
+      "pos": "n"
+    },
+    {
+      "span": "tied",
+      "ili": 28095,
+      "pos": "v"
+    },
+    {
+      "span": "crop",
+      "ili": 105478,
+      "pos": "n"
+    },
+    {
+      "span": "loss",
+      "ili": 106744,
+      "pos": "n"
+    },
+    {
+      "span": "fur",
+      "ili": 114584,
+      "pos": "n"
+    },
+    {
+      "span": "due",
+      "ili": 728,
+      "pos": "a"
+    },
+    {
+      "span": "led",
+      "ili": 31738,
+      "pos": "v"
+    }
+  ]
+}
