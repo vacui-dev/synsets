@@ -1,0 +1,14 @@
+{
+  "ili": 72957,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-17T02:45:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language",
+  "verification": "strict",
+  "ili_definition": "a Penutian language spoken by the Takelma",
+  "english_synset": "ewn-06938315-n",
+  "lemmas": ["Takelma", "Takilman", "Takelma language", "Takilman language"],
+  "pos": "n",
+  "hypernyms": ["ewn-06936657-n (Penutian language family)"],
+  "notes": "v4 independent generation - each language generated natively without translation. No CN/JP WordNet entries exist for this synset; annotations use conceptual ILI mappings from English WordNet."
+}
