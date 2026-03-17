@@ -1,0 +1,16 @@
+{
+  "ili": 66897,
+  "model": "openrouter",
+  "timestamp": "2026-03-16T21:54:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "v4_independent_per_language",
+  "synset": {
+    "ewn_id": "ewn-05714322-n",
+    "pos": "n",
+    "lemmas_en": ["heedlessness", "inattentiveness"],
+    "definition_en": "a lack of attentiveness (as to children or helpless people)",
+    "hypernym_ili": 66896,
+    "hypernym": "inattention"
+  },
+  "notes": "v4 INDEPENDENT generation: each language written natively with language-specific prompt. No translation between languages."
+}
