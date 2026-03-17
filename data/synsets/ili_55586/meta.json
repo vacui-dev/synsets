@@ -1,0 +1,9 @@
+{
+  "ili": 55586,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-16T23:38:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language_v4",
+  "verification": "loose",
+  "notes": "v4 independent generation: EN (English prompt→English), CZ (中文提示→中文), JA (日本語プロンプト→日本語). 7 core ILIs shared across all 3 languages. Natural vocabulary variation per language."
+}
