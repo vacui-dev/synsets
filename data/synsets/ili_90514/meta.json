@@ -1,0 +1,24 @@
+{
+  "ili": 90514,
+  "definition": "a civil engineer who specializes in the design and construction of roads and highways",
+  "pos": "n",
+  "lemmas": {
+    "en": ["highway engineer"],
+    "zh": [],
+    "ja": []
+  },
+  "hypernyms": [
+    {
+      "ili": "i09943998",
+      "definition": "an engineer trained to design and construct and maintain public works (roads or bridges or harbors etc.)"
+    }
+  ],
+  "timestamp": "2026-03-17T00:45:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "v4_independent_per_language",
+  "wordnet_versions": {
+    "en": "ewn:2020",
+    "zh": "omw-zh:1.3",
+    "ja": "omw-ja:1.3"
+  }
+}
