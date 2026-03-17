@@ -1,0 +1,33 @@
+{
+  "ili": 36951,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-17T07:12:32.626894",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "v4_independent_per_language",
+  "workflow": "independent_generation_v4",
+  "source": {
+    "pos": "n",
+    "definition": "a sudden dash",
+    "lemmas_en": [
+      "break"
+    ],
+    "lemmas_zh": [],
+    "lemmas_ja": [],
+    "hypernym": {
+      "ili": 36949,
+      "definition": "a quick run"
+    },
+    "hyponym": {
+      "ili": 36950,
+      "definition": "(basketball) a rapid dash to get a shot as soon as possible after taking possession of the ball"
+    },
+    "grandparent": {
+      "ili": 36946,
+      "definition": "the act of running; traveling on foot at a fast pace"
+    }
+  }
+}
