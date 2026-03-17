@@ -1,0 +1,13 @@
+{
+  "ili": 94434,
+  "synset_name": "Benedict XV",
+  "pos": "n",
+  "definition": "pope who founded the Vatican service for prisoners of war during World War I (1854-1922)",
+  "lemmas": ["Giacomo della Chiesa", "Benedict XV", "Pope Benedict XV"],
+  "model": "v4-independent",
+  "timestamp": "2026-03-17T06:39:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language",
+  "verification": "manual",
+  "notes": "v4 workflow: each language generated with native-language prompts, no English bias"
+}
