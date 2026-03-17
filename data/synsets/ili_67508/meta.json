@@ -1,0 +1,56 @@
+{
+  "ili": 67508,
+  "model": "claude-opus-4.6",
+  "timestamp": "2026-03-17T08:31:46.277011",
+  "languages": [
+    "en",
+    "zh",
+    "ja"
+  ],
+  "generation_method": "independent_per_language_v4",
+  "concept": "reinforcement (psychology)",
+  "lemmas": {
+    "en": [
+      "reinforcer",
+      "reinforcement",
+      "reinforcing stimulus"
+    ],
+    "zh": [],
+    "ja": [
+      "強化",
+      "強化因子"
+    ]
+  },
+  "annotations_used": {
+    "en": {
+      "i67508": "reinforcement",
+      "i68832": "psychology/behavioral",
+      "i67504": "stimulus",
+      "i62020": "probability",
+      "i67134": "conditioning/operant",
+      "i22826": "increase",
+      "i67133": "learning"
+    },
+    "zh": {
+      "i67508": "强化",
+      "i68832": "心理学/行为",
+      "i67504": "刺激物",
+      "i62020": "概率",
+      "i67134": "条件反射/操作性",
+      "i22826": "增加",
+      "i97588": "反应",
+      "i67133": "学习"
+    },
+    "ja": {
+      "i67508": "強化",
+      "i68832": "心理学/行動",
+      "i67504": "刺激",
+      "i62020": "確率",
+      "i67134": "条件付け/オペラント",
+      "i22826": "高める",
+      "i97588": "反応",
+      "i117538": "頻度",
+      "i67133": "学習"
+    }
+  }
+}
