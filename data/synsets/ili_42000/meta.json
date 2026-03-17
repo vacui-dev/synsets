@@ -1,0 +1,18 @@
+{
+  "ili": 42000,
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-17T04:30:00",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "independent_per_language",
+  "pos": "n",
+  "lemmas": [
+    "quarter"
+  ],
+  "definition": "clemency or mercy shown to a defeated opponent",
+  "hypernym": "i41029",
+  "verification": "manual"
+}
