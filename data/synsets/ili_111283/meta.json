@@ -1,0 +1,17 @@
+{
+  "ili": 111283,
+  "model": "claude-opus-4.6",
+  "timestamp": "2026-03-17T03:55:00",
+  "languages": ["en", "zh", "ja"],
+  "generation_method": "v4_independent_per_language",
+  "verification": "independent",
+  "ili_counts": {
+    "en": {"total": 17, "unique": 16},
+    "zh": {"total": 15, "unique": 13},
+    "ja": {"total": 18, "unique": 13}
+  },
+  "lemma": "macrencephaly",
+  "pos": "n",
+  "definition": "an abnormally large braincase",
+  "notes": "v4 independent generation — each language written natively without translation. ILI sets diverge by design due to per-language WordNet coverage differences."
+}
