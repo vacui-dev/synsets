@@ -1,0 +1,19 @@
+{
+  "ili": 2796,
+  "model": "claude-sonnet-4-20250514",
+  "timestamp": "2026-03-17T06:29:06.221599",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "v4_independent_per_language",
+  "synset": {
+    "pos": "s",
+    "definition": "being other than verbal communication",
+    "lemmas": [
+      "nonverbal",
+      "gestural"
+    ]
+  }
+}
