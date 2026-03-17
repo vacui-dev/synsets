@@ -1,0 +1,16 @@
+{
+  "ili": 45420,
+  "pos": "n",
+  "definition": "comb jellies; sea acorns; a small phylum formerly considered a class of Coelenterata",
+  "lemmas": ["Ctenophora", "phylum Ctenophora", "有櫛動物"],
+  "model": "openrouter/hunter-alpha",
+  "timestamp": "2026-03-17T01:50:00",
+  "languages": ["en", "zh", "ja"],
+  "generation_method": "independent_per_language_v4",
+  "verification": "loose",
+  "ili_counts": {
+    "en": {"total": 33, "unique": 30},
+    "zh": {"total": 35, "unique": 30},
+    "ja": {"total": 31, "unique": 30}
+  }
+}
