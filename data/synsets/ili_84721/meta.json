@@ -1,0 +1,12 @@
+{
+  "ili": 84721,
+  "ili_id": "i84721",
+  "pos": "n",
+  "definition": "a university town in southwestern Virginia (west of Roanoke) in the Allegheny Mountains",
+  "lemmas": ["Blacksburg"],
+  "timestamp": "2026-03-17T05:10:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "v4_independent_per_language",
+  "verification": "manual",
+  "notes": "v4 workflow: each language generated independently with native-language prompts, no translation"
+}
