@@ -1,0 +1,33 @@
+{
+  "ili": 42489,
+  "ili_id": "i42489",
+  "definition": "curved rodlike motile bacterium",
+  "model": "claude-opus-4.6",
+  "timestamp": "2026-03-16T18:26:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "v4_independent_per_language",
+  "verification": "independent_mode",
+  "lemmas": {
+    "en": ["vibrio", "vibrion"],
+    "ja": ["ビブリオ属"]
+  },
+  "wordnets": {
+    "en": "ewn:2020",
+    "cz": "omw-cmn:1.4",
+    "ja": "omw-ja:1.4"
+  },
+  "ili_counts": {
+    "en": 39,
+    "cz": 34,
+    "ja": 51
+  },
+  "shared_ilis": ["035570", "042419", "042489", "111179"],
+  "hypernyms": {
+    "i42445": "a large group of bacteria having rigid cell walls; motile types have flagella"
+  },
+  "hyponyms": {
+    "i42490": "comma-shaped bacteria that cause Asiatic cholera",
+    "i42491": "bacteria that cause abortion in sheep"
+  },
+  "notes": "v4 INDEPENDENT generation — each language generated with native-language prompts. No translation flow. Different ILI counts per language are expected and correct."
+}
