@@ -1,0 +1,41 @@
+{
+  "ili": 57079,
+  "ili_id": "i57079",
+  "model": "claude-sonnet-4-20250514",
+  "timestamp": "2026-03-17T00:02:52.978996",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "v4_independent_per_language",
+  "description": {
+    "en": "a stout lever with a sharp spike; used for handling logs",
+    "cz": "撬木钩——用于搬运原木的坚固杠杆工具",
+    "ja": "原木の搬出に使われる丈夫なてこ道具"
+  },
+  "lemmas": [
+    "peavy",
+    "peavey",
+    "cant dog",
+    "dog hook"
+  ],
+  "pos": "n",
+  "files": {
+    "natural": [
+      "en.txt",
+      "cz.txt",
+      "ja.txt"
+    ],
+    "ili": [
+      "en.txt",
+      "cz.txt",
+      "ja.txt"
+    ],
+    "merged": [
+      "en.txt",
+      "cz.txt",
+      "ja.txt"
+    ]
+  }
+}
