@@ -1,0 +1,11 @@
+{
+  "ili": 69206,
+  "pos": "n",
+  "lemmas": ["federalism"],
+  "definition": "the idea of a federal organization of more or less self-governing units",
+  "model": "v4-independent",
+  "timestamp": "2026-03-17T02:15:00",
+  "languages": ["en", "cz", "ja"],
+  "generation_method": "independent_per_language_v4",
+  "notes": "Each language composed independently with native-language prompts. No translation flow."
+}
