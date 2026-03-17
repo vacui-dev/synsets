@@ -1,0 +1,51 @@
+{
+  "ili": 72321,
+  "model": "claude-sonnet-4-20250514",
+  "timestamp": "2026-03-17T07:23:00.000000",
+  "languages": [
+    "en",
+    "cz",
+    "ja"
+  ],
+  "generation_method": "independent_per_language_v4",
+  "verification": "skipped_intentional_for_independent_generation",
+  "verification_note": "v4 generates each language independently with native-language prompts. ILI tag counts differ across languages because different languages express the same concepts with different numbers of content words. This is expected and correct.",
+  "synset_info": {
+    "pos": "n",
+    "definition": "a written or printed symbol",
+    "lemmas": [
+      "printed symbol",
+      "written symbol",
+      "印刷された記号",
+      "書かれた記号"
+    ],
+    "hypernym": {
+      "ili": "i72261",
+      "definition": "an arbitrary sign (written or printed) that has acquired a conventional significance"
+    },
+    "hyponyms": [
+      {
+        "ili": "i72322",
+        "definition": "a written or printed symbol (as for punctuation)"
+      },
+      {
+        "ili": "i72328",
+        "definition": "a written symbol that is used to represent speech"
+      },
+      {
+        "ili": "i72342",
+        "definition": "any written symbol standing for a sound or syllable or morpheme or word"
+      }
+    ]
+  },
+  "ili_tag_counts": {
+    "en": 52,
+    "cz": 71,
+    "ja": 81
+  },
+  "ili_unique_counts": {
+    "en": 50,
+    "cz": 54,
+    "ja": 59
+  }
+}
